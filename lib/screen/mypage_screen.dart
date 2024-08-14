@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatefulWidget {
-  _HomeScreenState createState() => _HomeScreenState();
+class MypageScreen extends StatefulWidget {
+  _MypageScreenState createState() => _MypageScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _MypageScreenState extends State<MypageScreen> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
