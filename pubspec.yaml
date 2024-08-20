@@ -54,6 +54,26 @@ dev_dependencies:
 # The following section is specific to Flutter packages.
 flutter:
 
+  fonts:
+    - family: NunitoSansBold
+      fonts:
+        - asset: assets/fonts/Nunito-Bold.ttf
+    - family: NunitoExtraBold
+      fonts:
+        - asset: assets/fonts/Nunito-ExtraBold.ttf
+    - family: NunitoExtraLight
+      fonts:
+        - asset: assets/fonts/Nunito-ExtraLight.ttf
+    - family: NunitoLight
+      fonts:
+        - asset: assets/fonts/Nunito-Light.ttf
+    - family: NunitoRegular
+      fonts:
+        - asset: assets/fonts/Nunito-Regular.ttf
+    - family: NunitoSemiBold
+      fonts:
+        - asset: assets/fonts/Nunito-SemiBold.ttf
+
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
@@ -61,9 +81,10 @@ flutter:
 
 
   assets:
+    - assets/fonts/
     - assets/images/splash_screen.png
-    - assets/images/mirinaestudy_white_logo.png
     - assets/images/mirinaestudy_logo.png
+    - assets/images/mirinaestudy_white_logo.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
