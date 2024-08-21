@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../colors.dart';
+import 'login_screen.dart';
 
 class AccountSelectScreen extends StatefulWidget {
   _AccountSelectScreenState createState() => _AccountSelectScreenState();
@@ -89,7 +90,12 @@ class _AccountSelectScreenState extends State<AccountSelectScreen> {
                 '선생님',
                 style: TextStyle(color: Colors.white, fontSize: 15),
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => LoginScreen(),),
+                );
+              },
             ),
           ),
           Padding(
