@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mirinaestudy/screen/welcome_screen.dart';
 import 'package:mirinaestudy/widget/social_login_buttons.dart';
 
 import '../colors.dart';
@@ -72,7 +73,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => LoginScreen(),),
+                      MaterialPageRoute(builder: (context) => WelcomeScreen(),),
                     );
                   },
                 ),
