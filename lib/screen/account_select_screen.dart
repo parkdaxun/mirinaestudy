@@ -9,6 +9,20 @@ class AccountSelectScreen extends StatefulWidget {
 }
 
 class _AccountSelectScreenState extends State<AccountSelectScreen> {
+  String _accountType = ''; // 그룹 이름 저장
+
+  void _onButtonPressed(String accountType, BuildContext context) {
+    setState(() {
+      _accountType = accountType;
+      print(_accountType);
+    });
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => LoginScreen(accountType: _accountType),),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -90,12 +104,7 @@ class _AccountSelectScreenState extends State<AccountSelectScreen> {
                 '선생님',
                 style: TextStyle(color: Colors.white, fontSize: 15),
               ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => LoginScreen(),),
-                );
-              },
+              onPressed: () => _onButtonPressed('선생님', context),
             ),
           ),
           Padding(
@@ -117,7 +126,7 @@ class _AccountSelectScreenState extends State<AccountSelectScreen> {
                   '학생',
                   style: TextStyle(color: Colors.white, fontSize: 15),
                 ),
-                onPressed: () {},
+                onPressed: () => _onButtonPressed('학생', context),
               ),
             ),
           ),
@@ -140,7 +149,7 @@ class _AccountSelectScreenState extends State<AccountSelectScreen> {
                   '학부모',
                   style: TextStyle(color: Colors.white, fontSize: 15),
                 ),
-                onPressed: () {},
+                onPressed: () => _onButtonPressed('학부모', context),
               ),
             ),
           ),

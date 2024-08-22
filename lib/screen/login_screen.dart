@@ -6,6 +6,10 @@ import 'package:mirinaestudy/widget/social_login_buttons.dart';
 import '../colors.dart';
 
 class LoginScreen extends StatefulWidget {
+  final String accountType;
+
+  LoginScreen({required this.accountType});
+
   _LoginScreenState createState() => _LoginScreenState();
 }
 
@@ -41,7 +45,7 @@ class _LoginScreenState extends State<LoginScreen> {
             Padding(
               padding: const EdgeInsets.only(top: 30),
               child: Text(
-                '선생님 로그인',
+                '${widget.accountType} 로그인',
                 style: TextStyle(fontFamily: "NunitoBold", fontSize: 16),
               ),
             ),
@@ -195,12 +199,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 '로그인',
                 style: TextStyle(color: Colors.white, fontSize: 15),
               ),
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => LoginScreen(),),
-                );
-              },
+              onPressed: () {},
             ),
           ),
           Padding(
