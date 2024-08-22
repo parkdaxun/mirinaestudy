@@ -6,7 +6,6 @@ import 'package:mirinaestudy/widget/social_login_buttons.dart';
 import '../colors.dart';
 
 class LoginScreen extends StatefulWidget {
-  @override
   _LoginScreenState createState() => _LoginScreenState();
 }
 
