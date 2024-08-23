@@ -8,8 +8,11 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Center(
+        child: Text('홈 화면'),
+      ),
     );
   }
 }

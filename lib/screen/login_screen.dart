@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mirinaestudy/screen/main_screen.dart';
 import 'package:mirinaestudy/screen/signup_screen.dart';
 import 'package:mirinaestudy/widget/social_login_buttons.dart';
 
@@ -199,7 +200,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 '로그인',
                 style: TextStyle(color: Colors.white, fontSize: 15),
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => MainScreen(),),
+                );
+              },
             ),
           ),
           Padding(
