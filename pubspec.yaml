@@ -89,6 +89,14 @@ flutter:
     - assets/images/microsoft_logo.png
     - assets/images/naver_logo.png
     - assets/images/kakao_logo.png
+    - assets/images/icons/home_icon.png
+    - assets/images/icons/class_icon.png
+    - assets/images/icons/homework_icon.png
+    - assets/images/icons/mypage_icon.png
+    - assets/images/icons/home_active_icon.png
+    - assets/images/icons/class_active_icon.png
+    - assets/images/icons/homework_active_icon.png
+    - assets/images/icons/mypage_active_icon.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
