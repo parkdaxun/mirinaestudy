@@ -9,11 +9,13 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: DefaultTabController(
-        length: 4,
-        child: Scaffold(
-          bottomNavigationBar: BottomBar(),
+    return Scaffold(
+      body: SafeArea(
+        child: DefaultTabController(
+          length: 4,
+          child: Scaffold(
+            bottomNavigationBar: BottomBar(),
+          ),
         ),
       ),
     );

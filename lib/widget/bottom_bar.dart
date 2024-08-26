@@ -18,23 +18,22 @@ class _BottomBarState extends State<BottomBar> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: IndexedStack(
-        index: _selectedIndex,
-        children: [
-          HomeScreen(),
-          ClassScreen(),
-          HomeworkScreen(),
-          MypageScreen(),
-        ],
-      ),
+          index: _selectedIndex,
+          children: [
+            HomeScreen(),
+            ClassScreen(),
+            HomeworkScreen(),
+            MypageScreen(),
+          ],
+        ),
       bottomNavigationBar: Container(
-        height: 95,
         decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
-              color: Color(0xff3A1F65).withOpacity(0.1),
+              color: Color(0xff3A1F65).withOpacity(0.04),
               spreadRadius: 1,
               blurRadius: 10.8,
-              offset: Offset(0, 0),
+              offset: Offset(0, -10)
             ),
           ],
         ),
@@ -45,6 +44,7 @@ class _BottomBarState extends State<BottomBar> {
             hoverColor: Colors.transparent,
           ),
           child: BottomNavigationBar(
+            elevation: 0,
             unselectedLabelStyle: TextStyle(fontSize: 11),
             selectedLabelStyle: TextStyle(fontSize: 11),
             unselectedItemColor: AppColors.grey,
