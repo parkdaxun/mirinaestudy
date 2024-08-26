@@ -17,14 +17,16 @@ class _BottomBarState extends State<BottomBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: IndexedStack(
-        index: _selectedIndex,
-        children: [
-          HomeScreen(),
-          ClassScreen(),
-          HomeworkScreen(),
-          MypageScreen(),
-        ],
+      body: SafeArea( // SafeArea로 감싸서 안전한 영역 안에서 렌더링되도록 설정
+        child: IndexedStack(
+          index: _selectedIndex,
+          children: [
+            HomeScreen(),
+            ClassScreen(),
+            HomeworkScreen(),
+            MypageScreen(),
+          ],
+        ),
       ),
       bottomNavigationBar: Container(
         height: 95,
