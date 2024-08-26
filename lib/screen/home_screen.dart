@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import '../widget/bottom_bar.dart';
 
 class HomeScreen extends StatefulWidget {
   _HomeScreenState createState() => _HomeScreenState();
@@ -14,6 +15,7 @@ class _HomeScreenState extends State<HomeScreen> {
         title: Text('테스트', style: TextStyle(color: Colors.blue),),
       ),
       body: Center(
+        child: Text('Home'),
       ),
     );
   }

@@ -17,8 +17,7 @@ class _BottomBarState extends State<BottomBar> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea( // SafeArea로 감싸서 안전한 영역 안에서 렌더링되도록 설정
-        child: IndexedStack(
+      body: IndexedStack(
           index: _selectedIndex,
           children: [
             HomeScreen(),
@@ -27,16 +26,14 @@ class _BottomBarState extends State<BottomBar> {
             MypageScreen(),
           ],
         ),
-      ),
       bottomNavigationBar: Container(
-        height: 95,
         decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
-              color: Color(0xff3A1F65).withOpacity(0.1),
+              color: Color(0xff3A1F65).withOpacity(0.04),
               spreadRadius: 1,
               blurRadius: 10.8,
-              offset: Offset(0, 0),
+              offset: Offset(0, -10)
             ),
           ],
         ),
@@ -47,6 +44,7 @@ class _BottomBarState extends State<BottomBar> {
             hoverColor: Colors.transparent,
           ),
           child: BottomNavigationBar(
+            elevation: 0,
             unselectedLabelStyle: TextStyle(fontSize: 11),
             selectedLabelStyle: TextStyle(fontSize: 11),
             unselectedItemColor: AppColors.grey,
