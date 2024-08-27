@@ -9,21 +9,34 @@ class ClassScreen extends StatefulWidget {
 }
 
 class _ClassScreenState extends State<ClassScreen> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.fillGrey,
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title: Text('수업', style: TextStyle(color: AppColors.grey),),
+        shape: Border(
+          bottom: BorderSide(
+            color: AppColors.grey,
+            width: 1,
+          ),
+        ),
+        iconTheme: IconThemeData(
+          color: AppColors.grey,
+        ),
+        title: Text(
+          '수업',
+          style: TextStyle(color: AppColors.grey, fontSize: 16),
+        ),
       ),
       body: SafeArea(
         child: Column(
           children: [
-            Expanded(child: Center(
-              child: Text('수업'),
-            ),)
+            Expanded(
+              child: Center(
+                child: Text('수업'),
+              ),
+            )
           ],
         ),
       ),
