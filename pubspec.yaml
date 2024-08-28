@@ -97,6 +97,8 @@ flutter:
     - assets/images/icons/class_active_icon.png
     - assets/images/icons/homework_active_icon.png
     - assets/images/icons/mypage_active_icon.png
+    - assets/images/icons/bell_icon.png
+    - assets/images/icons/menu_icon.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

@@ -10,6 +10,30 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      actions: [
+        GestureDetector(
+          onTap: () {},
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            child: Image.asset(
+              'assets/images/icons/bell_icon.png',
+              width: 22,
+              height: 22,
+            ),
+          ),
+        ),
+        GestureDetector(
+          onTap: () {},
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            child: Image.asset(
+              'assets/images/icons/menu_icon.png',
+              width: 22,
+              height: 22,
+            ),
+          ),
+        ),
+      ],
       title: Text(
         '${title}',
         style: TextStyle(
@@ -17,6 +41,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           fontSize: 16,
         ),
       ),
+      centerTitle: true,
       backgroundColor: Colors.white,
       shape: Border(
         bottom: BorderSide(
