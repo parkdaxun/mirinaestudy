@@ -2,9 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mirinaestudy/screen/welcome_screen.dart';
 import 'package:mirinaestudy/widget/social_login_buttons.dart';
-
 import '../colors.dart';
-import 'login_screen.dart';
 
 class SignUpScreen extends StatefulWidget {
   _SignUpScreenState createState() => _SignUpScreenState();
