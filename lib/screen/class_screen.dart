@@ -1,8 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'dart:ui';
-
 import '../colors.dart';
+import '../widget/app_bar.dart';
 
 class ClassScreen extends StatefulWidget {
   _ClassScreenState createState() => _ClassScreenState();
@@ -13,22 +12,7 @@ class _ClassScreenState extends State<ClassScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.fillGrey,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        shape: Border(
-          bottom: BorderSide(
-            color: AppColors.grey,
-            width: 1,
-          ),
-        ),
-        iconTheme: IconThemeData(
-          color: AppColors.grey,
-        ),
-        title: Text(
-          '수업',
-          style: TextStyle(color: AppColors.grey, fontSize: 16),
-        ),
-      ),
+      appBar: CustomAppBar(title: '수업'),
       body: SafeArea(
         child: Column(
           children: [

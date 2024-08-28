@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import '../colors.dart';
+import '../widget/app_bar.dart';
 
 class MypageScreen extends StatefulWidget {
   _MypageScreenState createState() => _MypageScreenState();
@@ -12,22 +11,7 @@ class _MypageScreenState extends State<MypageScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        shape: Border(
-          bottom: BorderSide(
-            color: AppColors.grey,
-            width: 1,
-          ),
-        ),
-        iconTheme: IconThemeData(
-          color: AppColors.grey,
-        ),
-        title: Text(
-          '마이페이지',
-          style: TextStyle(color: AppColors.grey, fontSize: 16),
-        ),
-      ),
+      appBar: CustomAppBar(title: '마이페이지'),
       body: SafeArea(
         child: Column(
           children: [
