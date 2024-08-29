@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mirinaestudy/screen/modify_info_screen.dart';
+import '../colors.dart';
 import '../widget/app_bar.dart';
 
 class MypageScreen extends StatefulWidget {
@@ -17,8 +19,21 @@ class _MypageScreenState extends State<MypageScreen> {
           children: [
             Expanded(
               child: Center(
-                child: Text('마이페이지'),
-              ),
+                  child: TextButton(
+                style: TextButton.styleFrom(
+                  backgroundColor: AppColors.fillGrey,
+                ),
+                child: Text(
+                  '임시 버튼: 정보 수정',
+                  style: TextStyle(color: Colors.black),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ModifyInfoScreen(),),
+                  );
+                },
+              )),
             )
           ],
         ),
