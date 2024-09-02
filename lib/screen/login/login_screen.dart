@@ -2,8 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mirinaestudy/screen/main_screen.dart';
 import 'package:mirinaestudy/screen/signup_screen.dart';
+import 'package:mirinaestudy/widget/app_bar.dart';
 import 'package:mirinaestudy/widget/social_login_buttons.dart';
-import '../colors.dart';
+import '../../colors.dart';
 
 class LoginScreen extends StatefulWidget {
   final String accountType;
@@ -21,17 +22,9 @@ class _LoginScreenState extends State<LoginScreen> {
 
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        iconTheme: IconThemeData(
-          color: AppColors.grey,
-        ),
-        shape: Border(
-          bottom: BorderSide(
-            color: AppColors.grey,
-            width: 1,
-          ),
-        ),
+      appBar: CustomAppBar(
+        title: '',
+        showIcons: false,
       ),
       body: Center(
         child: Column(

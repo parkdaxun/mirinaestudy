@@ -4,55 +4,72 @@ import '../colors.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   late final String title;
+  final bool showIcons;
 
-  CustomAppBar({required this.title});
+  CustomAppBar({required this.title, this.showIcons = true});
 
   @override
   Widget build(BuildContext context) {
-    return AppBar(
-      actions: [
-        GestureDetector(
-          onTap: () {},
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: Image.asset(
-              'assets/images/icons/bell_icon.png',
-              width: 22,
-              height: 22,
-            ),
+    return Container(
+      decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            color: Color(0xff371E56).withOpacity(0.05),
+            blurRadius: 9,
+            spreadRadius: -3,
+            offset: Offset(0, 6),
+          ),
+        ],
+      ),
+      child: AppBar(
+        actions: showIcons ? _buildActions() : [],
+        title: Text(
+          '${title}',
+          style: TextStyle(
+            color: AppColors.grey,
+            fontSize: 16,
           ),
         ),
-        GestureDetector(
-          onTap: () {},
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: Image.asset(
-              'assets/images/icons/menu_icon.png',
-              width: 22,
-              height: 22,
-            ),
+        shape: Border(
+          bottom: BorderSide(
+            color: Color(0xffE2E2E2),
+            width: 0.4,
           ),
         ),
-      ],
-      title: Text(
-        '${title}',
-        style: TextStyle(
+        centerTitle: true,
+        backgroundColor: Colors.white,
+        iconTheme: IconThemeData(
           color: AppColors.grey,
-          fontSize: 16,
         ),
-      ),
-      centerTitle: true,
-      backgroundColor: Colors.white,
-      shape: Border(
-        bottom: BorderSide(
-          color: AppColors.grey,
-          width: 1,
-        ),
-      ),
-      iconTheme: IconThemeData(
-        color: AppColors.grey,
       ),
     );
+  }
+
+  List <Widget> _buildActions() {
+    return [
+      GestureDetector(
+        onTap: () {},
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          child: Image.asset(
+            'assets/images/icons/bell_icon.png',
+            width: 22,
+            height: 22,
+          ),
+        ),
+      ),
+      GestureDetector(
+        onTap: () {},
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          child: Image.asset(
+            'assets/images/icons/menu_icon.png',
+            width: 22,
+            height: 22,
+          ),
+        ),
+      ),
+    ];
   }
 
   @override

@@ -100,6 +100,7 @@ flutter:
     - assets/images/icons/bell_icon.png
     - assets/images/icons/menu_icon.png
     - assets/images/icons/next_icon.png
+    - assets/images/welcomescreen_pic.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mirinaestudy/screen/welcome_screen.dart';
+import 'package:mirinaestudy/widget/app_bar.dart';
 import 'package:mirinaestudy/widget/social_login_buttons.dart';
 import '../colors.dart';
 
@@ -17,17 +18,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        iconTheme: IconThemeData(
-          color: AppColors.grey,
-        ),
-        shape: Border(
-          bottom: BorderSide(
-            color: AppColors.grey,
-            width: 1,
-          ),
-        ),
+      appBar: CustomAppBar(
+        title: '',
+        showIcons: false,
       ),
       body: Center(
         child: Column(
