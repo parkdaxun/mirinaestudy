@@ -4,7 +4,7 @@ import 'package:mirinaestudy/screen/main_screen.dart';
 import 'package:mirinaestudy/screen/signup_screen.dart';
 import 'package:mirinaestudy/widget/app_bar.dart';
 import 'package:mirinaestudy/widget/social_login_buttons.dart';
-import '../colors.dart';
+import '../../colors.dart';
 
 class LoginScreen extends StatefulWidget {
   final String accountType;

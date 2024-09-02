@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mirinaestudy/screen/login/parents_login_screen.dart';
 import '../colors.dart';
-import 'login_screen.dart';
+import 'login/login_screen.dart';
 
 class AccountSelectScreen extends StatefulWidget {
   _AccountSelectScreenState createState() => _AccountSelectScreenState();
@@ -148,7 +149,12 @@ class _AccountSelectScreenState extends State<AccountSelectScreen> {
                   '학부모',
                   style: TextStyle(color: Colors.white, fontSize: 15),
                 ),
-                onPressed: () => _onButtonPressed('학부모', context),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ParentsLoginScreen()),
+                  );
+                },
               ),
             ),
           ),
