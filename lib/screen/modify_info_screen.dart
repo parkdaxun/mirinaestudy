@@ -60,7 +60,7 @@ class _ModifyInfoScreenState extends State<ModifyInfoScreen> {
               width: screenWidth * 0.84,
               child: TextField(
                 cursorColor: AppColors.blue,
-                decoration: InputInfoTextField.getTextFieldDecoration('이름'),
+                decoration: InputInfoTextField.InputInfoTextFieldWhite('이름'),
               ),
             ),
           ),
@@ -71,7 +71,7 @@ class _ModifyInfoScreenState extends State<ModifyInfoScreen> {
               width: screenWidth * 0.84,
               child: TextField(
                 cursorColor: AppColors.blue,
-                decoration: InputInfoTextField.getTextFieldDecoration('이메일'),
+                decoration: InputInfoTextField.InputInfoTextFieldWhite('이메일'),
               ),
             ),
           ),
@@ -82,7 +82,7 @@ class _ModifyInfoScreenState extends State<ModifyInfoScreen> {
               width: screenWidth * 0.84,
               child: TextField(
                 cursorColor: AppColors.blue,
-                decoration: InputInfoTextField.getTextFieldDecoration('새 비밀번호'),
+                decoration: InputInfoTextField.InputInfoTextFieldWhite('새 비밀번호'),
               ),
             ),
           ),
@@ -94,7 +94,7 @@ class _ModifyInfoScreenState extends State<ModifyInfoScreen> {
               child: TextField(
                 cursorColor: AppColors.blue,
                 decoration:
-                    InputInfoTextField.getTextFieldDecoration('새 비밀번호 확인'),
+                    InputInfoTextField.InputInfoTextFieldWhite('새 비밀번호 확인'),
               ),
             ),
           ),
