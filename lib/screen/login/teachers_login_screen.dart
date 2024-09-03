@@ -8,7 +8,6 @@ import '../../colors.dart';
 
 class LoginScreen extends StatefulWidget {
   final String accountType;
-
   LoginScreen({required this.accountType});
 
   _LoginScreenState createState() => _LoginScreenState();
