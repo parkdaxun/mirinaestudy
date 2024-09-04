@@ -50,7 +50,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       GestureDetector(
         onTap: () {},
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          padding: const EdgeInsets.fromLTRB(8, 8, 7, 8),
           child: Image.asset(
             'assets/images/icons/bell_icon.png',
             width: 22,
@@ -61,7 +61,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       GestureDetector(
         onTap: () {},
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8.0),
+          padding: const EdgeInsets.fromLTRB(7, 8, 20, 8),
           child: Image.asset(
             'assets/images/icons/menu_icon.png',
             width: 22,
