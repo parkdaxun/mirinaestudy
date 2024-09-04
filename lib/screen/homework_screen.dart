@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import '../colors.dart';
 import '../widget/app_bar.dart';
 
 class HomeworkScreen extends StatefulWidget {
@@ -10,16 +11,11 @@ class _HomeworkScreenState extends State<HomeworkScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.fillGrey,
       appBar: CustomAppBar(title: '과제'),
       body: SafeArea(
         child: Column(
           children: [
-            Expanded(
-              child: Center(
-                child: Text('과제'),
-              ),
-            )
           ],
         ),
       ),
