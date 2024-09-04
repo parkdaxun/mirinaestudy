@@ -16,11 +16,6 @@ class _ClassScreenState extends State<ClassScreen> {
       body: SafeArea(
         child: Column(
           children: [
-            Expanded(
-              child: Center(
-                child: Text('수업'),
-              ),
-            )
           ],
         ),
       ),
