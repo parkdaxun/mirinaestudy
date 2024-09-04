@@ -28,7 +28,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               child: Text(
                 '환영합니다!',
                 style: TextStyle(
-                    fontWeight: FontWeight.bold,
+                    fontFamily: 'NotoSansKRBold',
                     color: AppColors.blue,
                     fontSize: 45),
               ),
@@ -39,6 +39,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 child: Text(
                   '회원가입이 완료 되었습니다.',
                   style: TextStyle(
+                    fontFamily: 'NotoSansKRMedium',
                     color: AppColors.blue,
                     fontSize: 17,
                   ),

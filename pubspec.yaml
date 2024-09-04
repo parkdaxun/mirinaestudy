@@ -55,24 +55,30 @@ dev_dependencies:
 flutter:
 
   fonts:
-    - family: NunitoSansBold
+    - family: NotoSansKRBold
       fonts:
-        - asset: assets/fonts/Nunito-Bold.ttf
-    - family: NunitoExtraBold
+        - asset: assets/fonts/NotoSansKR-Bold.ttf
+    - family: NotoSansKRExtraBold
       fonts:
-        - asset: assets/fonts/Nunito-ExtraBold.ttf
-    - family: NunitoExtraLight
+        - asset: assets/fonts/NotoSansKR-ExtraBold.ttf
+    - family: NotoSansKRExtraLight
       fonts:
-        - asset: assets/fonts/Nunito-ExtraLight.ttf
-    - family: NunitoLight
+        - asset: assets/fonts/NotoSansKR-ExtraLight.ttf
+    - family: NotoSansKRLight
       fonts:
-        - asset: assets/fonts/Nunito-Light.ttf
-    - family: NunitoRegular
+        - asset: assets/fonts/NotoSansKR-Light.ttf
+    - family: NotoSansKRMedium
       fonts:
-        - asset: assets/fonts/Nunito-Regular.ttf
-    - family: NunitoSemiBold
+        - asset: assets/fonts/NotoSansKR-Medium.ttf
+    - family: NotoSansKRRegular
       fonts:
-        - asset: assets/fonts/Nunito-SemiBold.ttf
+        - asset: assets/fonts/NotoSansKR-Regular.ttf
+    - family: NotoSansKRSemiBold
+      fonts:
+        - asset: assets/fonts/NotoSansKR-SemiBold.ttf
+    - family: NotoSansKRThin
+      fonts:
+        - asset: assets/fonts/NotoSansKR-Thin.ttf
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
