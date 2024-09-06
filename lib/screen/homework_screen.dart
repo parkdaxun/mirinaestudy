@@ -48,15 +48,21 @@ class _HomeworkScreenState extends State<HomeworkScreen> {
                 ),
               ),
             ),
-            Text(
-              '과제 진행 상태',
-              style: TextStyle(
-                color: AppColors.blue,
-                fontFamily: 'NotoSansKRMedium',
-                fontSize: 14,
+            Padding(
+              padding: const EdgeInsets.only(top: 23.5, left: 17.68),
+              child: Text(
+                '과제 진행 상태',
+                style: TextStyle(
+                  color: AppColors.blue,
+                  fontFamily: 'NotoSansKRMedium',
+                  fontSize: 16,
+                ),
               ),
             ),
-            informStatus(),
+            Padding(
+              padding: const EdgeInsets.only(top: 19),
+              child: informStatus(),
+            ),
           ],
         ),
       ),
@@ -65,22 +71,32 @@ class _HomeworkScreenState extends State<HomeworkScreen> {
 
   Widget informStatus() {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         Container(width: 7, height: 7, decoration: BoxDecoration(
-          color: Color(0xffA4ED15),
+          color: AppColors.green,
           borderRadius: BorderRadius.circular(100),
         ),),
-        Text('완료', style: TextStyle(color: AppColors.black),),
+        Padding(
+          padding: const EdgeInsets.only(left: 9, right: 19),
+          child: Text('완료', style: TextStyle(color: AppColors.black, fontFamily: 'NotoSansKRRegular'),),
+        ),
         Container(width: 7, height: 7, decoration: BoxDecoration(
           color: AppColors.lightBlue,
           borderRadius: BorderRadius.circular(100),
         ),),
-        Text('진행중', style: TextStyle(color: AppColors.black),),
+        Padding(
+          padding: const EdgeInsets.only(left: 9, right: 19),
+          child: Text('진행중', style: TextStyle(color: AppColors.black, fontFamily: 'NotoSansKRRegular'),),
+        ),
         Container(width: 7, height: 7, decoration: BoxDecoration(
           color: AppColors.grey,
           borderRadius: BorderRadius.circular(100),
         ),),
-        Text('시작전', style: TextStyle(color: AppColors.black),)
+        Padding(
+          padding: const EdgeInsets.only(left: 9),
+          child: Text('시작전', style: TextStyle(color: AppColors.black, fontFamily: 'NotoSansKRRegular'),),
+        )
       ],
     );
   }
