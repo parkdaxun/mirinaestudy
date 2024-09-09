@@ -22,12 +22,14 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         ],
       ),
       child: AppBar(
+        scrolledUnderElevation: 0,
         actions: showIcons ? _buildActions() : [],
         title: Text(
           '${title}',
           style: TextStyle(
             color: AppColors.grey,
-            fontSize: 16,
+            fontSize: 15,
+            fontFamily: 'NotoSansKRMedium'
           ),
         ),
         shape: Border(
