@@ -22,6 +22,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         ],
       ),
       child: AppBar(
+        scrolledUnderElevation: 0,
         actions: showIcons ? _buildActions() : [],
         title: Text(
           '${title}',
