@@ -45,8 +45,8 @@ class _BottomBarState extends State<BottomBar> {
           ),
           child: BottomNavigationBar(
             elevation: 0,
-            unselectedLabelStyle: TextStyle(fontSize: 11),
-            selectedLabelStyle: TextStyle(fontSize: 11),
+            unselectedLabelStyle: TextStyle(fontSize: 11, fontFamily: 'NotoSansKRMedium'),
+            selectedLabelStyle: TextStyle(fontSize: 11, fontFamily: 'NotoSansKRMedium'),
             unselectedItemColor: AppColors.grey,
             selectedItemColor: AppColors.blue,
             backgroundColor: Colors.white,
