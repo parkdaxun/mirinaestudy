@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mirinaestudy/widget/homework_list_widget.dart';
+import 'package:mirinaestudy/widget/showFilterModalWidget.dart';
 import '../colors.dart';
 import '../widget/app_bar.dart';
 
@@ -21,14 +22,19 @@ class _HomeworkScreenState extends State<HomeworkScreen> {
     Homework(title: 'Grammar', status: '완료', date: '2024-09-09'),
     Homework(title: 'Grammar', status: '진행중', date: '2024-09-09'),
     Homework(title: 'Phrasal Verbs', status: '시작전', date: '2024-09-09'),
-    Homework(title: 'Conversational English', status: '진행중', date: '2024-09-09'),
+    Homework(
+        title: 'Conversational English', status: '진행중', date: '2024-09-09'),
     Homework(title: 'Grammar', status: '완료', date: '2024-09-09'),
-    Homework(title: 'Conversational English', status: '시작전', date: '2024-09-09'),
+    Homework(
+        title: 'Conversational English', status: '시작전', date: '2024-09-09'),
   ];
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
+    double screenWidth = MediaQuery
+        .of(context)
+        .size
+        .width;
     double titleLeftPadding = (screenWidth - screenWidth * 0.91) / 2;
 
     return Scaffold(
@@ -70,7 +76,29 @@ class _HomeworkScreenState extends State<HomeworkScreen> {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
 
-    return Container(
+    return GestureDetector(
+      onTap: () {
+        showDialog(
+            context: context,
+            barrierColor: Color(0xff232323).withOpacity(0.4),
+            builder: (BuildContext context) {
+              return Stack(
+                children: [
+                  Positioned(
+                    top: kToolbarHeight + screenHeight * 0.05,
+                    child: Material(
+                      child: Container(
+                        // z
+                        child: showFilterModalWidget(),
+                      )
+                    ),
+                  ),
+                ],
+              );
+            }
+        );
+      },
+      child: Container(
       width: screenWidth,
       height: screenHeight * 0.05,
       color: Colors.white,
@@ -98,17 +126,20 @@ class _HomeworkScreenState extends State<HomeworkScreen> {
           ],
         ),
       ),
-    );
+    ),);
   }
 
   Widget homeworkList() {
-    double screenWidth = MediaQuery.of(context).size.width;
+    double screenWidth = MediaQuery
+        .of(context)
+        .size
+        .width;
 
     return Center(
       child: SizedBox(
         width: screenWidth * 0.91,
         child: ReorderableListView.builder(
-          physics: BouncingScrollPhysics(),  // 스크롤의 부드러운 움직임을 위해 추가
+          physics: BouncingScrollPhysics(), // 스크롤의 부드러운 움직임을 위해 추가
           itemCount: homeworks.length,
           itemBuilder: (context, index) {
             final homework = homeworks[index];
