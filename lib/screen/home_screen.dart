@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:mirinaestudy/widget/app_bar.dart';
 
 import '../colors.dart';
+import '../widget/bottom_bar.dart';
 
 class HomeScreen extends StatefulWidget {
   _HomeScreenState createState() => _HomeScreenState();
@@ -17,16 +18,14 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: AppColors.fillGrey,
       appBar: CustomAppBar(title: '홈'),
-      body: SafeArea(
-        child: Column(
+      body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(height: screenHeight*0.06),
             welcomeComment(),
           ],
         ),
-      ),
-    );
+      );
   }
 
   Widget welcomeComment() {

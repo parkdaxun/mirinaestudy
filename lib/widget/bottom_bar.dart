@@ -8,24 +8,27 @@ import '../screen/homework_screen.dart';
 import '../screen/mypage_screen.dart';
 
 class BottomBar extends StatefulWidget {
+  @override
   _BottomBarState createState() => _BottomBarState();
 }
 
 class _BottomBarState extends State<BottomBar> {
   int _selectedIndex = 0;
 
+  final List<Widget> _pages = [
+    HomeScreen(),
+    ClassScreen(),
+    HomeworkScreen(),
+    MypageScreen(),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: IndexedStack(
-          index: _selectedIndex,
-          children: [
-            HomeScreen(),
-            ClassScreen(),
-            HomeworkScreen(),
-            MypageScreen(),
-          ],
-        ),
+        index: _selectedIndex,
+        children: _pages,
+      ),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
           boxShadow: [
@@ -33,7 +36,7 @@ class _BottomBarState extends State<BottomBar> {
               color: Color(0xff3A1F65).withOpacity(0.04),
               spreadRadius: 1,
               blurRadius: 10.8,
-              offset: Offset(0, -10)
+              offset: Offset(0, -10),
             ),
           ],
         ),
@@ -64,14 +67,14 @@ class _BottomBarState extends State<BottomBar> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Image.asset('assets/images/icons/home_icon.png'),
-                    SizedBox(height: 6), // 아이콘과 라벨 사이 간격
+                    SizedBox(height: 6),
                   ],
                 ),
                 activeIcon: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Image.asset('assets/images/icons/home_active_icon.png'),
-                    SizedBox(height: 6), // 아이콘과 라벨 사이 간격
+                    SizedBox(height: 6),
                   ],
                 ),
               ),
@@ -81,14 +84,14 @@ class _BottomBarState extends State<BottomBar> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Image.asset('assets/images/icons/class_icon.png'),
-                    SizedBox(height: 6), // 아이콘과 라벨 사이 간격
+                    SizedBox(height: 6),
                   ],
                 ),
                 activeIcon: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Image.asset('assets/images/icons/class_active_icon.png'),
-                    SizedBox(height: 6), // 아이콘과 라벨 사이 간격
+                    SizedBox(height: 6),
                   ],
                 ),
               ),
@@ -98,14 +101,14 @@ class _BottomBarState extends State<BottomBar> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Image.asset('assets/images/icons/homework_icon.png'),
-                    SizedBox(height: 6), // 아이콘과 라벨 사이 간격
+                    SizedBox(height: 6),
                   ],
                 ),
                 activeIcon: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Image.asset('assets/images/icons/homework_active_icon.png'),
-                    SizedBox(height: 6), // 아이콘과 라벨 사이 간격
+                    SizedBox(height: 6),
                   ],
                 ),
               ),
@@ -115,14 +118,14 @@ class _BottomBarState extends State<BottomBar> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Image.asset('assets/images/icons/mypage_icon.png'),
-                    SizedBox(height: 6), // 아이콘과 라벨 사이 간격
+                    SizedBox(height: 6),
                   ],
                 ),
                 activeIcon: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Image.asset('assets/images/icons/mypage_active_icon.png'),
-                    SizedBox(height: 6), // 아이콘과 라벨 사이 간격
+                    SizedBox(height: 6),
                   ],
                 ),
               ),
