@@ -31,11 +31,9 @@ class _HomeworkScreenState extends State<HomeworkScreen> {
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery
-        .of(context)
-        .size
-        .width;
+    double screenWidth = MediaQuery.of(context).size.width;
     double titleLeftPadding = (screenWidth - screenWidth * 0.91) / 2;
+    final paddingBottom = MediaQuery.of(context).padding.bottom;
 
     return Scaffold(
       backgroundColor: AppColors.fillGrey,
@@ -75,65 +73,93 @@ class _HomeworkScreenState extends State<HomeworkScreen> {
   Widget filteringWidget() {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
+    final paddingBottom = MediaQuery.of(context).padding.bottom;
 
     return GestureDetector(
       onTap: () {
         showDialog(
-            context: context,
-            barrierColor: Color(0xff232323).withOpacity(0.4),
-            builder: (BuildContext context) {
-              return Stack(
-                children: [
-                  Positioned(
-                    top: kToolbarHeight + screenHeight * 0.05,
-                    child: Material(
-                      child: Container(
-                        // z
-                        child: showFilterModalWidget(),
-                      )
+          context: context,
+          barrierColor: Colors.transparent, // 전체 배경을 먼저 투명하게 설정
+          builder: (BuildContext context) {
+            return Stack(
+              children: [
+                // 투명한 위쪽 배경
+                Positioned.fill(
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: Column(
+                      children: [
+                        Expanded(
+                          child: Container(
+                            color: Colors.transparent, // 위쪽은 완전히 투명
+                          ),
+                        ),
+                        // 아래쪽에 반투명 배경
+                        Container(
+                          height: screenHeight -
+                              (screenHeight * 0.05 +
+                                  kToolbarHeight +
+                                  screenHeight * 0.26),
+                          // 필요한 높이 설정
+                          color:
+                              Color(0xff232323).withOpacity(0.4), // 적용할 색과 투명도
+                        ),
+                      ],
                     ),
                   ),
-                ],
-              );
-            }
+                ),
+                // 필터 모달 창
+                Positioned(
+                  top: kToolbarHeight + screenHeight * 0.05,
+                  left: 0,
+                  right: 0,
+                  child: Material(
+                    child: Container(
+                      child: showFilterModalWidget(), // 모달 위젯을 넣음
+                    ),
+                  ),
+                ),
+              ],
+            );
+          },
         );
       },
       child: Container(
-      width: screenWidth,
-      height: screenHeight * 0.05,
-      color: Colors.white,
-      child: Padding(
-        padding: const EdgeInsets.only(left: 19, right: 27),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              '전체',
-              style: TextStyle(color: AppColors.blue, fontSize: 14),
-            ),
-            Row(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(right: 8.0),
-                  child: Text(
-                    '2024.07.29~2024.08.29',
-                    style: TextStyle(color: AppColors.grey, fontSize: 14),
+        width: screenWidth,
+        height: screenHeight * 0.05,
+        color: Colors.white,
+        child: Padding(
+          padding: const EdgeInsets.only(left: 19, right: 27),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                '전체',
+                style: TextStyle(color: AppColors.blue, fontSize: 14),
+              ),
+              Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(right: 8.0),
+                    child: Text(
+                      '2024.07.29~2024.08.29',
+                      style: TextStyle(color: AppColors.grey, fontSize: 14),
+                    ),
                   ),
-                ),
-                Image.asset('assets/images/icons/dropdown_icon.png'),
-              ],
-            ),
-          ],
+                  Image.asset('assets/images/icons/dropdown_icon.png'),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
-    ),);
+    );
   }
 
   Widget homeworkList() {
-    double screenWidth = MediaQuery
-        .of(context)
-        .size
-        .width;
+    double screenWidth = MediaQuery.of(context).size.width;
 
     return Center(
       child: SizedBox(
