@@ -108,6 +108,9 @@ flutter:
     - assets/images/icons/next_icon.png
     - assets/images/welcomescreen_pic.png
     - assets/images/icons/dropdown_icon.png
+    - assets/images/icons/delete_icon.png
+    - assets/images/icons/bell_filled_grey_icon.png
+    - assets/images/icons/bell_filled_blue_icon.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

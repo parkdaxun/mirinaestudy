@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:mirinaestudy/styles.dart';
 import 'package:mirinaestudy/widget/app_bar.dart';
 import 'package:mirinaestudy/widget/social_login_buttons.dart';
-
 import '../../colors.dart';
+import '../home_screen.dart';
 import '../main_screen.dart';
 import '../signup_screen.dart';
 

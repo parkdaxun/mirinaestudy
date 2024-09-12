@@ -38,34 +38,32 @@ class _HomeworkScreenState extends State<HomeworkScreen> {
     return Scaffold(
       backgroundColor: AppColors.fillGrey,
       appBar: CustomAppBar(title: '과제'),
-      body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            filteringWidget(),
-            Padding(
-              padding: EdgeInsets.only(top: 23.5, left: titleLeftPadding),
-              child: Text(
-                '과제 진행 상태',
-                style: TextStyle(
-                  color: AppColors.blue,
-                  fontFamily: 'NotoSansKRMedium',
-                  fontSize: 16,
-                ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          filteringWidget(),
+          Padding(
+            padding: EdgeInsets.only(top: 23.5, left: titleLeftPadding),
+            child: Text(
+              '과제 진행 상태',
+              style: TextStyle(
+                color: AppColors.blue,
+                fontFamily: 'NotoSansKRMedium',
+                fontSize: 16,
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 19),
-              child: informStatus(),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 19),
+            child: informStatus(),
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.only(top: 18),
+              child: homeworkList(),
             ),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.only(top: 18),
-                child: homeworkList(),
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -77,37 +75,34 @@ class _HomeworkScreenState extends State<HomeworkScreen> {
 
     return GestureDetector(
       onTap: () {
+        print(paddingBottom);
         showDialog(
           context: context,
-          barrierColor: Colors.transparent, // 전체 배경을 먼저 투명하게 설정
+          barrierColor: Colors.transparent, // 배경을 투명하게 설정
           builder: (BuildContext context) {
             return Stack(
               children: [
-                // 투명한 위쪽 배경
+                // 배경을 SafeArea로 감싸서 노치 포함한 영역까지 확장
                 Positioned.fill(
-                  child: GestureDetector(
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
-                    child: Column(
-                      children: [
-                        Expanded(
-                          child: Container(
-                            color: Colors.transparent, // 위쪽은 완전히 투명
-                          ),
+                  bottom: 0,
+                  child: Column(
+                    children: [
+                      Expanded(
+                        child: Container(
+                          color: Colors.transparent, // 위쪽은 완전히 투명
                         ),
-                        // 아래쪽에 반투명 배경
-                        Container(
-                          height: screenHeight -
-                              (screenHeight * 0.05 +
-                                  kToolbarHeight +
-                                  screenHeight * 0.26),
-                          // 필요한 높이 설정
-                          color:
-                              Color(0xff232323).withOpacity(0.4), // 적용할 색과 투명도
+                      ),
+                      // 아래쪽 반투명 배경
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Container(
+                          height: screenHeight-(screenHeight*0.05+screenHeight*0.26),
+                          color: Color(0xff232323).withOpacity(0.4), // 반투명 배경 설정
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
                 // 필터 모달 창
@@ -117,7 +112,7 @@ class _HomeworkScreenState extends State<HomeworkScreen> {
                   right: 0,
                   child: Material(
                     child: Container(
-                      child: showFilterModalWidget(), // 모달 위젯을 넣음
+                      child: showFilterModalWidget(), // 모달 위젯 추가
                     ),
                   ),
                 ),

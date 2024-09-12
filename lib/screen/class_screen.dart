@@ -13,11 +13,7 @@ class _ClassScreenState extends State<ClassScreen> {
     return Scaffold(
       backgroundColor: AppColors.fillGrey,
       appBar: CustomAppBar(title: '수업'),
-      body: SafeArea(
-        child: Column(
-          children: [
-          ],
-        ),
+      body: Column(
       ),
     );
   }

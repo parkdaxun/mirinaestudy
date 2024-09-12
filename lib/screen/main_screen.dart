@@ -1,23 +1,11 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../widget/bottom_bar.dart';
 
-class MainScreen extends StatefulWidget {
-  _MainScreenState createState() => _MainScreenState();
-}
-
-class _MainScreenState extends State<MainScreen> {
+class MainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: DefaultTabController(
-          length: 4,
-          child: Scaffold(
-            bottomNavigationBar: BottomBar(),
-          ),
-        ),
-      ),
+      body: BottomBar(),
     );
   }
 }
