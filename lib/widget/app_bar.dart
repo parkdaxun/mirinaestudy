@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mirinaestudy/screen/alarm_screen.dart';
 import '../colors.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -23,7 +24,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       ),
       child: AppBar(
         scrolledUnderElevation: 0,
-        actions: showIcons ? _buildActions() : [],
+        actions: showIcons ? _buildActions(context) : [],
         title: Text(
           '${title}',
           style: TextStyle(
@@ -47,10 +48,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     );
   }
 
-  List <Widget> _buildActions() {
+  List <Widget> _buildActions(BuildContext context) {
     return [
       GestureDetector(
-        onTap: () {},
+        onTap: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => AlarmScreen()));
+        },
         child: Padding(
           padding: const EdgeInsets.fromLTRB(8, 8, 7, 8),
           child: Image.asset(
