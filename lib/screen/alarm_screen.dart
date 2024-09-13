@@ -15,7 +15,32 @@ class _AlarmScreenState extends State<AlarmScreen> {
       body: Center(
         child: Column(
           children: [
+            filterWidget(),
             AlarmListWidget(),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget filterWidget() {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+
+    return Container(
+      width: screenWidth,
+      height: screenHeight * 0.05,
+      color: Colors.white,
+      child: Padding(
+        padding: const EdgeInsets.only(left: 19, right: 27),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              '전체',
+              style: TextStyle(color: AppColors.blue, fontSize: 14),
+            ),
+            Image.asset('assets/images/icons/dropdown_icon.png'),
           ],
         ),
       ),
