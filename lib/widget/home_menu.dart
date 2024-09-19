@@ -1,0 +1,52 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
+import '../colors.dart';
+
+class HomeMenuWidget extends StatelessWidget {
+  final String title;
+  final String iconName;
+
+  const HomeMenuWidget({
+    Key? key,
+    required this.title,
+    required this.iconName,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+
+    return Container(
+      width: screenWidth * 0.2,
+      height: screenHeight * 0.08,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10),
+        color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: Color(0xff898989).withOpacity(0.1),
+            spreadRadius: 1,
+            blurRadius: 9.2,
+            offset: Offset(1, 1),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Image.asset('assets/images/icons/$iconName.png'),
+          Text(
+            '$title',
+            style: TextStyle(
+                fontFamily: 'NotoSansKRMedium',
+                fontSize: 12,
+                color: AppColors.grey),
+          ),
+        ],
+      ),
+    );
+  }
+}

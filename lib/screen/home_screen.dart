@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mirinaestudy/widget/app_bar.dart';
+import 'package:mirinaestudy/widget/home_menu.dart';
 
 import '../colors.dart';
 import '../widget/bottom_bar.dart';
@@ -12,38 +13,91 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
-
     return Scaffold(
       backgroundColor: AppColors.fillGrey,
       appBar: CustomAppBar(title: '홈'),
       body: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(height: screenHeight*0.06),
-            welcomeComment(),
-          ],
-        ),
-      );
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          welcomeComment(),
+          Padding(
+            padding: const EdgeInsets.only(top: 23, bottom: 14, left: 17),
+            child: Text(
+              '나의 게시판',
+              style: TextStyle(
+                  fontSize: 15,
+                  fontFamily: 'NotoSansKRSemiBold',
+                  color: AppColors.blue),
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              HomeMenuWidget(title: '수업', iconName: 'class_active_icon'),
+              HomeMenuWidget(title: '과제', iconName: 'homework_active_icon'),
+              HomeMenuWidget(title: '출석', iconName: 'attend_icon'),
+              HomeMenuWidget(title: '설정', iconName: 'setting_icon'),
+            ],
+          ),
+          SizedBox(
+            height: 11,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              HomeMenuWidget(title: '교실', iconName: 'classroom_icon'),
+              HomeMenuWidget(title: '성적표', iconName: 'paper_icon'),
+              HomeMenuWidget(title: '결제', iconName: 'card_icon'),
+              HomeMenuWidget(title: '고객문의', iconName: 'ask_icon'),
+            ],
+          ),
+        ],
+      ),
+    );
   }
 
   Widget welcomeComment() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text('김이름', style: TextStyle(fontSize: 22, color: AppColors.blue),),
-            Text('환영합니다!', style: TextStyle(fontSize: 22, color: AppColors.black),),
-          ],
-        ),
-        Padding(
-          padding: const EdgeInsets.only(right: 19),
-          child: Image.asset('assets/images/welcomescreen_pic.png'),
-        ),
-      ],
+    double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.height;
+
+    return Container(
+      width: screenWidth,
+      height: screenHeight * 0.18,
+      decoration: BoxDecoration(color: Colors.white),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                '김이름',
+                style: TextStyle(
+                    fontSize: 22,
+                    color: AppColors.blue,
+                    fontFamily: 'NotoSansKRSemiBold'),
+              ),
+              Text(
+                '환영합니다!',
+                style: TextStyle(
+                    fontSize: 22,
+                    color: AppColors.black,
+                    fontFamily: 'NotoSansKRSemiBold'),
+              ),
+            ],
+          ),
+          Padding(
+            padding: const EdgeInsets.only(right: 19),
+            child: Image.asset(
+              width: 149,
+              height: 79,
+              'assets/images/bigsize_pic.png',
+              fit: BoxFit.fill,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
