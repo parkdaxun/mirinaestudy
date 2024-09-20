@@ -3,12 +3,24 @@ import 'package:flutter/material.dart';
 
 import '../colors.dart';
 
-class HomeworkListWidget extends StatelessWidget {
+class HomeworkListWidget extends StatefulWidget {
   final String title;
   final String status;
   final String date;
 
-  HomeworkListWidget({required this.title, required this.status, required this.date});
+  const HomeworkListWidget({
+    Key? key,
+    required this.title,
+    required this.status,
+    required this.date,
+  }) : super(key: key);
+
+  @override
+  _HomeworkListWidgetState createState() => _HomeworkListWidgetState();
+}
+
+class _HomeworkListWidgetState extends State<HomeworkListWidget> {
+  bool isExpanded = false; // 확장 여부를 결정하는 변수
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +29,8 @@ class HomeworkListWidget extends StatelessWidget {
     Color statusColor;
     Color statusTextColor;
 
-    switch(status) {
+    // 상태에 따라 색상을 설정
+    switch (widget.status) {
       case "완료":
         statusColor = Color(0xffD3F682);
         statusTextColor = Color(0xff5F9F00);
@@ -35,23 +48,33 @@ class HomeworkListWidget extends StatelessWidget {
         statusTextColor = Colors.white;
     }
 
-    return Container(
+    return AnimatedContainer(
+      duration: Duration(milliseconds: 300),
       width: screenWidth * 0.91,
-      height: screenHeight * 0.11,
+      // height: isExpanded ? screenHeight * 0.2 : screenHeight * 0.11,
+      // 상태에 따라 높이 변경
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
         color: Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: Color(0xff898989).withOpacity(0.1),
+            spreadRadius: 1,
+            blurRadius: 9.2,
+            offset: Offset(1, 1),
+          ),
+        ],
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Padding(
-            padding: const EdgeInsets.only(left: 18, right: 18),
+            padding: const EdgeInsets.only(left: 18, right: 18, top: 23),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  '$title',
+                  widget.title,
                   style: TextStyle(
                     fontFamily: 'NotoSansKRSemiBold',
                     color: AppColors.black,
@@ -67,7 +90,7 @@ class HomeworkListWidget extends StatelessWidget {
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: Text(
-                    '$status',
+                    widget.status,
                     style: TextStyle(
                       fontFamily: 'NotoSansKRRegular',
                       fontSize: 12,
@@ -79,34 +102,148 @@ class HomeworkListWidget extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 18, top: 9, right: 18),
+            padding:
+                const EdgeInsets.only(left: 18, top: 9, right: 18, bottom: 22),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  '$date',
+                  widget.date,
                   style: TextStyle(
-                      fontFamily: 'NotoSansKRRegular',
-                      color: AppColors.grey,
-                      fontSize: 15,
+                    fontFamily: 'NotoSansKRRegular',
+                    color: AppColors.grey,
+                    fontSize: 15,
                   ),
                 ),
-                Row(
-                  children: [
-                    Text('상세보기', style: TextStyle(
-                      fontFamily: 'NotoSansKRRegular',
-                      color: AppColors.grey,
-                      fontSize: 14,
-                    ),),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 7.5),
-                      child: Image.asset('assets/images/icons/dropdown_icon.png'),
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      isExpanded = !isExpanded; // 확장 상태를 토글
+                    });
+                  },
+                  child: Container(
+                    child: Row(
+                      children: [
+                        Text(
+                          '상세보기',
+                          style: TextStyle(
+                            fontFamily: 'NotoSansKRRegular',
+                            color: AppColors.grey,
+                            fontSize: 14,
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 7.5),
+                          child: Image.asset(
+                              'assets/images/icons/dropdown_icon.png'),
+                        ),
+                      ],
                     ),
-                  ],
+                  ),
                 ),
               ],
             ),
-          )
+          ),
+          if (isExpanded) // 확장 상태일 때만 표시되는 텍스트
+            Container(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(left: 18),
+                    child: Text(
+                      '과제 내용',
+                      style: TextStyle(
+                          color: AppColors.blue,
+                          fontFamily: 'NotoSansKRMedium'),
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(left: 18, top: 12, right: 18),
+                    child: Text(
+                      '중독의 원인, 몇가지 우리가 알고 있는 중독에 대해서 토론해보고 그것이 무엇인지 설명하여, 사람들이 무언가에 중독 되는 이유를 제공하고 문제를 다루는 방법에 대한 아이디어를 제시하시오.',
+                      style: TextStyle(
+                        fontFamily: 'NotoSansKRRegular',
+                        color: AppColors.black,
+                        fontSize: 15,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 18, top: 27),
+                    child: Text.rich(
+                      TextSpan(
+                        children: [
+                          TextSpan(
+                            text: '마감 날짜 : ',
+                            style: TextStyle(
+                              color: AppColors.black,
+                              fontFamily: 'NotoSansKRRegular',
+                            ),
+                          ),
+                          TextSpan(
+                              text: '2024.09.30 (12:00PM)',
+                              style: TextStyle(
+                                  fontFamily: 'NotoSansKRRegular',
+                                  fontSize: 14,
+                                  color: Color(0xffFF5C5C))),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 28, bottom: 27),
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: SizedBox(
+                        height: 38,
+                        width: screenWidth * 0.39,
+                        child: TextButton(
+                          style: TextButton.styleFrom(
+                            backgroundColor: AppColors.blue,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(10),
+                              ),
+                            ),
+                          ),
+                          onPressed: () {},
+                          child: Text(
+                            '과제 제출',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: 'NotoSansKRSemiBold',
+                              fontSize: 14,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    height: 1,
+                    width: screenWidth * 0.91,
+                    color: Color(0xffE5E5EA),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Image.asset('assets/images/icons/heart_icon.png'),
+                        SizedBox(width: 5),
+                        Text('좋아요', style: TextStyle(fontFamily: 'NotoSansKRMedium', fontSize: 13, color: AppColors.grey)),
+                        SizedBox(width: 15),
+                        Image.asset('assets/images/icons/chat_icon.png'),
+                        SizedBox(width: 5),
+                        Text('댓글', style: TextStyle(fontFamily: 'NotoSansKRMedium', fontSize: 13, color: AppColors.grey)),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
         ],
       ),
     );
