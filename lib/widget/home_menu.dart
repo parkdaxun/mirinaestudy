@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../colors.dart';
 import '../screen/class_screen.dart';
 import '../screen/homework_screen.dart';
+import '../screen/report_screen.dart';
 
 class HomeMenuWidget extends StatelessWidget {
   final String title;
@@ -68,6 +69,8 @@ class HomeMenuWidget extends StatelessWidget {
         return ClassScreen();
       case 'HomeworkScreen' :
         return HomeworkScreen();
+      case 'ReportScreen' :
+        return ReportScreen();
       default:
         return Container();
     }

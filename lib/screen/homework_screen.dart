@@ -33,7 +33,6 @@ class _HomeworkScreenState extends State<HomeworkScreen> {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     double titleLeftPadding = (screenWidth - screenWidth * 0.91) / 2;
-    final paddingBottom = MediaQuery.of(context).padding.bottom;
 
     return Scaffold(
       backgroundColor: AppColors.fillGrey,
@@ -71,11 +70,9 @@ class _HomeworkScreenState extends State<HomeworkScreen> {
   Widget filteringWidget() {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
-    final paddingBottom = MediaQuery.of(context).padding.bottom;
 
     return GestureDetector(
       onTap: () {
-        print(paddingBottom);
         showDialog(
           context: context,
           barrierColor: Colors.transparent, // 배경을 투명하게 설정
@@ -112,7 +109,7 @@ class _HomeworkScreenState extends State<HomeworkScreen> {
                   right: 0,
                   child: Material(
                     child: Container(
-                      child: showFilterModalWidget(), // 모달 위젯 추가
+                      child: showFilterModalWidget(statusFilter: true,), // 모달 위젯 추가
                     ),
                   ),
                 ),
