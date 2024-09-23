@@ -2,9 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mirinaestudy/widget/app_bar.dart';
 import 'package:mirinaestudy/widget/home_menu.dart';
-
 import '../colors.dart';
-import '../widget/bottom_bar.dart';
 
 class HomeScreen extends StatefulWidget {
   _HomeScreenState createState() => _HomeScreenState();
@@ -46,7 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               HomeMenuWidget(title: '교실', iconName: 'classroom_icon', screenName: '',),
-              HomeMenuWidget(title: '성적표', iconName: 'paper_icon', screenName: '',),
+              HomeMenuWidget(title: '성적표', iconName: 'paper_icon', screenName: 'ReportScreen',),
               HomeMenuWidget(title: '결제', iconName: 'card_icon', screenName: '',),
               HomeMenuWidget(title: '고객문의', iconName: 'ask_icon', screenName: '',),
             ],

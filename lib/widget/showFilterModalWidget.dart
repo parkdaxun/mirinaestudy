@@ -4,6 +4,13 @@ import 'package:flutter/material.dart';
 import '../colors.dart';
 
 class showFilterModalWidget extends StatefulWidget {
+  final bool statusFilter;
+
+  const showFilterModalWidget({
+    Key? key,
+    required this.statusFilter,
+  }): super(key: key);
+
   _showFilterModalWidgetState createState() => _showFilterModalWidgetState();
 }
 
@@ -14,7 +21,6 @@ class _showFilterModalWidgetState extends State<showFilterModalWidget> {
     double screenHeight = MediaQuery.of(context).size.height;
 
     return Container(
-      height: screenHeight * 0.26,
       width: screenWidth,
       decoration: BoxDecoration(
         color: Colors.white,
@@ -25,38 +31,41 @@ class _showFilterModalWidgetState extends State<showFilterModalWidget> {
           )
         )
       ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          StatusFilterButtons(),
-          Padding(
-            padding: const EdgeInsets.only(top: 17, bottom: 22),
-            child: InputDate(),
-          ),
-          SizedBox(
-            height: 40,
-            width: screenWidth * 0.91,
-            child: TextButton(
-              style: TextButton.styleFrom(
-                backgroundColor: AppColors.lightBlue,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(5),
+      child: Padding(
+        padding: const EdgeInsets.only(top: 15, bottom: 25),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            StatusFilterButtons(),
+            Padding(
+              padding: const EdgeInsets.only(top: 17, bottom: 22),
+              child: InputDate(),
+            ),
+            SizedBox(
+              height: 40,
+              width: screenWidth * 0.91,
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  backgroundColor: AppColors.lightBlue,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(5),
+                    ),
+                  ),
+                ),
+                onPressed: () {},
+                child: Text(
+                  '조회',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontFamily: 'NotoSansKRSemiBold',
+                    fontSize: 14,
                   ),
                 ),
               ),
-              onPressed: () {},
-              child: Text(
-                '조회',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontFamily: 'NotoSansKRSemiBold',
-                  fontSize: 14,
-                ),
-              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -75,8 +84,7 @@ class _showFilterModalWidgetState extends State<showFilterModalWidget> {
           ),
           child: SizedBox(
             child: SizedBox(
-              height: 32,
-              child: Row(
+              child: widget.statusFilter ? Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Expanded(
@@ -148,7 +156,7 @@ class _showFilterModalWidgetState extends State<showFilterModalWidget> {
                     ),
                   ),
                 ],
-              ),
+              ): SizedBox.shrink(),
             ),
           ),
         ),
