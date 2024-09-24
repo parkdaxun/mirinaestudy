@@ -1,83 +1,80 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mirinaestudy/widget/app_bar.dart';
-import 'package:mirinaestudy/widget/report_list_widget.dart';
+import 'package:mirinaestudy/widget/payment_list_widget.dart';
 
 import '../colors.dart';
 import '../widget/showFilterModalWidget.dart';
 
-class ReportScreen extends StatefulWidget {
-  _ReportScreenState createState() => _ReportScreenState();
+class PaymentScreen extends StatefulWidget {
+  _PaymentScreenState createState() => _PaymentScreenState();
 }
 
-class Report {
-  String title;
-  String teacher;
-  String score;
+class Payment {
   String date;
+  String title;
+  String cost;
+  String name;
+  String deposit;
+  String withdraw;
+  String recipient;
 
-  Report({
-    required this.title,
-    required this.teacher,
-    required this.score,
+  Payment({
     required this.date,
+    required this.title,
+    required this.cost,
+    required this.name,
+    required this.deposit,
+    required this.withdraw,
+    required this.recipient,
   });
 }
 
-class _ReportScreenState extends State<ReportScreen> {
-  final List<Report> reports = [
-    Report(
-        title: 'Conversational English',
-        teacher: 'Guy Hawkins',
-        score: '80/100',
-        date: '2024-09-23'),
-    Report(
-        title: 'Grammar Lesson',
-        teacher: 'Cody Fisher',
-        score: '75/100',
-        date: '2024-09-23'),
-    Report(
-        title: 'Phrasal Verbs',
-        teacher: 'Jacob Jones',
-        score: '80/100',
-        date: '2024-09-23'),
-    Report(
-        title: 'Conversational English',
-        teacher: 'Albert Flores',
-        score: '80/100',
-        date: '2024-09-23'),
-    Report(
-        title: 'Grammar Lesson',
-        teacher: 'Cameron Williamson',
-        score: '80/100',
-        date: '2024-09-23'),
-    Report(
-        title: 'Conversational English',
-        teacher: 'Cameron Williamson',
-        score: '80/100',
-        date: '2024-09-23'),
-    Report(
-        title: 'Conversational English',
-        teacher: 'Kathryn Murphy',
-        score: '80/100',
-        date: '2024-09-23'),
-    Report(
-        title: 'Conversational English',
-        teacher: 'Kathryn Murphy',
-        score: '80/100',
-        date: '2024-09-23'),
-    Report(
-        title: 'Conversational English',
-        teacher: 'Kathryn Murphy',
-        score: '80/100',
-        date: '2024-09-23'),
+class _PaymentScreenState extends State<PaymentScreen> {
+  final List<Payment> payments = [
+    Payment(
+      date: '2024-07-17',
+      title: 'Cemester 3',
+      cost: '250,000',
+      name: '김이름',
+      deposit: '신한은행 110000000001',
+      withdraw: '국민은행 02000000000002',
+      recipient: 'Mirinae Study',
+    ),
+    Payment(
+      date: '2024-07-17',
+      title: 'Cemester 3',
+      cost: '250,000',
+      name: '김이름',
+      deposit: '신한은행 110000000001',
+      withdraw: '국민은행 02000000000002',
+      recipient: 'Mirinae Study',
+    ),
+    Payment(
+      date: '2024-07-17',
+      title: 'Cemester 3',
+      cost: '250,000',
+      name: '김이름',
+      deposit: '신한은행 110000000001',
+      withdraw: '국민은행 02000000000002',
+      recipient: 'Mirinae Study',
+    ),
+    Payment(
+      date: '2024-07-17',
+      title: 'Cemester 3',
+      cost: '250,000',
+      name: '김이름',
+      deposit: '신한은행 110000000001',
+      withdraw: '국민은행 02000000000002',
+      recipient: 'Mirinae Study',
+    ),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.fillGrey,
-      appBar: CustomAppBar(title: '성적표'),
+      appBar: CustomAppBar(title: '결제 이력'),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -85,7 +82,7 @@ class _ReportScreenState extends State<ReportScreen> {
           Expanded(
             child: Padding(
               padding: const EdgeInsets.only(top: 18.0),
-              child: reportList(),
+              child: paymentList(),
             ),
           ),
         ],
@@ -180,7 +177,7 @@ class _ReportScreenState extends State<ReportScreen> {
     );
   }
 
-  Widget reportList() {
+  Widget paymentList() {
     double screenWidth = MediaQuery.of(context).size.width;
 
     return Center(
@@ -188,17 +185,20 @@ class _ReportScreenState extends State<ReportScreen> {
         width: screenWidth * 0.91,
         child: ReorderableListView.builder(
           physics: BouncingScrollPhysics(),
-          itemCount: reports.length,
+          itemCount: payments.length,
           itemBuilder: (context, index) {
-            final report = reports[index];
+            final payment = payments[index];
             return Padding(
-              key: ValueKey(report),
+              key: ValueKey(payment),
               padding: const EdgeInsets.only(bottom: 11),
-              child: ReportListWidget(
-                title: report.title,
-                teacher: report.teacher,
-                score: report.score,
-                date: report.date,
+              child: PaymentListWidget(
+                date: payment.date,
+                title: payment.title,
+                cost: payment.cost,
+                name: payment.name,
+                deposit: payment.deposit,
+                withdraw: payment.withdraw,
+                recipient: payment.recipient,
               ),
             );
           },
@@ -213,8 +213,8 @@ class _ReportScreenState extends State<ReportScreen> {
       if (newIndex > oldIndex) {
         newIndex -= 1;
       }
-      final Report movedHomework = reports.removeAt(oldIndex);
-      reports.insert(newIndex, movedHomework);
+      final Payment movedHomework = payments.removeAt(oldIndex);
+      payments.insert(newIndex, movedHomework);
     });
   }
 }

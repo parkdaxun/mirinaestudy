@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mirinaestudy/screen/payment_screen.dart';
 
 import '../colors.dart';
 import '../screen/class_screen.dart';
@@ -71,6 +72,8 @@ class HomeMenuWidget extends StatelessWidget {
         return HomeworkScreen();
       case 'ReportScreen' :
         return ReportScreen();
+      case 'PaymentScreen' :
+        return PaymentScreen();
       default:
         return Container();
     }

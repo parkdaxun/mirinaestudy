@@ -10,7 +10,6 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
-
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -35,7 +34,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
               padding: const EdgeInsets.only(top: 25),
               child: Text(
                 '선생님 회원가입',
-                style: TextStyle(fontFamily: "NunitoBold", fontSize: 16),
+                style: TextStyle(
+                  color: AppColors.black,
+                  fontFamily: 'NotoSansKRSemiBold',
+                  fontSize: 16,
+                ),
               ),
             ),
             Padding(
@@ -59,12 +62,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                   child: Text(
                     '회원가입',
-                    style: TextStyle(color: Colors.white, fontSize: 15),
+                    style: TextStyle(
+                        fontFamily: 'NotoSansKRSemiBold',
+                        color: Colors.white,
+                        fontSize: 15),
                   ),
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => WelcomeScreen(),),
+                      MaterialPageRoute(
+                        builder: (context) => WelcomeScreen(),
+                      ),
                     );
                   },
                 ),
@@ -100,10 +108,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 filled: true,
                 hintText: '이름',
                 hintStyle: TextStyle(
+                  fontFamily: 'NotoSansKRRegular',
                   color: AppColors.grey,
                   fontSize: 14,
                 ),
-                contentPadding: EdgeInsets.symmetric(vertical: 3, horizontal: 16),
+                contentPadding:
+                    EdgeInsets.symmetric(vertical: 3, horizontal: 16),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                   borderSide: BorderSide.none,
@@ -131,10 +141,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   filled: true,
                   hintText: '이메일',
                   hintStyle: TextStyle(
+                    fontFamily: 'NotoSansKRRegular',
                     color: AppColors.grey,
                     fontSize: 14,
                   ),
-                  contentPadding: EdgeInsets.symmetric(vertical: 3, horizontal: 16),
+                  contentPadding:
+                      EdgeInsets.symmetric(vertical: 3, horizontal: 16),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                     borderSide: BorderSide.none,
@@ -163,10 +175,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   filled: true,
                   hintText: '비밀번호',
                   hintStyle: TextStyle(
+                    fontFamily: 'NotoSansKRRegular',
                     color: AppColors.grey,
                     fontSize: 14,
                   ),
-                  contentPadding: EdgeInsets.symmetric(vertical: 3, horizontal: 16),
+                  contentPadding:
+                      EdgeInsets.symmetric(vertical: 3, horizontal: 16),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                     borderSide: BorderSide.none,
@@ -195,10 +209,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   filled: true,
                   hintText: '비밀번호 재확인',
                   hintStyle: TextStyle(
+                    fontFamily: 'NotoSansKRRegular',
                     color: AppColors.grey,
                     fontSize: 14,
                   ),
-                  contentPadding: EdgeInsets.symmetric(vertical: 3, horizontal: 16),
+                  contentPadding:
+                      EdgeInsets.symmetric(vertical: 3, horizontal: 16),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                     borderSide: BorderSide.none,
@@ -236,7 +252,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
           ),
           Text(
             '또는',
-            style: TextStyle(color: AppColors.grey, fontSize: 13),
+            style: TextStyle(
+                fontFamily: 'NotoSansKRSemiBold',
+                color: AppColors.grey,
+                fontSize: 13),
           ),
           Flexible(
             child: Divider(

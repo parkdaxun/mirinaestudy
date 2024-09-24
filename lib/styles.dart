@@ -32,6 +32,7 @@ class InputInfoTextField {
       fillColor: AppColors.fillGrey,
       filled: true,
       hintStyle: TextStyle(
+        fontFamily: 'NotoSansKRRegular',
         color: AppColors.grey,
         fontSize: 14,
       ),

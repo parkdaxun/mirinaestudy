@@ -45,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
             children: [
               HomeMenuWidget(title: '교실', iconName: 'classroom_icon', screenName: '',),
               HomeMenuWidget(title: '성적표', iconName: 'paper_icon', screenName: 'ReportScreen',),
-              HomeMenuWidget(title: '결제', iconName: 'card_icon', screenName: '',),
+              HomeMenuWidget(title: '결제', iconName: 'card_icon', screenName: 'PaymentScreen',),
               HomeMenuWidget(title: '고객문의', iconName: 'ask_icon', screenName: '',),
             ],
           ),
