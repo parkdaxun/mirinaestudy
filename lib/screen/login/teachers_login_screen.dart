@@ -8,6 +8,7 @@ import '../../colors.dart';
 
 class LoginScreen extends StatefulWidget {
   final String accountType;
+
   LoginScreen({required this.accountType});
 
   _LoginScreenState createState() => _LoginScreenState();
@@ -38,7 +39,10 @@ class _LoginScreenState extends State<LoginScreen> {
               padding: const EdgeInsets.only(top: 30),
               child: Text(
                 '${widget.accountType} 로그인',
-                style: TextStyle(fontFamily: "NunitoBold", fontSize: 16),
+                style: TextStyle(
+                    fontFamily: "NotoSansKRSemiBold",
+                    fontSize: 16,
+                    color: AppColors.black),
               ),
             ),
             Padding(
@@ -50,7 +54,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 top: 4,
                 right: screenWidth * 0.099, // 오른쪽 여백을 화면 너비의 9%로 설정
               ),
-              child: SizedBox(height:19, child: _findPasswordButton()),
+              child: SizedBox(height: 19, child: _findPasswordButton()),
             ),
             Padding(
               padding: const EdgeInsets.only(top: 12),
@@ -86,10 +90,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 filled: true,
                 hintText: '이메일',
                 hintStyle: TextStyle(
+                  fontFamily: 'NotoSansKRRegular',
                   color: AppColors.grey,
                   fontSize: 14,
                 ),
-                contentPadding: EdgeInsets.symmetric(vertical: 3, horizontal: 16),
+                contentPadding:
+                    EdgeInsets.symmetric(vertical: 3, horizontal: 16),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                   borderSide: BorderSide.none,
@@ -117,10 +123,12 @@ class _LoginScreenState extends State<LoginScreen> {
                   filled: true,
                   hintText: '비밀번호',
                   hintStyle: TextStyle(
+                    fontFamily: 'NotoSansKRRegular',
                     color: AppColors.grey,
                     fontSize: 14,
                   ),
-                  contentPadding: EdgeInsets.symmetric(vertical: 3, horizontal: 16),
+                  contentPadding:
+                      EdgeInsets.symmetric(vertical: 3, horizontal: 16),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10),
                     borderSide: BorderSide.none,
@@ -154,13 +162,15 @@ class _LoginScreenState extends State<LoginScreen> {
             borderRadius: BorderRadius.zero,
           ),
         ).copyWith(
-          overlayColor: MaterialStateProperty.all(Colors.transparent), // 클릭 시 색상 제거
+          overlayColor: MaterialStateProperty.all(Colors.transparent),
+          // 클릭 시 색상 제거
           splashFactory: NoSplash.splashFactory,
         ),
         child: Text(
           '비밀번호 찾기',
           style: TextStyle(
             fontSize: 13,
+            fontFamily: 'NotoSansKRMedium',
             color: AppColors.blue,
           ),
         ),
@@ -189,12 +199,18 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               child: Text(
                 '로그인',
-                style: TextStyle(color: Colors.white, fontSize: 15),
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 15,
+                  fontFamily: 'NotoSansKRSemiBold',
+                ),
               ),
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => MainScreen(),),
+                  MaterialPageRoute(
+                    builder: (context) => MainScreen(),
+                  ),
                 );
               },
             ),
@@ -228,7 +244,11 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   child: Text(
                     '회원가입',
-                    style: TextStyle(color: Color(0xff494949), fontSize: 15), // 텍스트 스타일
+                    style: TextStyle(
+                      color: Color(0xff494949),
+                      fontSize: 15,
+                      fontFamily: 'NotoSansKRSemiBold',
+                    ), // 텍스트 스타일
                   ),
                   onPressed: () {
                     Navigator.push(
@@ -240,7 +260,6 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
             ),
           )
-
         ],
       ),
     );
@@ -262,7 +281,11 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
           Text(
             '또는',
-            style: TextStyle(color: AppColors.grey, fontSize: 13),
+            style: TextStyle(
+              color: AppColors.grey,
+              fontSize: 13,
+              fontFamily: 'NotoSansKRSemiBold',
+            ),
           ),
           Flexible(
             child: Divider(

@@ -44,7 +44,7 @@ class _AccountSelectScreenState extends State<AccountSelectScreen> {
               padding: const EdgeInsets.only(top: 30),
               child: Text(
                 '해당 그룹을 선택 하세요.',
-                style: TextStyle(fontFamily: "NunitoBold", fontSize: 16),
+                style: TextStyle(fontFamily: "NotoSansKRSemiBold", fontSize: 16),
               ),
             ),
             Padding(
@@ -64,13 +64,17 @@ class _AccountSelectScreenState extends State<AccountSelectScreen> {
                       TextSpan(
                         text: '관리자',
                         style: TextStyle(
+                          fontFamily: 'NotoSansKRMedium',
                           color: AppColors.blue,
+                          fontSize: 14,
                         ),
                       ),
                       TextSpan(
                         text: '로 로그인하겠습니다',
                         style: TextStyle(
+                          fontFamily: 'NotoSansKRMedium',
                           color: Colors.black,
+                          fontSize: 14,
                         ),
                       ),
                     ],
@@ -103,7 +107,7 @@ class _AccountSelectScreenState extends State<AccountSelectScreen> {
               ),
               child: Text(
                 '선생님',
-                style: TextStyle(color: Colors.white, fontSize: 15),
+                style: TextStyle(fontFamily: 'NotoSansKRSemiBold', color: Colors.white, fontSize: 15),
               ),
               onPressed: () => _onButtonPressed('선생님', context),
             ),
@@ -125,7 +129,7 @@ class _AccountSelectScreenState extends State<AccountSelectScreen> {
                 ),
                 child: Text(
                   '학생',
-                  style: TextStyle(color: Colors.white, fontSize: 15),
+                  style: TextStyle(fontFamily: 'NotoSansKRSemiBold', color: Colors.white, fontSize: 15),
                 ),
                 onPressed: () {
                   Navigator.push(
@@ -153,7 +157,7 @@ class _AccountSelectScreenState extends State<AccountSelectScreen> {
                 ),
                 child: Text(
                   '학부모',
-                  style: TextStyle(color: Colors.white, fontSize: 15),
+                  style: TextStyle(fontFamily: 'NotoSansKRSemiBold', color: Colors.white, fontSize: 15),
                 ),
                 onPressed: () {
                   Navigator.push(

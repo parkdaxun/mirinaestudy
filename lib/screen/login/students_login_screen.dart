@@ -19,93 +19,101 @@ class _StudentsLoginScreenState extends State<StudentsLoginScreen> {
     double screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: CustomAppBar(
-        title: '',
-        showIcons: false,
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Image.asset(
-              'assets/images/mirinaestudy_logo.png',
-              height: screenHeight * 0.10781,
-              width: screenWidth * 0.42051,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 17, bottom: 16),
-              child: Text('학생 로그인'),
-            ),
-            SizedBox(
-              height: 48,
-              width: screenWidth * 0.802,
-              child: TextField(
-                decoration: InputInfoTextField.InputInfoTextFieldGrey('이메일'),
+        backgroundColor: Colors.white,
+        appBar: CustomAppBar(
+          title: '',
+          showIcons: false,
+        ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Image.asset(
+                'assets/images/mirinaestudy_logo.png',
+                height: screenHeight * 0.10781,
+                width: screenWidth * 0.42051,
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 12),
-              child: SizedBox(
+              Padding(
+                padding: const EdgeInsets.only(top: 17, bottom: 16),
+                child: Text(
+                  '학생 로그인',
+                  style: TextStyle(
+                    color: AppColors.black,
+                    fontFamily: 'NotoSansKRSemiBold',
+                    fontSize: 16,
+                  ),
+                ),
+              ),
+              SizedBox(
                 height: 48,
                 width: screenWidth * 0.802,
                 child: TextField(
-                  decoration: InputInfoTextField.InputInfoTextFieldGrey('비밀번호'),
+                  decoration: InputInfoTextField.InputInfoTextFieldGrey('이메일'),
                 ),
               ),
-            ),
-            Padding(
-              padding: EdgeInsets.only(
-                top: 4,
-                right: screenWidth * 0.099,
-              ),
-              child: SizedBox(height: 19, child: _findPasswordButton()),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 12),
-              child: _loginSignupButtons(),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 17),
-              child: _separator(),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 17),
-              child: SocialLoginButtons(),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 24, bottom: 10),
-              child: SizedBox(
-                width: screenWidth * 0.79,
-                child: TextField(
-                  decoration: InputInfoTextField.InputInfoTextFieldGrey('TEXT CODE'),
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 43,
-              width: screenWidth * 0.79,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  elevation: 0,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(10),
-                    ),
+              Padding(
+                padding: const EdgeInsets.only(top: 12),
+                child: SizedBox(
+                  height: 48,
+                  width: screenWidth * 0.802,
+                  child: TextField(
+                    decoration:
+                        InputInfoTextField.InputInfoTextFieldGrey('비밀번호'),
                   ),
-                  backgroundColor: AppColors.blue,
                 ),
-                child: Text(
-                  'Scan Code',
-                  style: TextStyle(color: Colors.white, fontSize: 15),
-                ),
-                onPressed: () {},
               ),
-            ),
-          ],
-        ),
-      )
-    );
+              Padding(
+                padding: EdgeInsets.only(
+                  top: 4,
+                  right: screenWidth * 0.099,
+                ),
+                child: SizedBox(height: 19, child: _findPasswordButton()),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 12),
+                child: _loginSignupButtons(),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 17),
+                child: _separator(),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 17),
+                child: SocialLoginButtons(),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 24, bottom: 10),
+                child: SizedBox(
+                  width: screenWidth * 0.79,
+                  child: TextField(
+                    decoration:
+                        InputInfoTextField.InputInfoTextFieldGrey('TEXT CODE'),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 43,
+                width: screenWidth * 0.79,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    elevation: 0,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(10),
+                      ),
+                    ),
+                    backgroundColor: AppColors.blue,
+                  ),
+                  child: Text(
+                    'Scan Code',
+                    style: TextStyle(color: Colors.white, fontSize: 15, fontFamily: 'NotoSansKRMedium'),
+                  ),
+                  onPressed: () {},
+                ),
+              ),
+            ],
+          ),
+        ));
   }
 
   Widget _findPasswordButton() {
@@ -120,7 +128,8 @@ class _StudentsLoginScreenState extends State<StudentsLoginScreen> {
             borderRadius: BorderRadius.zero,
           ),
         ).copyWith(
-          overlayColor: MaterialStateProperty.all(Colors.transparent), // 클릭 시 색상 제거
+          overlayColor: MaterialStateProperty.all(Colors.transparent),
+          // 클릭 시 색상 제거
           splashFactory: NoSplash.splashFactory,
         ),
         child: Text(
@@ -128,6 +137,7 @@ class _StudentsLoginScreenState extends State<StudentsLoginScreen> {
           style: TextStyle(
             fontSize: 13,
             color: AppColors.blue,
+            fontFamily: 'NotoSansKRMedium',
           ),
         ),
       ),
@@ -150,7 +160,7 @@ class _StudentsLoginScreenState extends State<StudentsLoginScreen> {
           ),
           Text(
             '또는',
-            style: TextStyle(color: AppColors.grey, fontSize: 13),
+            style: TextStyle(color: AppColors.grey, fontSize: 13, fontFamily: 'NotoSansKRSemiBold',),
           ),
           Flexible(
             child: Divider(
@@ -186,12 +196,14 @@ class _StudentsLoginScreenState extends State<StudentsLoginScreen> {
               ),
               child: Text(
                 '로그인',
-                style: TextStyle(color: Colors.white, fontSize: 15),
+                style: TextStyle(color: Colors.white, fontSize: 15, fontFamily: 'NotoSansKRSemiBold'),
               ),
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => MainScreen(),),
+                  MaterialPageRoute(
+                    builder: (context) => MainScreen(),
+                  ),
                 );
               },
             ),
@@ -225,7 +237,8 @@ class _StudentsLoginScreenState extends State<StudentsLoginScreen> {
                   ),
                   child: Text(
                     '회원가입',
-                    style: TextStyle(color: Color(0xff494949), fontSize: 15), // 텍스트 스타일
+                    style: TextStyle(
+                        color: Color(0xff494949), fontSize: 15, fontFamily: 'NotoSansKRSemiBold'), // 텍스트 스타일
                   ),
                   onPressed: () {
                     Navigator.push(
@@ -237,7 +250,6 @@ class _StudentsLoginScreenState extends State<StudentsLoginScreen> {
               ),
             ),
           )
-
         ],
       ),
     );

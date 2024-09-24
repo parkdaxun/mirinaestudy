@@ -39,14 +39,14 @@ class _ParentsLoginScreenState extends State<ParentsLoginScreen> {
                 padding: const EdgeInsets.only(top: 44),
                 child: Text(
                   '학부모 로그인',
-                  style: TextStyle(color: Color(0xff494949),),
+                  style: TextStyle(color: Color(0xff494949), fontFamily: 'NotoSansKRSemiBold', fontSize: 16),
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 12),
                 child: Text(
                   '자녀의 학생 코드를 입력하세요',
-                  style: TextStyle(color: AppColors.blue),
+                  style: TextStyle(color: AppColors.blue, fontFamily: 'NotoSansKRSemiBold', fontSize: 16),
                 ),
               ),
               Padding(
@@ -98,7 +98,7 @@ class _ParentsLoginScreenState extends State<ParentsLoginScreen> {
               ),
               child: TextButton(
                 child: Text(
-                  '취소', style: TextStyle(color: Colors.black, fontSize: 14),),
+                  '취소', style: TextStyle(color: Colors.black, fontSize: 14, fontFamily: 'NotoSansKRSemiBold'),),
                 onPressed: () {},
                 style: TextButton.styleFrom(
                   elevation: 0,
@@ -116,7 +116,7 @@ class _ParentsLoginScreenState extends State<ParentsLoginScreen> {
             child: Container(
               child: TextButton(
                 child: Text(
-                  '확인', style: TextStyle(color: Colors.white, fontSize: 14),),
+                  '확인', style: TextStyle(color: Colors.white, fontSize: 14, fontFamily: 'NotoSansKRSemiBold'),),
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) => MainScreen()));
                 },
