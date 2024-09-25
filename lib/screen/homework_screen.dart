@@ -13,20 +13,62 @@ class Homework {
   String title;
   String status;
   String date;
+  String contents;
+  String endDate;
 
-  Homework({required this.title, required this.status, required this.date});
+  Homework({
+    required this.title,
+    required this.status,
+    required this.date,
+    required this.contents,
+    required this.endDate,
+  });
 }
 
 class _HomeworkScreenState extends State<HomeworkScreen> {
   final List<Homework> homeworks = [
-    Homework(title: 'Grammar', status: '완료', date: '2024-09-09'),
-    Homework(title: 'Grammar', status: '진행중', date: '2024-09-09'),
-    Homework(title: 'Phrasal Verbs', status: '시작전', date: '2024-09-09'),
     Homework(
-        title: 'Conversational English', status: '진행중', date: '2024-09-09'),
-    Homework(title: 'Grammar', status: '완료', date: '2024-09-09'),
+        title: 'Grammar',
+        status: '완료',
+        date: '2024-09-09',
+        contents:
+            '중독의 원인, 몇가지 우리가 알고 있는 중독에 대해서 토론해보고 그것이 무엇인지 설명하여, 사람들이 무언가에 중독 되는 이유를 제공하고 문제를 다루는 방법에 대한 아이디어를 제시하시오.',
+        endDate: '2024.09.30 (12:00PM)'),
     Homework(
-        title: 'Conversational English', status: '시작전', date: '2024-09-09'),
+        title: 'Grammar',
+        status: '진행중',
+        date: '2024-09-09',
+        contents:
+            '중독의 원인, 몇가지 우리가 알고 있는 중독에 대해서 토론해보고 그것이 무엇인지 설명하여, 사람들이 무언가에 중독 되는 이유를 제공하고 문제를 다루는 방법에 대한 아이디어를 제시하시오.',
+        endDate: '2024.09.30 (12:00PM)'),
+    Homework(
+        title: 'Phrasal Verbs',
+        status: '시작전',
+        date: '2024-09-09',
+        contents:
+            '중독의 원인, 몇가지 우리가 알고 있는 중독에 대해서 토론해보고 그것이 무엇인지 설명하여, 사람들이 무언가에 중독 되는 이유를 제공하고 문제를 다루는 방법에 대한 아이디어를 제시하시오.',
+        endDate: '2024.09.30 (12:00PM)'),
+    Homework(
+        title: 'Conversational English',
+        status: '진행중',
+        date: '2024-09-09',
+        contents:
+            '중독의 원인, 몇가지 우리가 알고 있는 중독에 대해서 토론해보고 그것이 무엇인지 설명하여, 사람들이 무언가에 중독 되는 이유를 제공하고 문제를 다루는 방법에 대한 아이디어를 제시하시오.',
+        endDate: '2024.09.30 (12:00PM)'),
+    Homework(
+        title: 'Grammar',
+        status: '완료',
+        date: '2024-09-09',
+        contents:
+            '중독의 원인, 몇가지 우리가 알고 있는 중독에 대해서 토론해보고 그것이 무엇인지 설명하여, 사람들이 무언가에 중독 되는 이유를 제공하고 문제를 다루는 방법에 대한 아이디어를 제시하시오.',
+        endDate: '2024.09.30 (12:00PM)'),
+    Homework(
+        title: 'Conversational English',
+        status: '시작전',
+        date: '2024-09-09',
+        contents:
+            '중독의 원인, 몇가지 우리가 알고 있는 중독에 대해서 토론해보고 그것이 무엇인지 설명하여, 사람들이 무언가에 중독 되는 이유를 제공하고 문제를 다루는 방법에 대한 아이디어를 제시하시오.',
+        endDate: '2024.09.13 (12:00PM)'),
   ];
 
   @override
@@ -95,8 +137,10 @@ class _HomeworkScreenState extends State<HomeworkScreen> {
                           Navigator.pop(context);
                         },
                         child: Container(
-                          height: screenHeight-(screenHeight*0.05+screenHeight*0.26),
-                          color: Color(0xff232323).withOpacity(0.4), // 반투명 배경 설정
+                          height: screenHeight -
+                              (screenHeight * 0.05 + screenHeight * 0.26),
+                          color:
+                              Color(0xff232323).withOpacity(0.4), // 반투명 배경 설정
                         ),
                       ),
                     ],
@@ -109,7 +153,9 @@ class _HomeworkScreenState extends State<HomeworkScreen> {
                   right: 0,
                   child: Material(
                     child: Container(
-                      child: showFilterModalWidget(statusFilter: true,), // 모달 위젯 추가
+                      child: showFilterModalWidget(
+                        statusFilter: true,
+                      ), // 모달 위젯 추가
                     ),
                   ),
                 ),
@@ -168,6 +214,8 @@ class _HomeworkScreenState extends State<HomeworkScreen> {
                 title: homework.title,
                 status: homework.status,
                 date: homework.date,
+                contents: homework.contents,
+                endDate: homework.endDate,
               ),
             );
           },

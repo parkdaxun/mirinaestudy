@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mirinaestudy/screen/homework_detail_screen.dart';
 
 import '../colors.dart';
 
@@ -7,12 +8,16 @@ class HomeworkListWidget extends StatefulWidget {
   final String title;
   final String status;
   final String date;
+  final String contents;
+  final String endDate;
 
   const HomeworkListWidget({
     Key? key,
     required this.title,
     required this.status,
     required this.date,
+    required this.contents,
+    required this.endDate,
   }) : super(key: key);
 
   @override
@@ -162,7 +167,7 @@ class _HomeworkListWidgetState extends State<HomeworkListWidget> {
                     padding:
                         const EdgeInsets.only(left: 18, top: 12, right: 18),
                     child: Text(
-                      '중독의 원인, 몇가지 우리가 알고 있는 중독에 대해서 토론해보고 그것이 무엇인지 설명하여, 사람들이 무언가에 중독 되는 이유를 제공하고 문제를 다루는 방법에 대한 아이디어를 제시하시오.',
+                      widget.contents,
                       style: TextStyle(
                         fontFamily: 'NotoSansKRRegular',
                         color: AppColors.black,
@@ -183,7 +188,7 @@ class _HomeworkListWidgetState extends State<HomeworkListWidget> {
                             ),
                           ),
                           TextSpan(
-                              text: '2024.09.30 (12:00PM)',
+                              text: widget.endDate,
                               style: TextStyle(
                                   fontFamily: 'NotoSansKRRegular',
                                   fontSize: 14,
@@ -208,7 +213,20 @@ class _HomeworkListWidgetState extends State<HomeworkListWidget> {
                               ),
                             ),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => HomeworkDetailScreen(
+                                  title: widget.title,
+                                  status: widget.status,
+                                  date: widget.date,
+                                  contents: widget.contents,
+                                  endDate: widget.endDate,
+                                ),
+                              ),
+                            );
+                          },
                           child: Text(
                             '과제 제출',
                             style: TextStyle(
@@ -233,11 +251,19 @@ class _HomeworkListWidgetState extends State<HomeworkListWidget> {
                       children: [
                         Image.asset('assets/images/icons/heart_icon.png'),
                         SizedBox(width: 5),
-                        Text('좋아요', style: TextStyle(fontFamily: 'NotoSansKRMedium', fontSize: 13, color: AppColors.grey)),
+                        Text('좋아요',
+                            style: TextStyle(
+                                fontFamily: 'NotoSansKRMedium',
+                                fontSize: 13,
+                                color: AppColors.grey)),
                         SizedBox(width: 15),
                         Image.asset('assets/images/icons/chat_icon.png'),
                         SizedBox(width: 5),
-                        Text('댓글', style: TextStyle(fontFamily: 'NotoSansKRMedium', fontSize: 13, color: AppColors.grey)),
+                        Text('댓글',
+                            style: TextStyle(
+                                fontFamily: 'NotoSansKRMedium',
+                                fontSize: 13,
+                                color: AppColors.grey)),
                       ],
                     ),
                   ),
