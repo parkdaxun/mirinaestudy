@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:mirinaestudy/widget/app_bar.dart';
 
-import '../colors.dart';
+import '../../colors.dart';
 
 class HomeworkDetailScreen extends StatefulWidget {
   final String title;
@@ -33,6 +34,50 @@ class _HomeworkDetailScreenState extends State<HomeworkDetailScreen> {
       backgroundColor: Colors.white,
       appBar: CustomAppBar(
         title: "과제",
+      ),
+      bottomSheet: Container(
+        color: Colors.white,
+        child: SafeArea(
+          child: Padding(
+            padding: EdgeInsets.only(left: 18, right: 18, bottom: MediaQuery.of(context).viewInsets.bottom),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(
+                  child: SizedBox(
+                    height: 48,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.white,
+                        surfaceTintColor: Colors.white,
+                        shadowColor: Colors.transparent,
+                        side: BorderSide(color: AppColors.blue, width: 1),
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10),),
+                      ),
+                      onPressed: () {},
+                      child: Text('취소', style: TextStyle(fontFamily: 'NotoSansKRSemiBold', fontSize: 14, color: AppColors.blue),),
+                    ),
+                  ),
+                ),
+                SizedBox(width: 10),
+                Expanded(
+                  child: SizedBox(
+                    height: 48,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColors.blue,
+                        side: BorderSide(color: AppColors.blue, width: 1),
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10),),
+                      ),
+                      onPressed: () {},
+                      child: Text('제출하기', style: TextStyle(color: Colors.white, fontFamily: 'NotoSansKRSemiBold', fontSize: 14),),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
@@ -196,12 +241,12 @@ class _HomeworkDetailScreenState extends State<HomeworkDetailScreen> {
                           borderRadius: BorderRadius.circular(10),
                         ),
                       ),
-                      scrollPadding: EdgeInsets.only(bottom: 100+MediaQuery.of(context).viewInsets.bottom),
+                      scrollPadding: EdgeInsets.only(bottom: 170+MediaQuery.of(context).viewInsets.bottom),
                     ),
                   ],
                 ),
               ),
-              SizedBox(height: 20+(MediaQuery.of(context).viewInsets.bottom),),
+              SizedBox(height: 90+(MediaQuery.of(context).viewInsets.bottom),),
             ],
           ),
         ),
