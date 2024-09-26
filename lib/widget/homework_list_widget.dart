@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mirinaestudy/screen/homework_detail_screen.dart';
+import 'package:mirinaestudy/screen/homework/homework_detail_screen.dart';
 
 import '../colors.dart';
 

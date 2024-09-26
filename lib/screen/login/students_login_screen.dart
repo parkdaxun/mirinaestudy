@@ -6,7 +6,7 @@ import 'package:mirinaestudy/widget/social_login_buttons.dart';
 import '../../colors.dart';
 import '../home_screen.dart';
 import '../main_screen.dart';
-import '../signup_screen.dart';
+import 'signup_screen.dart';
 
 class StudentsLoginScreen extends StatefulWidget {
   _StudentsLoginScreenState createState() => _StudentsLoginScreenState();

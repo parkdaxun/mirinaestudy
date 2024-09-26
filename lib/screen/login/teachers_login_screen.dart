@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mirinaestudy/screen/main_screen.dart';
-import 'package:mirinaestudy/screen/signup_screen.dart';
+import 'package:mirinaestudy/screen/login/signup_screen.dart';
 import 'package:mirinaestudy/widget/app_bar.dart';
 import 'package:mirinaestudy/widget/social_login_buttons.dart';
 import '../../colors.dart';
