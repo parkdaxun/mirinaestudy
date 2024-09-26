@@ -39,7 +39,7 @@ class _HomeworkDetailScreenState extends State<HomeworkDetailScreen> {
         color: Colors.white,
         child: SafeArea(
           child: Padding(
-            padding: EdgeInsets.only(left: 18, right: 18, bottom: MediaQuery.of(context).viewInsets.bottom),
+            padding: EdgeInsets.only(left: 18, right: 18, bottom: 15+MediaQuery.of(context).viewInsets.bottom),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
