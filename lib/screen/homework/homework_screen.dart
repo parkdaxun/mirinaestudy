@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mirinaestudy/widget/homework_list_widget.dart';
 import 'package:mirinaestudy/widget/showFilterModalWidget.dart';
-import '../colors.dart';
-import '../widget/app_bar.dart';
+import '../../colors.dart';
+import '../../widget/app_bar.dart';
 
 class HomeworkScreen extends StatefulWidget {
   @override

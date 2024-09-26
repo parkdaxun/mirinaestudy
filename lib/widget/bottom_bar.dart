@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import '../colors.dart';
 import '../screen/class_screen.dart';
 import '../screen/home_screen.dart';
-import '../screen/homework_screen.dart';
+import '../screen/homework/homework_screen.dart';
 import '../screen/mypage_screen.dart';
 
 class BottomBar extends StatefulWidget {

@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mirinaestudy/screen/main_screen.dart';
-import 'package:mirinaestudy/screen/signup_screen.dart';
+import 'package:mirinaestudy/screen/login/signup_screen.dart';
 import 'package:mirinaestudy/widget/app_bar.dart';
 import 'package:mirinaestudy/widget/social_login_buttons.dart';
 import '../../colors.dart';
@@ -21,56 +21,60 @@ class _LoginScreenState extends State<LoginScreen> {
     double screenHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       backgroundColor: Colors.white,
       appBar: CustomAppBar(
         title: '',
         showIcons: false,
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Image.asset(
-              'assets/images/mirinaestudy_logo.png',
-              width: screenWidth * 0.561,
-              height: screenHeight * 0.1457,
+      body: SingleChildScrollView(
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                SizedBox(height: screenHeight*0.092,),
+                Image.asset(
+                  'assets/images/mirinaestudy_logo.png',
+                  width: screenWidth * 0.561,
+                  height: screenHeight * 0.1457,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 30),
+                  child: Text(
+                    '${widget.accountType} 로그인',
+                    style: TextStyle(
+                        fontFamily: "NotoSansKRSemiBold",
+                        fontSize: 16,
+                        color: AppColors.black),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 24),
+                  child: _textFields(context), // context를 전달합니다.
+                ),
+                Padding(
+                  padding: EdgeInsets.only(
+                    top: 4,
+                    right: screenWidth * 0.099, // 오른쪽 여백을 화면 너비의 9%로 설정
+                  ),
+                  child: SizedBox(height: 19, child: _findPasswordButton()),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 12),
+                  child: _loginSignupButtons(),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 17),
+                  child: _separator(),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 17),
+                  child: SocialLoginButtons(),
+                ),
+              ],
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 30),
-              child: Text(
-                '${widget.accountType} 로그인',
-                style: TextStyle(
-                    fontFamily: "NotoSansKRSemiBold",
-                    fontSize: 16,
-                    color: AppColors.black),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 24),
-              child: _textFields(context), // context를 전달합니다.
-            ),
-            Padding(
-              padding: EdgeInsets.only(
-                top: 4,
-                right: screenWidth * 0.099, // 오른쪽 여백을 화면 너비의 9%로 설정
-              ),
-              child: SizedBox(height: 19, child: _findPasswordButton()),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 12),
-              child: _loginSignupButtons(),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 17),
-              child: _separator(),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(top: 17),
-              child: SocialLoginButtons(),
-            ),
-          ],
+          ),
         ),
-      ),
     );
   }
 
@@ -84,6 +88,7 @@ class _LoginScreenState extends State<LoginScreen> {
             height: 48,
             width: screenWidth * 0.802,
             child: TextField(
+              scrollPadding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom-60),
               cursorColor: AppColors.grey,
               decoration: InputDecoration(
                 fillColor: AppColors.fillGrey,

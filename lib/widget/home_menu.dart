@@ -4,7 +4,7 @@ import 'package:mirinaestudy/screen/payment_screen.dart';
 
 import '../colors.dart';
 import '../screen/class_screen.dart';
-import '../screen/homework_screen.dart';
+import '../screen/homework/homework_screen.dart';
 import '../screen/report_screen.dart';
 
 class HomeMenuWidget extends StatelessWidget {
