@@ -69,7 +69,9 @@ class _HomeworkDetailScreenState extends State<HomeworkDetailScreen> {
                         side: BorderSide(color: AppColors.blue, width: 1),
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10),),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        _showMyDialog(context);
+                      },
                       child: Text('제출하기', style: TextStyle(color: Colors.white, fontFamily: 'NotoSansKRSemiBold', fontSize: 14),),
                     ),
                   ),
@@ -253,4 +255,28 @@ class _HomeworkDetailScreenState extends State<HomeworkDetailScreen> {
       ),
     );
   }
+}
+
+Future<void> _showMyDialog(BuildContext context) async {
+  return showDialog<void>(
+    context: context,
+    barrierDismissible: true,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        backgroundColor: Colors.white,
+        content: Container(
+          height: 148,
+          width: MediaQuery.of(context).size.width*0.81,
+          decoration: BoxDecoration(
+            color: Colors.white,
+          ),
+          child: Column(
+            children: [
+              Text('과제를 제출하시겠습니까?', style: TextStyle(color: AppColors.blue, fontSize: 15, fontFamily: 'NotoSansKRMedium'),),
+            ],
+          ),
+        ),
+      );
+    }
+  );
 }
