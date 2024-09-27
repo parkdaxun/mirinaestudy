@@ -14,42 +14,76 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: AppColors.fillGrey,
       appBar: CustomAppBar(title: '홈'),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          welcomeComment(),
-          Padding(
-            padding: const EdgeInsets.only(top: 23, bottom: 14, left: 17),
-            child: Text(
-              '나의 게시판',
-              style: TextStyle(
-                  fontSize: 15,
-                  fontFamily: 'NotoSansKRSemiBold',
-                  color: AppColors.blue),
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            welcomeComment(),
+            Padding(
+              padding: const EdgeInsets.only(top: 23, bottom: 14, left: 17),
+              child: Text(
+                '나의 게시판',
+                style: TextStyle(
+                    fontSize: 15,
+                    fontFamily: 'NotoSansKRSemiBold',
+                    color: AppColors.blue),
+              ),
             ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              HomeMenuWidget(title: '수업', iconName: 'class_active_icon', screenName: 'ClassScreen',),
-              HomeMenuWidget(title: '과제', iconName: 'homework_active_icon', screenName: 'HomeworkScreen',),
-              HomeMenuWidget(title: '출석', iconName: 'attend_icon', screenName: '',),
-              HomeMenuWidget(title: '설정', iconName: 'setting_icon', screenName: '',),
-            ],
-          ),
-          SizedBox(
-            height: 11,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              HomeMenuWidget(title: '교실', iconName: 'classroom_icon', screenName: '',),
-              HomeMenuWidget(title: '성적표', iconName: 'paper_icon', screenName: 'ReportScreen',),
-              HomeMenuWidget(title: '결제', iconName: 'card_icon', screenName: 'PaymentScreen',),
-              HomeMenuWidget(title: '고객문의', iconName: 'ask_icon', screenName: '',),
-            ],
-          ),
-        ],
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                HomeMenuWidget(
+                  title: '수업',
+                  iconName: 'class_active_icon',
+                  screenName: 'ClassScreen',
+                ),
+                HomeMenuWidget(
+                  title: '과제',
+                  iconName: 'homework_active_icon',
+                  screenName: 'HomeworkScreen',
+                ),
+                HomeMenuWidget(
+                  title: '출석',
+                  iconName: 'attend_icon',
+                  screenName: '',
+                ),
+                HomeMenuWidget(
+                  title: '설정',
+                  iconName: 'setting_icon',
+                  screenName: '',
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 11,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                HomeMenuWidget(
+                  title: '교실',
+                  iconName: 'classroom_icon',
+                  screenName: '',
+                ),
+                HomeMenuWidget(
+                  title: '성적표',
+                  iconName: 'paper_icon',
+                  screenName: 'ReportScreen',
+                ),
+                HomeMenuWidget(
+                  title: '결제',
+                  iconName: 'card_icon',
+                  screenName: 'PaymentScreen',
+                ),
+                HomeMenuWidget(
+                  title: '고객문의',
+                  iconName: 'ask_icon',
+                  screenName: '',
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
