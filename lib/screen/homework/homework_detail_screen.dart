@@ -39,7 +39,10 @@ class _HomeworkDetailScreenState extends State<HomeworkDetailScreen> {
         color: Colors.white,
         child: SafeArea(
           child: Padding(
-            padding: EdgeInsets.only(left: 18, right: 18, bottom: 15+MediaQuery.of(context).viewInsets.bottom),
+            padding: EdgeInsets.only(
+                left: 18,
+                right: 18,
+                bottom: 15 + MediaQuery.of(context).viewInsets.bottom),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -52,10 +55,18 @@ class _HomeworkDetailScreenState extends State<HomeworkDetailScreen> {
                         surfaceTintColor: Colors.white,
                         shadowColor: Colors.transparent,
                         side: BorderSide(color: AppColors.blue, width: 1),
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10),),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
                       ),
                       onPressed: () {},
-                      child: Text('취소', style: TextStyle(fontFamily: 'NotoSansKRSemiBold', fontSize: 14, color: AppColors.blue),),
+                      child: Text(
+                        '취소',
+                        style: TextStyle(
+                            fontFamily: 'NotoSansKRSemiBold',
+                            fontSize: 14,
+                            color: AppColors.blue),
+                      ),
                     ),
                   ),
                 ),
@@ -67,12 +78,20 @@ class _HomeworkDetailScreenState extends State<HomeworkDetailScreen> {
                       style: ElevatedButton.styleFrom(
                         backgroundColor: AppColors.blue,
                         side: BorderSide(color: AppColors.blue, width: 1),
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10),),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
                       ),
                       onPressed: () {
                         _showMyDialog(context);
                       },
-                      child: Text('제출하기', style: TextStyle(color: Colors.white, fontFamily: 'NotoSansKRSemiBold', fontSize: 14),),
+                      child: Text(
+                        '제출하기',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: 'NotoSansKRSemiBold',
+                            fontSize: 14),
+                      ),
                     ),
                   ),
                 ),
@@ -228,27 +247,36 @@ class _HomeworkDetailScreenState extends State<HomeworkDetailScreen> {
                       maxLines: 10,
                       decoration: InputDecoration(
                         hintText: '내용을 입력해주세요.',
-                        hintStyle: TextStyle(color: Color(0xffD4D8E0), fontSize: 15),
-                        contentPadding: EdgeInsets.symmetric(vertical: 12, horizontal: 15),
+                        hintStyle:
+                            TextStyle(color: Color(0xffD4D8E0), fontSize: 15),
+                        contentPadding:
+                            EdgeInsets.symmetric(vertical: 12, horizontal: 15),
                         enabledBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(color: Color(0xffD4D8E0), width: 1),
+                          borderSide: const BorderSide(
+                              color: Color(0xffD4D8E0), width: 1),
                           borderRadius: BorderRadius.circular(10),
                         ),
                         border: OutlineInputBorder(
-                          borderSide: const BorderSide(color: Color(0xffD4D8E0), width: 1),
+                          borderSide: const BorderSide(
+                              color: Color(0xffD4D8E0), width: 1),
                           borderRadius: BorderRadius.circular(10),
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(color: Color(0xffD4D8E0), width: 1),
+                          borderSide: const BorderSide(
+                              color: Color(0xffD4D8E0), width: 1),
                           borderRadius: BorderRadius.circular(10),
                         ),
                       ),
-                      scrollPadding: EdgeInsets.only(bottom: 170+MediaQuery.of(context).viewInsets.bottom),
+                      scrollPadding: EdgeInsets.only(
+                          bottom:
+                              170 + MediaQuery.of(context).viewInsets.bottom),
                     ),
                   ],
                 ),
               ),
-              SizedBox(height: 90+(MediaQuery.of(context).viewInsets.bottom),),
+              SizedBox(
+                height: 90 + (MediaQuery.of(context).viewInsets.bottom),
+              ),
             ],
           ),
         ),
@@ -262,21 +290,95 @@ Future<void> _showMyDialog(BuildContext context) async {
     context: context,
     barrierDismissible: true,
     builder: (BuildContext context) {
-      return AlertDialog(
-        backgroundColor: Colors.white,
-        content: Container(
-          height: 148,
-          width: MediaQuery.of(context).size.width*0.81,
-          decoration: BoxDecoration(
-            color: Colors.white,
-          ),
-          child: Column(
-            children: [
-              Text('과제를 제출하시겠습니까?', style: TextStyle(color: AppColors.blue, fontSize: 15, fontFamily: 'NotoSansKRMedium'),),
-            ],
-          ),
-        ),
+      String message = "과제를 제출하시겠습니까?";
+      bool isSubmitted = false;
+
+      return StatefulBuilder(
+        builder: (BuildContext context, StateSetter setState) {
+          return AlertDialog(
+            backgroundColor: Colors.white,
+            surfaceTintColor: Colors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(15),
+            ),
+            content: Container(
+              height: 120,
+              width: MediaQuery.of(context).size.width * 0.81,
+              decoration: BoxDecoration(
+                color: Colors.white,
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  if(isSubmitted)
+                    Container(
+                      width: 56,
+                      height: 56,
+                      decoration: BoxDecoration(color: Color(0xffE6F7FF), borderRadius: BorderRadius.circular(100)),
+                      child: Center(
+                        child: Image.asset('assets/images/icons/blue_filled_paper_icon.png'),
+                      ),
+                    ),
+                  if(!isSubmitted)
+                    SizedBox(
+                      height: 15,
+                    ),
+                  Text(
+                    isSubmitted ? '과제가 제출 되었습니다.' : '과제를 제출하시겠습니까?',
+                    style: TextStyle(
+                        color: AppColors.blue,
+                        fontSize: 15,
+                        fontFamily: 'NotoSansKRMedium'),
+                  ),
+                  if(!isSubmitted)
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        TextButton(
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                          child: Text(
+                            '취소',
+                            style: TextStyle(
+                                color: AppColors.grey,
+                                fontSize: 15,
+                                fontFamily: 'NotoSansKRMedium'),
+                          ),
+                        ),
+                        Container(
+                          width: 1,
+                          height: 16,
+                          decoration: BoxDecoration(
+                            color: Color(0xffDEDEDE),
+                          ),
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            setState(() {
+                              isSubmitted = true;
+                            });
+
+                            Future.delayed(Duration(seconds: 2), () {
+                              Navigator.of(context).pop();
+                            });
+                          },
+                          child: Text(
+                            '확인',
+                            style: TextStyle(
+                                color: AppColors.blue,
+                                fontSize: 15,
+                                fontFamily: 'NotoSansKRMedium'),
+                          ),
+                        ),
+                      ],
+                    ),
+                ],
+              ),
+            ),
+          );
+        },
       );
-    }
+    },
   );
 }
