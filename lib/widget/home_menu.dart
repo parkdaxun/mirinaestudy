@@ -74,6 +74,8 @@ class HomeMenuWidget extends StatelessWidget {
         return ReportScreen();
       case 'PaymentScreen' :
         return PaymentScreen();
+      case 'ClassScreen' :
+        return ClassScreen();
       default:
         return Container();
     }
