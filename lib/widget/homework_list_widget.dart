@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:mirinaestudy/screen/homework/comment_detail_screen.dart';
 import 'package:mirinaestudy/screen/homework/homework_detail_screen.dart';
 
 import '../colors.dart';
@@ -257,13 +259,35 @@ class _HomeworkListWidgetState extends State<HomeworkListWidget> {
                                 fontSize: 13,
                                 color: AppColors.grey)),
                         SizedBox(width: 15),
-                        Image.asset('assets/images/icons/chat_icon.png'),
-                        SizedBox(width: 5),
-                        Text('댓글',
-                            style: TextStyle(
-                                fontFamily: 'NotoSansKRMedium',
-                                fontSize: 13,
-                                color: AppColors.grey)),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => CommentDetailScreen(
+                                    title: widget.title,
+                                    date: widget.date,
+                                    contents: widget.contents,
+                                    endDate: widget.endDate,
+                                  ),
+                              ),
+                            );
+                          },
+                          child: Container(
+                            child: Row(
+                              children: [
+                                Image.asset(
+                                    'assets/images/icons/chat_icon.png'),
+                                SizedBox(width: 5),
+                                Text('댓글',
+                                    style: TextStyle(
+                                        fontFamily: 'NotoSansKRMedium',
+                                        fontSize: 13,
+                                        color: AppColors.grey)),
+                              ],
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),
