@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mirinaestudy/widget/app_bar.dart';
+import 'package:mirinaestudy/widget/comment_list_wdiget.dart';
 
 import '../../colors.dart';
 
@@ -88,6 +89,7 @@ class _CommentDetailScreenState extends State<CommentDetailScreen> {
             ),
           ),
           Container(width: screenWidth, height: 1, color: Color(0xffE5E5EA),),
+          CommentListWidget(name: 'Park Daeun', phoneNumber: '000-0000-0000', like: '4', date: '2024.10.07'),
         ],
       ),
     );
