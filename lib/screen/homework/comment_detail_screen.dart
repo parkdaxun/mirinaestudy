@@ -72,76 +72,77 @@ class _CommentDetailScreenState extends State<CommentDetailScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: CustomAppBar(title: '과제'),
-      body: Column(
-        children: [
-          Expanded(
-            child: Container(
-              width: screenWidth,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 17, bottom: 11, top: 22),
-                    child: Text(widget.title, style: TextStyle(fontFamily: 'NotoSansKRSemiBold', fontSize: 16, color: AppColors.blue)),
-                  ),
-                  Container(width: screenWidth, height: 1, color: Color(0xffE5E5EA),),
-                  DropdownContainer(),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 17, top: 22),
-                    child: Text('과제 내용', style: TextStyle(fontFamily: 'NotoSansKRMedium', color: AppColors.blue, fontSize: 15),),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 17, top: 12, right: 18, bottom: 31),
-                    child: Text(widget.contents, style: TextStyle(fontFamily: 'NotoSansKRRegular', color: AppColors.black, fontSize: 15),),
-                  ),
-                  Container(width: screenWidth, height: 1, color: Color(0xffE5E5EA),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Image.asset('assets/images/icons/heart_icon.png'),
-                        SizedBox(width: 5),
-                        Text('좋아요', style: TextStyle(fontFamily: 'NotoSansKRMedium', fontSize: 13, color: AppColors.grey)),
-                        SizedBox(width: 15),
-                        Container(
-                          child: Row(
-                            children: [
-                              Image.asset('assets/images/icons/chat_icon.png'),
-                              SizedBox(width: 5),
-                              Text('댓글', style: TextStyle(fontFamily: 'NotoSansKRMedium', fontSize: 13, color: AppColors.grey)),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Container(height: 12, color: Color(0xffE5E5EA),),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 17, top: 15, bottom: 10.5),
-                    child: Text.rich(
-                      TextSpan(
-                        children: [
-                          TextSpan(
-                            text: '댓글',
-                            style: TextStyle(fontFamily: 'NotoSansKRMedium', color: AppColors.black, fontSize: 15),
-                          ),
-                          const TextSpan(
-                            text: ' 총4개',
-                            style: TextStyle(fontFamily: 'NotoSansKRMedium', color: AppColors.grey, fontSize: 15),
-                          )
-                        ]
-                      ),
-                    ),
-                  ),
-                  Container(width: screenWidth, height: 1, color: Color(0xffE5E5EA),),
-                  Expanded(child: commentList(),),
-                ],
-              ),
-            ),
-          ),
-        ],
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Column(
+          children: [
+           Container(
+             width: screenWidth,
+             child: Column(
+               crossAxisAlignment: CrossAxisAlignment.start,
+               children: [
+                 Padding(
+                   padding: const EdgeInsets.only(left: 17, bottom: 11, top: 22),
+                   child: Text(widget.title, style: TextStyle(fontFamily: 'NotoSansKRSemiBold', fontSize: 16, color: AppColors.blue)),
+                 ),
+                 Container(width: screenWidth, height: 1, color: Color(0xffE5E5EA),),
+                 DropdownContainer(),
+                 Padding(
+                   padding: const EdgeInsets.only(left: 17, top: 22),
+                   child: Text('과제 내용', style: TextStyle(fontFamily: 'NotoSansKRMedium', color: AppColors.blue, fontSize: 15),),
+                 ),
+                 Padding(
+                   padding: const EdgeInsets.only(left: 17, top: 12, right: 18, bottom: 31),
+                   child: Text(widget.contents, style: TextStyle(fontFamily: 'NotoSansKRRegular', color: AppColors.black, fontSize: 15),),
+                 ),
+                 Container(width: screenWidth, height: 1, color: Color(0xffE5E5EA),
+                 ),
+                 Padding(
+                   padding: const EdgeInsets.all(16.0),
+                   child: Row(
+                     crossAxisAlignment: CrossAxisAlignment.center,
+                     children: [
+                       Image.asset('assets/images/icons/heart_icon.png'),
+                       SizedBox(width: 5),
+                       Text('좋아요', style: TextStyle(fontFamily: 'NotoSansKRMedium', fontSize: 13, color: AppColors.grey)),
+                       SizedBox(width: 15),
+                       Container(
+                         child: Row(
+                           children: [
+                             Image.asset('assets/images/icons/chat_icon.png'),
+                             SizedBox(width: 5),
+                             Text('댓글', style: TextStyle(fontFamily: 'NotoSansKRMedium', fontSize: 13, color: AppColors.grey)),
+                           ],
+                         ),
+                       ),
+                     ],
+                   ),
+                 ),
+                 Container(height: 12, color: Color(0xffE5E5EA),),
+                 Padding(
+                   padding: const EdgeInsets.only(left: 17, top: 15, bottom: 10.5),
+                   child: Text.rich(
+                     TextSpan(
+                         children: [
+                           TextSpan(
+                             text: '댓글',
+                             style: TextStyle(fontFamily: 'NotoSansKRMedium', color: AppColors.black, fontSize: 15),
+                           ),
+                           const TextSpan(
+                             text: ' 총4개',
+                             style: TextStyle(fontFamily: 'NotoSansKRMedium', color: AppColors.grey, fontSize: 15),
+                           ),
+                         ],
+                     ),
+                   ),
+                 ),
+                 Container(width: screenWidth, height: 1, color: Color(0xffE5E5EA),),
+                 commentList(),
+               ],
+             ),
+           ),
+          ],
+        ),
       ),
     );
   }
@@ -151,6 +152,8 @@ class _CommentDetailScreenState extends State<CommentDetailScreen> {
 
     return Center(
       child: ListView.builder(
+        shrinkWrap: true,
+        primary: false,
         physics: NeverScrollableScrollPhysics(),
         itemCount: comments.length,
         itemBuilder: (context, index) {
