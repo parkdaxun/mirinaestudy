@@ -12,6 +12,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         scaffoldBackgroundColor: Colors.white,
+        bottomSheetTheme: BottomSheetThemeData(
+          surfaceTintColor: Colors.transparent,
+        ),
       ),
       title: 'mirinea study',
       home: SplashScreen(),
