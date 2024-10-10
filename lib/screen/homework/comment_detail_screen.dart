@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mirinaestudy/widget/app_bar.dart';
 import 'package:mirinaestudy/widget/comment_list_wdiget.dart';
-
 import '../../colors.dart';
 
 class CommentDetailScreen extends StatefulWidget {
@@ -64,7 +63,6 @@ class _CommentDetailScreenState extends State<CommentDetailScreen> {
     ),
   ];
 
-
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -72,6 +70,25 @@ class _CommentDetailScreenState extends State<CommentDetailScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: CustomAppBar(title: '과제'),
+      bottomSheet: Padding(
+        padding: const EdgeInsets.only(bottom: 30),
+        child: SizedBox(
+          width: screenWidth*0.91,
+          height: 48,
+          child: ElevatedButton(
+            onPressed: () {
+              _showModal(context);
+            },
+            style: ElevatedButton.styleFrom(
+              backgroundColor: AppColors.blue,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+            ),
+            child: Text('댓글 작성', style: TextStyle(color: Colors.white, fontSize: 14, fontFamily: 'NotoSansKRSemiBold'),),
+          ),
+        ),
+      ),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
@@ -144,6 +161,125 @@ class _CommentDetailScreenState extends State<CommentDetailScreen> {
           ],
         ),
       ),
+    );
+  }
+
+  void _showModal(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+    double customPadding = screenHeight*0.22;
+
+    showModalBottomSheet(
+        context: context,
+        isScrollControlled: true,
+        builder: (context) {
+          return SizedBox(
+            height: screenHeight*0.88,
+            child: Container(
+              decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20))),
+              child: Padding(
+                padding: const EdgeInsets.only(left: 18, right: 18),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 20, top: 24.5),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [Image.asset('assets/images/icons/cancel_icon.png'),],
+                      ),
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('댓글 내용', style: TextStyle(color: AppColors.black, fontFamily: 'NotoSansKRMedium', fontSize: 15),),
+                        SizedBox(height: 9),
+                        TextField(
+                          maxLines: 15,
+                          decoration: InputDecoration(
+                            hintText: '댓글을 작성해주세요.',
+                            hintStyle: TextStyle(color: Color(0xffD4D8E0), fontSize: 15, fontFamily: 'NotoSansKRRegular'),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: const BorderSide(
+                                color: Color(0xffD4D8E0), width: 1),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            border: OutlineInputBorder(
+                              borderSide: const BorderSide(
+                                  color: Color(0xffD4D8E0), width: 1),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: const BorderSide(
+                                  color: Color(0xffD4D8E0), width: 1),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(top: customPadding),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Expanded(
+                                child: SizedBox(
+                                  height: 48,
+                                  child: ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: Colors.white,
+                                      surfaceTintColor: Colors.white,
+                                      shadowColor: Colors.transparent,
+                                      side: BorderSide(color: AppColors.blue, width: 1),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                    ),
+                                    onPressed: () {},
+                                    child: Text(
+                                      '취소',
+                                      style: TextStyle(
+                                          fontFamily: 'NotoSansKRSemiBold',
+                                          fontSize: 14,
+                                          color: AppColors.blue),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              SizedBox(width: 10),
+                              Expanded(
+                                child: SizedBox(
+                                  height: 48,
+                                  child: ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: AppColors.blue,
+                                      side: BorderSide(color: AppColors.blue, width: 1),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                    ),
+                                    onPressed: () {
+
+                                    },
+                                    child: Text(
+                                      '작성 완료',
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontFamily: 'NotoSansKRSemiBold',
+                                          fontSize: 14),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          );
+        }
     );
   }
 
