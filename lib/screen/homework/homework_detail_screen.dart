@@ -354,11 +354,7 @@ Future<void> _showMyDialog(BuildContext context) async {
                           ),
                         ),
                         TextButton(
-                          onPressed: () {
-                            setState(() {
-                              isSubmitted = true;
-                            });
-
+                          onPressed: () {setState(() {isSubmitted = true;});
                             Future.delayed(Duration(seconds: 2), () {
                               Navigator.of(context).pop();
                             });
