@@ -257,7 +257,7 @@ class _CommentDetailScreenState extends State<CommentDetailScreen> {
                                       ),
                                     ),
                                     onPressed: () {
-
+                                      _showMyDialog(context);
                                     },
                                     child: Text(
                                       '작성 완료',
@@ -283,9 +283,70 @@ class _CommentDetailScreenState extends State<CommentDetailScreen> {
     );
   }
 
-  Widget commentList() {
-    double screenWidth = MediaQuery.of(context).size.width;
+  Future<void> _showMyDialog(BuildContext context) async {
+    return showDialog<void>(
+      context: context,
+      barrierDismissible: true,
+      builder: (BuildContext context) {
+        bool isSubmitted = false;
 
+        return StatefulBuilder(builder: (BuildContext context, StateSetter setState) {
+          return AlertDialog(
+            backgroundColor: Colors.white,
+            surfaceTintColor: Colors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(15),
+            ),
+            content: Container(
+              height: 120,
+              width: MediaQuery.of(context).size.width*0.81,
+              decoration: BoxDecoration(
+                color: Colors.white,
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  if(isSubmitted)
+                    Container(
+                      width: 56,
+                      height: 56,
+                      decoration: BoxDecoration(color: Color(0xffE6F7FF), borderRadius: BorderRadius.circular(100)),
+                    ),
+                  if(!isSubmitted)
+                    SizedBox(
+                      height: 15,
+                    ),
+                  Text(
+                    isSubmitted ? '댓글이 추가 되었습니다.' : '댓글을 추가하시겠습니까?',
+                    style: TextStyle(
+                      color: AppColors.blue,
+                      fontSize: 15,
+                      fontFamily: 'NotoSansKRMedium',
+                    ),
+                  ),
+                  if(!isSubmitted)
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        TextButton(
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                          child: Text('취소', style: TextStyle(color: AppColors.grey, fontSize: 15, fontFamily: 'NotoSansKRMedium'),),
+                        ),
+                        Container(width: 1, height: 16, decoration: BoxDecoration(color: Color(0xffDEDEDE),),),
+                      ],
+                    ),
+                ],
+              ),
+            ),
+          );
+        });
+      }
+    );
+  }
+
+  Widget commentList() {
     return Center(
       child: ListView.builder(
         shrinkWrap: true,
