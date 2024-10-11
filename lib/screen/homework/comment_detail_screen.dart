@@ -185,7 +185,14 @@ class _CommentDetailScreenState extends State<CommentDetailScreen> {
                       padding: const EdgeInsets.only(bottom: 20, top: 24.5),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [Image.asset('assets/images/icons/cancel_icon.png'),],
+                        children: [
+                          GestureDetector(
+                            onTap: () {
+                              Navigator.of(context).pop();
+                            },
+                            child:  Image.asset('assets/images/icons/cancel_icon.png'),
+                          ),
+                        ],
                       ),
                     ),
                     Column(
@@ -233,7 +240,9 @@ class _CommentDetailScreenState extends State<CommentDetailScreen> {
                                         borderRadius: BorderRadius.circular(10),
                                       ),
                                     ),
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      Navigator.of(context).pop();
+                                    },
                                     child: Text(
                                       '취소',
                                       style: TextStyle(
@@ -311,6 +320,9 @@ class _CommentDetailScreenState extends State<CommentDetailScreen> {
                       width: 56,
                       height: 56,
                       decoration: BoxDecoration(color: Color(0xffE6F7FF), borderRadius: BorderRadius.circular(100)),
+                      child: Center(
+                        child: Image.asset('assets/images/icons/comment_icon.png'),
+                      ),
                     ),
                   if(!isSubmitted)
                     SizedBox(
@@ -335,6 +347,15 @@ class _CommentDetailScreenState extends State<CommentDetailScreen> {
                           child: Text('취소', style: TextStyle(color: AppColors.grey, fontSize: 15, fontFamily: 'NotoSansKRMedium'),),
                         ),
                         Container(width: 1, height: 16, decoration: BoxDecoration(color: Color(0xffDEDEDE),),),
+                        TextButton(
+                          onPressed: () {
+                            setState(() {isSubmitted = true;});
+                            Future.delayed(Duration(seconds: 2), () {
+                              Navigator.of(context).pop();
+                            });
+                          },
+                          child: Text('확인', style: TextStyle(color: Colors.blue, fontFamily: 'NotoSansKRMedium', fontSize: 15),),
+                        )
                       ],
                     ),
                 ],
