@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mirinaestudy/screen/payment_screen.dart';
 
 import '../colors.dart';
@@ -50,7 +51,7 @@ class HomeMenuWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset('assets/images/icons/$iconName.png'),
+            SvgPicture.asset('assets/images/icons/$iconName.svg'),
             Text(
               '$title',
               style: TextStyle(

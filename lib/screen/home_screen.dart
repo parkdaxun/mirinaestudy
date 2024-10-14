@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mirinaestudy/widget/app_bar.dart';
 import 'package:mirinaestudy/widget/home_menu.dart';
 import '../colors.dart';
@@ -34,12 +35,12 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 HomeMenuWidget(
                   title: '수업',
-                  iconName: 'class_active_icon',
+                  iconName: 'menu_class_icon',
                   screenName: 'ClassScreen',
                 ),
                 HomeMenuWidget(
                   title: '과제',
-                  iconName: 'homework_active_icon',
+                  iconName: 'menu_homework_icon',
                   screenName: 'HomeworkScreen',
                 ),
                 HomeMenuWidget(
@@ -121,10 +122,10 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           Padding(
             padding: const EdgeInsets.only(right: 19),
-            child: Image.asset(
+            child: SvgPicture.asset(
               width: 149,
               height: 79,
-              'assets/images/bigsize_pic.png',
+              'assets/images/bigsize_pic.svg',
               fit: BoxFit.fill,
             ),
           ),
