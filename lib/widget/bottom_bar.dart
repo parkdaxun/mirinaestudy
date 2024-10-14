@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../colors.dart';
 import '../screen/class_screen.dart';
@@ -66,14 +67,14 @@ class _BottomBarState extends State<BottomBar> {
                 icon: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Image.asset('assets/images/icons/home_icon.png'),
+                    SvgPicture.asset('assets/images/icons/home_icon.svg'),
                     SizedBox(height: 6),
                   ],
                 ),
                 activeIcon: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Image.asset('assets/images/icons/home_active_icon.png'),
+                    SvgPicture.asset('assets/images/icons/home_active_icon.svg'),
                     SizedBox(height: 6),
                   ],
                 ),
@@ -83,14 +84,14 @@ class _BottomBarState extends State<BottomBar> {
                 icon: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Image.asset('assets/images/icons/class_icon.png'),
+                    SvgPicture.asset('assets/images/icons/class_icon.svg'),
                     SizedBox(height: 6),
                   ],
                 ),
                 activeIcon: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Image.asset('assets/images/icons/class_active_icon.png'),
+                    SvgPicture.asset('assets/images/icons/class_active_icon.svg'),
                     SizedBox(height: 6),
                   ],
                 ),
@@ -100,14 +101,14 @@ class _BottomBarState extends State<BottomBar> {
                 icon: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Image.asset('assets/images/icons/homework_icon.png'),
+                    SvgPicture.asset('assets/images/icons/homework_icon.svg'),
                     SizedBox(height: 6),
                   ],
                 ),
                 activeIcon: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Image.asset('assets/images/icons/homework_active_icon.png'),
+                    SvgPicture.asset('assets/images/icons/homework_active_icon.svg'),
                     SizedBox(height: 6),
                   ],
                 ),
@@ -117,14 +118,14 @@ class _BottomBarState extends State<BottomBar> {
                 icon: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Image.asset('assets/images/icons/mypage_icon.png'),
+                    SvgPicture.asset('assets/images/icons/mypage_icon.svg'),
                     SizedBox(height: 6),
                   ],
                 ),
                 activeIcon: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Image.asset('assets/images/icons/mypage_active_icon.png'),
+                    SvgPicture.asset('assets/images/icons/mypage_active_icon.svg'),
                     SizedBox(height: 6),
                   ],
                 ),
