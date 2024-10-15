@@ -37,6 +37,8 @@ class Comment {
 }
 
 class _CommentDetailScreenState extends State<CommentDetailScreen> {
+  bool clicked = false;
+
   final List<Comment> comments = [
     Comment(
       name: 'Park Daeun',
@@ -94,7 +96,8 @@ class _CommentDetailScreenState extends State<CommentDetailScreen> {
         scrollDirection: Axis.vertical,
         child: Column(
           children: [
-           Container(
+           AnimatedContainer(
+             duration: Duration(milliseconds: 300),
              width: screenWidth,
              child: Column(
                crossAxisAlignment: CrossAxisAlignment.start,
@@ -105,6 +108,40 @@ class _CommentDetailScreenState extends State<CommentDetailScreen> {
                  ),
                  Container(width: screenWidth, height: 1, color: Color(0xffE5E5EA),),
                  DropdownContainer(),
+                 if(clicked)
+                   Padding(
+                     padding: const EdgeInsets.only(left: 17, right: 18, top: 20),
+                     child: Column(
+                       crossAxisAlignment: CrossAxisAlignment.start,
+                       children: [
+                         Text('Our platform is dedicated to assisting students in mastering their English assignments, from grammar and vocabulary to literature and essay writing. ',
+                         style: TextStyle(fontSize: 15, fontFamily: 'NotoSansKRRegular', color: AppColors.black),),
+                         SizedBox(height: 18),
+                         Row(
+                           children: [
+                             SvgPicture.asset('assets/images/icons/pdf_icon.svg'),
+                             SizedBox(width: 10),
+                             Text('Assignment 1 requirements', style: TextStyle(fontFamily: 'NotoSansKRRegular', color: AppColors.black, fontSize: 14),),
+                           ],
+                         ),
+                         SizedBox(height: 17),
+                         Text.rich(
+                           TextSpan(
+                             children: [
+                               TextSpan(
+                                 text: '마감 날짜 : ',
+                                 style: TextStyle(color: AppColors.black, fontFamily: 'NotoSansKRRegular',),
+                               ),
+                               TextSpan(
+                                   text: widget.endDate,
+                                   style: TextStyle(fontFamily: 'NotoSansKRRegular', fontSize: 14, color: Color(0xffFF5C5C))),],
+                           ),
+                         ),
+                         SizedBox(height: 24,),
+                         Container(height: 1, width: screenWidth, color: Color(0xffE5E5EA)),
+                       ],
+                     ),
+                   ),
                  Padding(
                    padding: const EdgeInsets.only(left: 17, top: 22),
                    child: Text('과제 내용', style: TextStyle(fontFamily: 'NotoSansKRMedium', color: AppColors.blue, fontSize: 15),),
@@ -393,47 +430,54 @@ class _CommentDetailScreenState extends State<CommentDetailScreen> {
   }
 
   Widget  DropdownContainer() {
-    return Container(
-      height: 74,
-      decoration: BoxDecoration(color: Color(0xffF2FBFF)),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 17),
-            child: Row(
-              children: [
-                SvgPicture.asset('assets/images/icons/book_icon.svg'),
-                SizedBox(
-                  width: 8,
-                ),
-                Text(
-                  '과제-2',
-                  style: TextStyle(
-                      fontFamily: 'NotoSansKRRegular',
-                      color: AppColors.black,
-                      fontSize: 15),
-                )
-              ],
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          clicked = !clicked;
+        });
+      },
+      child: Container(
+        height: 74,
+        decoration: BoxDecoration(color: Color(0xffF2FBFF)),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 17),
+              child: Row(
+                children: [
+                  SvgPicture.asset('assets/images/icons/book_icon.svg'),
+                  SizedBox(
+                    width: 8,
+                  ),
+                  Text(
+                    '과제-2',
+                    style: TextStyle(
+                        fontFamily: 'NotoSansKRRegular',
+                        color: AppColors.black,
+                        fontSize: 15),
+                  )
+                ],
+              ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 48.0, right: 17, top: 4),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  widget.endDate,
-                  style: TextStyle(
-                      fontFamily: 'NotoSansKRRegular',
-                      color: AppColors.grey,
-                      fontSize: 13),
-                ),
-                SvgPicture.asset('assets/images/icons/dropdown_icon.svg'),
-              ],
+            Padding(
+              padding: const EdgeInsets.only(left: 48.0, right: 17, top: 4),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    widget.endDate,
+                    style: TextStyle(
+                        fontFamily: 'NotoSansKRRegular',
+                        color: AppColors.grey,
+                        fontSize: 13),
+                  ),
+                  SvgPicture.asset(clicked ? 'assets/images/icons/dropdown_icon.svg' : 'assets/images/icons/clicked_dropdown_icon.svg'),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

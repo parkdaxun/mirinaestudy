@@ -143,8 +143,8 @@ class _HomeworkListWidgetState extends State<HomeworkListWidget> {
                         ),
                         Padding(
                           padding: const EdgeInsets.only(left: 7.5),
-                          child: Image.asset(
-                              'assets/images/icons/dropdown_icon.png'),
+                          child: SvgPicture.asset(
+                              'assets/images/icons/dropdown_icon.svg'),
                         ),
                       ],
                     ),

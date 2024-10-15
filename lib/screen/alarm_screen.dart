@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import '../colors.dart';
 import '../widget/alarm_list_widget.dart';
 
@@ -40,7 +41,7 @@ class _AlarmScreenState extends State<AlarmScreen> {
               '전체',
               style: TextStyle(color: AppColors.blue, fontSize: 14),
             ),
-            Image.asset('assets/images/icons/dropdown_icon.png'),
+            SvgPicture.asset('assets/images/icons/dropdown_icon.svg'),
           ],
         ),
       ),
