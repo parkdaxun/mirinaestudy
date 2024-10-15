@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:mirinaestudy/screen/account_select_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -23,7 +24,7 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       backgroundColor: Color(0xff3BA2F9),
       body: Center(
-        child: Image.asset('assets/images/mirinaestudy_white_logo.png'),
+        child: SvgPicture.asset('assets/images/mirinaestudy_white_logo.svg'),
       ),
     );
   }

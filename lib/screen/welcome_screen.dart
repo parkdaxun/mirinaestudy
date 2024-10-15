@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import '../colors.dart';
 
 class WelcomeScreen extends StatefulWidget {
@@ -22,7 +23,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             Padding(
               padding:
                   EdgeInsets.only(right: (screenWidth - welcomeTextWidth) / 2),
-              child: SizedBox(height: 42, child: Image.asset('assets/images/welcomescreen_pic.png')),
+              child: SizedBox(height: 42, child: SvgPicture.asset('assets/images/welcomescreen_pic.svg')),
             ),
             Center(
               child: Text(

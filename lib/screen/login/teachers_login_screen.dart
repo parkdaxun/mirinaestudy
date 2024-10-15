@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:mirinaestudy/screen/main_screen.dart';
 import 'package:mirinaestudy/screen/login/signup_screen.dart';
 import 'package:mirinaestudy/widget/app_bar.dart';
@@ -33,8 +34,8 @@ class _LoginScreenState extends State<LoginScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 SizedBox(height: screenHeight*0.092,),
-                Image.asset(
-                  'assets/images/mirinaestudy_logo.png',
+                SvgPicture.asset(
+                  'assets/images/mirinaestudy_logo.svg',
                   width: screenWidth * 0.561,
                   height: screenHeight * 0.1457,
                 ),

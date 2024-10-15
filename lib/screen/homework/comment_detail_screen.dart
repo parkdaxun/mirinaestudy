@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:mirinaestudy/widget/app_bar.dart';
 import 'package:mirinaestudy/widget/comment_list_wdiget.dart';
 import '../../colors.dart';
@@ -126,7 +127,7 @@ class _CommentDetailScreenState extends State<CommentDetailScreen> {
                        Container(
                          child: Row(
                            children: [
-                             Image.asset('assets/images/icons/chat_icon.png'),
+                             SvgPicture.asset('assets/images/icons/comment_icon.svg'),
                              SizedBox(width: 5),
                              Text('댓글', style: TextStyle(fontFamily: 'NotoSansKRMedium', fontSize: 13, color: AppColors.grey)),
                            ],
@@ -321,7 +322,7 @@ class _CommentDetailScreenState extends State<CommentDetailScreen> {
                       height: 56,
                       decoration: BoxDecoration(color: Color(0xffE6F7FF), borderRadius: BorderRadius.circular(100)),
                       child: Center(
-                        child: Image.asset('assets/images/icons/comment_icon.png'),
+                        child: SvgPicture.asset('assets/images/icons/submit_comment_icon.svg'),
                       ),
                     ),
                   if(!isSubmitted)
@@ -391,7 +392,7 @@ class _CommentDetailScreenState extends State<CommentDetailScreen> {
     );
   }
 
-  Widget DropdownContainer() {
+  Widget  DropdownContainer() {
     return Container(
       height: 74,
       decoration: BoxDecoration(color: Color(0xffF2FBFF)),
@@ -402,7 +403,7 @@ class _CommentDetailScreenState extends State<CommentDetailScreen> {
             padding: const EdgeInsets.only(left: 17),
             child: Row(
               children: [
-                Image.asset('assets/images/icons/book_icon.png'),
+                SvgPicture.asset('assets/images/icons/book_icon.svg'),
                 SizedBox(
                   width: 8,
                 ),
@@ -428,7 +429,7 @@ class _CommentDetailScreenState extends State<CommentDetailScreen> {
                       color: AppColors.grey,
                       fontSize: 13),
                 ),
-                Image.asset('assets/images/icons/dropdown_icon.png'),
+                SvgPicture.asset('assets/images/icons/dropdown_icon.svg'),
               ],
             ),
           ),

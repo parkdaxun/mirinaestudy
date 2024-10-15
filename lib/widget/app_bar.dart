@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:mirinaestudy/screen/alarm_screen.dart';
 import '../colors.dart';
 
@@ -56,8 +57,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         },
         child: Padding(
           padding: const EdgeInsets.fromLTRB(8, 8, 7, 8),
-          child: Image.asset(
-            'assets/images/icons/bell_icon.png',
+          child: SvgPicture.asset(
+            'assets/images/icons/bell_icon.svg',
             width: 22,
             height: 22,
           ),
@@ -67,8 +68,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         onTap: () {},
         child: Padding(
           padding: const EdgeInsets.fromLTRB(7, 8, 20, 8),
-          child: Image.asset(
-            'assets/images/icons/menu_icon.png',
+          child: SvgPicture.asset(
+            'assets/images/icons/menu_icon.svg',
             width: 22,
             height: 22,
           ),

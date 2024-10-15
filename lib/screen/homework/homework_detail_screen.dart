@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:mirinaestudy/widget/app_bar.dart';
 
 import '../../colors.dart';
@@ -219,8 +220,8 @@ class _HomeworkDetailScreenState extends State<HomeworkDetailScreen> {
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Image.asset(
-                                'assets/images/icons/file_upload_icon.png'),
+                            SvgPicture.asset(
+                                'assets/images/icons/file_upload_icon.svg'),
                             SizedBox(width: 9),
                             Text(
                               '파일 선택',
@@ -316,7 +317,7 @@ Future<void> _showMyDialog(BuildContext context) async {
                       height: 56,
                       decoration: BoxDecoration(color: Color(0xffE6F7FF), borderRadius: BorderRadius.circular(100)),
                       child: Center(
-                        child: Image.asset('assets/images/icons/blue_filled_paper_icon.png'),
+                        child: SvgPicture.asset('assets/images/icons/submit_icon.svg'),
                       ),
                     ),
                   if(!isSubmitted)

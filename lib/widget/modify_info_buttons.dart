@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../colors.dart';
 
@@ -32,7 +33,7 @@ class ModifyInfoButtons extends StatelessWidget {
                 color: Color(0xff7A8195),
               ),
             ),
-            Image.asset('assets/images/icons/next_icon.png'),
+            SvgPicture.asset('assets/images/icons/next_icon.svg'),
           ],
         ),
       ),
