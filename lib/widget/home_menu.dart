@@ -52,6 +52,7 @@ class HomeMenuWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SvgPicture.asset('assets/images/icons/$iconName.svg'),
+            SizedBox(height: 5),
             Text(
               '$title',
               style: TextStyle(

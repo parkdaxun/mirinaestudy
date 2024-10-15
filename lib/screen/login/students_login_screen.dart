@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:mirinaestudy/styles.dart';
 import 'package:mirinaestudy/widget/app_bar.dart';
 import 'package:mirinaestudy/widget/social_login_buttons.dart';
@@ -31,8 +32,8 @@ class _StudentsLoginScreenState extends State<StudentsLoginScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               SizedBox(height: screenHeight * 0.062,),
-              Image.asset(
-                'assets/images/mirinaestudy_logo.png',
+              SvgPicture.asset(
+                'assets/images/mirinaestudy_logo.svg',
                 height: screenHeight * 0.10781,
                 width: screenWidth * 0.42051,
               ),

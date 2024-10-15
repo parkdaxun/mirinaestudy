@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mirinaestudy/colors.dart';
 import 'package:mirinaestudy/screen/home_screen.dart';
 import 'package:mirinaestudy/styles.dart';
@@ -30,8 +31,8 @@ class _ParentsLoginScreenState extends State<ParentsLoginScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset(
-                'assets/images/mirinaestudy_logo.png',
+              SvgPicture.asset(
+                'assets/images/mirinaestudy_logo.svg',
                 width: screenWidth * 0.561,
                 height: screenHeight * 0.1457,
               ),

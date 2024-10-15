@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../colors.dart';
 
@@ -34,10 +35,10 @@ class _AlarmWidgetState extends State<AlarmListWidget> {
           children: [
             Padding(
               padding: const EdgeInsets.only(left: 18, top: 17, right: 10),
-              child: Image.asset(
+              child: SvgPicture.asset(
                 selected
-                    ? 'assets/images/icons/bell_filled_blue_icon.png'
-                    : 'assets/images/icons/bell_filled_grey_icon.png',
+                    ? 'assets/images/icons/bell_filled_blue_icon.svg'
+                    : 'assets/images/icons/bell_filled_grey_icon.svg',
               ),
             ),
             Column(

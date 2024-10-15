@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mirinaestudy/screen/login/parents_login_screen.dart';
 import '../colors.dart';
 import 'login/students_login_screen.dart';
@@ -35,8 +36,8 @@ class _AccountSelectScreenState extends State<AccountSelectScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Image.asset(
-              'assets/images/mirinaestudy_logo.png',
+            SvgPicture.asset(
+              'assets/images/mirinaestudy_logo.svg',
               width: screenWidth * 0.561,
               height: screenHeight * 0.1457,
             ),

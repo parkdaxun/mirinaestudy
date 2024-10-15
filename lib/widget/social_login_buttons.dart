@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class SocialLoginButtons extends StatelessWidget {
   @override
@@ -14,7 +15,10 @@ class SocialLoginButtons extends StatelessWidget {
             child: Container(
               width: 55,
               height: 55,
-              child: Image.asset('assets/images/google_logo.png'),
+              child: Padding(
+                padding: const EdgeInsets.all(15),
+                child: SvgPicture.asset('assets/images/google_logo.svg'),
+              ),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(10),
@@ -35,7 +39,10 @@ class SocialLoginButtons extends StatelessWidget {
           child: Container(
             width: 55,
             height: 55,
-            child: Image.asset('assets/images/microsoft_logo.png'),
+            child: Padding(
+              padding: const EdgeInsets.all(15),
+              child: SvgPicture.asset('assets/images/microsoft_logo.svg'),
+            ),
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(10),
@@ -57,7 +64,10 @@ class SocialLoginButtons extends StatelessWidget {
             child: Container(
               width: 55,
               height: 55,
-              child: Image.asset('assets/images/naver_logo.png'),
+              child: Padding(
+                padding: const EdgeInsets.all(15),
+                child: SvgPicture.asset('assets/images/naver_logo.svg'),
+              ),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(10),
@@ -78,7 +88,10 @@ class SocialLoginButtons extends StatelessWidget {
           child: Container(
             width: 55,
             height: 55,
-            child: Image.asset('assets/images/kakao_logo.png'),
+            child: Padding(
+              padding: const EdgeInsets.all(15),
+              child: SvgPicture.asset('assets/images/kakao_logo.svg'),
+            ),
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(10),

@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:mirinaestudy/screen/homework/comment_detail_screen.dart';
 import 'package:mirinaestudy/screen/homework/homework_detail_screen.dart';
 
@@ -141,8 +143,8 @@ class _HomeworkListWidgetState extends State<HomeworkListWidget> {
                         ),
                         Padding(
                           padding: const EdgeInsets.only(left: 7.5),
-                          child: Image.asset(
-                              'assets/images/icons/dropdown_icon.png'),
+                          child: SvgPicture.asset(
+                              'assets/images/icons/dropdown_icon.svg'),
                         ),
                       ],
                     ),
@@ -251,7 +253,7 @@ class _HomeworkListWidgetState extends State<HomeworkListWidget> {
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Image.asset('assets/images/icons/heart_icon.png'),
+                        SvgPicture.asset('assets/images/icons/heart_icon.svg'),
                         SizedBox(width: 5),
                         Text('좋아요',
                             style: TextStyle(
@@ -276,8 +278,8 @@ class _HomeworkListWidgetState extends State<HomeworkListWidget> {
                           child: Container(
                             child: Row(
                               children: [
-                                Image.asset(
-                                    'assets/images/icons/chat_icon.png'),
+                                SvgPicture.asset(
+                                    'assets/images/icons/comment_icon.svg'),
                                 SizedBox(width: 5),
                                 Text('댓글',
                                     style: TextStyle(
