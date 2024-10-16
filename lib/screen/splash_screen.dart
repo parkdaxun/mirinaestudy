@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import 'package:mirinaestudy/screen/account_select_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -16,7 +17,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   _navigateToAccountSelectScreen() async {
     await Future.delayed(Duration(milliseconds: 3000), () {});
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => AccountSelectScreen()),);
+    Get.to(() => AccountSelectScreen());
   }
 
   @override

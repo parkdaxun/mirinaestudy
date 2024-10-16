@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import 'package:mirinaestudy/screen/homework/comment_detail_screen.dart';
 import 'package:mirinaestudy/screen/homework/homework_detail_screen.dart';
 
@@ -218,17 +219,12 @@ class _HomeworkListWidgetState extends State<HomeworkListWidget> {
                             ),
                           ),
                           onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => HomeworkDetailScreen(
-                                  title: widget.title,
-                                  status: widget.status,
-                                  date: widget.date,
-                                  contents: widget.contents,
-                                  endDate: widget.endDate,
-                                ),
-                              ),
+                            Get.to(() => HomeworkDetailScreen(
+                              title: widget.title,
+                              status: widget.status,
+                              date: widget.date,
+                              contents: widget.contents,
+                              endDate: widget.endDate,),
                             );
                           },
                           child: Text(
@@ -263,17 +259,12 @@ class _HomeworkListWidgetState extends State<HomeworkListWidget> {
                         SizedBox(width: 15),
                         GestureDetector(
                           onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => CommentDetailScreen(
-                                    title: widget.title,
-                                    date: widget.date,
-                                    contents: widget.contents,
-                                    endDate: widget.endDate,
-                                  ),
-                              ),
-                            );
+                            Get.to(() => CommentDetailScreen(
+                              title: widget.title,
+                              date: widget.date,
+                              contents: widget.contents,
+                              endDate: widget.endDate,
+                            ));
                           },
                           child: Container(
                             child: Row(

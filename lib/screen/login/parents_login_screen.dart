@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:mirinaestudy/colors.dart';
 import 'package:mirinaestudy/screen/home_screen.dart';
 import 'package:mirinaestudy/styles.dart';
@@ -119,7 +120,7 @@ class _ParentsLoginScreenState extends State<ParentsLoginScreen> {
                 child: Text(
                   '확인', style: TextStyle(color: Colors.white, fontSize: 14, fontFamily: 'NotoSansKRSemiBold'),),
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => MainScreen()));
+                  Get.to(() => MainScreen());
                 },
                 style: TextButton.styleFrom(
                   elevation: 0,

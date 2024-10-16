@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:mirinaestudy/screen/login/parents_login_screen.dart';
 import '../colors.dart';
 import 'login/students_login_screen.dart';
@@ -19,10 +20,7 @@ class _AccountSelectScreenState extends State<AccountSelectScreen> {
       print(_accountType);
     });
 
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => LoginScreen(accountType: _accountType),),
-    );
+    Get.to(() => LoginScreen(accountType: _accountType));
   }
 
   @override
@@ -133,10 +131,7 @@ class _AccountSelectScreenState extends State<AccountSelectScreen> {
                   style: TextStyle(fontFamily: 'NotoSansKRSemiBold', color: Colors.white, fontSize: 15),
                 ),
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => StudentsLoginScreen()),
-                  );
+                  Get.to(() => StudentsLoginScreen());
                 },
               ),
             ),
@@ -161,10 +156,7 @@ class _AccountSelectScreenState extends State<AccountSelectScreen> {
                   style: TextStyle(fontFamily: 'NotoSansKRSemiBold', color: Colors.white, fontSize: 15),
                 ),
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => ParentsLoginScreen()),
-                  );
+                  Get.to(() => ParentsLoginScreen());
                 },
               ),
             ),

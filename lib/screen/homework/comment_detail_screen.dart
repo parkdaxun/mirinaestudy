@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import 'package:mirinaestudy/widget/app_bar.dart';
 import 'package:mirinaestudy/widget/comment_list_wdiget.dart';
 import '../../colors.dart';
@@ -157,7 +158,7 @@ class _CommentDetailScreenState extends State<CommentDetailScreen> {
                    child: Row(
                      crossAxisAlignment: CrossAxisAlignment.center,
                      children: [
-                       Image.asset('assets/images/icons/heart_icon.png'),
+                       SvgPicture.asset('assets/images/icons/heart_icon.svg'),
                        SizedBox(width: 5),
                        Text('좋아요', style: TextStyle(fontFamily: 'NotoSansKRMedium', fontSize: 13, color: AppColors.grey)),
                        SizedBox(width: 15),
@@ -226,7 +227,7 @@ class _CommentDetailScreenState extends State<CommentDetailScreen> {
                         children: [
                           GestureDetector(
                             onTap: () {
-                              Navigator.of(context).pop();
+                              Get.back();
                             },
                             child:  Image.asset('assets/images/icons/cancel_icon.png'),
                           ),
@@ -279,7 +280,7 @@ class _CommentDetailScreenState extends State<CommentDetailScreen> {
                                       ),
                                     ),
                                     onPressed: () {
-                                      Navigator.of(context).pop();
+                                      Get.back();
                                     },
                                     child: Text(
                                       '취소',
@@ -380,7 +381,7 @@ class _CommentDetailScreenState extends State<CommentDetailScreen> {
                       children: [
                         TextButton(
                           onPressed: () {
-                            Navigator.of(context).pop();
+                            Get.back();
                           },
                           child: Text('취소', style: TextStyle(color: AppColors.grey, fontSize: 15, fontFamily: 'NotoSansKRMedium'),),
                         ),
@@ -389,7 +390,7 @@ class _CommentDetailScreenState extends State<CommentDetailScreen> {
                           onPressed: () {
                             setState(() {isSubmitted = true;});
                             Future.delayed(Duration(seconds: 2), () {
-                              Navigator.of(context).pop();
+                              Get.back();
                             });
                           },
                           child: Text('확인', style: TextStyle(color: Colors.blue, fontFamily: 'NotoSansKRMedium', fontSize: 15),),
