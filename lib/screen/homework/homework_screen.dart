@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import 'package:mirinaestudy/widget/homework_list_widget.dart';
 import 'package:mirinaestudy/widget/showFilterModalWidget.dart';
 import '../../colors.dart';
@@ -134,7 +136,7 @@ class _HomeworkScreenState extends State<HomeworkScreen> {
                       // 아래쪽 반투명 배경
                       GestureDetector(
                         onTap: () {
-                          Navigator.pop(context);
+                          Get.back();
                         },
                         child: Container(
                           height: screenHeight -
@@ -186,7 +188,7 @@ class _HomeworkScreenState extends State<HomeworkScreen> {
                       style: TextStyle(color: AppColors.grey, fontSize: 14),
                     ),
                   ),
-                  Image.asset('assets/images/icons/dropdown_icon.png'),
+                  SvgPicture.asset('assets/images/icons/dropdown_icon.svg'),
                 ],
               ),
             ],

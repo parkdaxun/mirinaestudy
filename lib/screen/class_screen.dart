@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
 import '../colors.dart';
 import '../widget/app_bar.dart';
 import '../widget/class_list_widget.dart';
@@ -244,7 +245,7 @@ Future<void> _showMyDialog(BuildContext context) async {
                           children: [
                             TextButton(
                               onPressed: () {
-                                Navigator.of(context).pop();
+                                Get.back();
                               },
                               child: Text(
                                 '취소',
@@ -268,7 +269,7 @@ Future<void> _showMyDialog(BuildContext context) async {
                                 });
 
                                 Future.delayed(Duration(seconds: 2), () {
-                                  Navigator.of(context).pop();
+                                  Get.back();
                                 });
                               },
                               child: Text(

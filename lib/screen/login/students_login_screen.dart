@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import 'package:mirinaestudy/styles.dart';
 import 'package:mirinaestudy/widget/app_bar.dart';
 import 'package:mirinaestudy/widget/social_login_buttons.dart';
@@ -218,12 +219,7 @@ class _StudentsLoginScreenState extends State<StudentsLoginScreen> {
                     fontFamily: 'NotoSansKRSemiBold'),
               ),
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => MainScreen(),
-                  ),
-                );
+                Get.to(() => MainScreen());
               },
             ),
           ),
@@ -262,10 +258,7 @@ class _StudentsLoginScreenState extends State<StudentsLoginScreen> {
                         fontFamily: 'NotoSansKRSemiBold'), // 텍스트 스타일
                   ),
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => SignUpScreen()),
-                    );
+                    Get.to(() => SignUpScreen());
                   },
                 ),
               ),

@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../colors.dart';
 
@@ -65,7 +66,7 @@ class _CommentListWidgetState extends State<CommentListWidget> {
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Image.asset('assets/images/icons/heart_icon.png'),
+                            SvgPicture.asset('assets/images/icons/heart_icon.svg'),
                             SizedBox(width: 3,),
                             Text(widget.like, style: TextStyle(fontFamily: 'NotoSansKRMedium', color: AppColors.grey, fontSize: 13),),
                           ],

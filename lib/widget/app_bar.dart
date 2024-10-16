@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import 'package:mirinaestudy/screen/alarm_screen.dart';
 import '../colors.dart';
 
@@ -53,7 +54,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     return [
       GestureDetector(
         onTap: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => AlarmScreen()));
+          Get.to(() => AlarmScreen());
         },
         child: Padding(
           padding: const EdgeInsets.fromLTRB(8, 8, 7, 8),

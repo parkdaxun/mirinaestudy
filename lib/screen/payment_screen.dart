@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mirinaestudy/widget/app_bar.dart';
 import 'package:mirinaestudy/widget/payment_list_widget.dart';
 
@@ -115,7 +116,7 @@ class _PaymentScreenState extends State<PaymentScreen> {
                       // 아래쪽 반투명 배경
                       GestureDetector(
                         onTap: () {
-                          Navigator.pop(context);
+                          Get.back();
                         },
                         child: Container(
                           height: screenHeight -

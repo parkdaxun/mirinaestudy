@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:mirinaestudy/screen/payment_screen.dart';
 
 import '../colors.dart';
@@ -27,10 +28,7 @@ class HomeMenuWidget extends StatelessWidget {
 
     return GestureDetector(
       onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => _getScreen(screenName)),
-        );
+        Get.to(() => _getScreen(screenName));
       },
       child: Container(
         width: screenWidth * 0.2,

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import 'package:mirinaestudy/screen/main_screen.dart';
 import 'package:mirinaestudy/screen/login/signup_screen.dart';
 import 'package:mirinaestudy/widget/app_bar.dart';
@@ -212,12 +213,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => MainScreen(),
-                  ),
-                );
+                Get.to(() => MainScreen());
               },
             ),
           ),
@@ -257,10 +253,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ), // 텍스트 스타일
                   ),
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => SignUpScreen()),
-                    );
+                    Get.to(() => SignUpScreen());
                   },
                 ),
               ),

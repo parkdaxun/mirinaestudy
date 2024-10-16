@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:mirinaestudy/screen/modify_info_screen.dart';
 import '../colors.dart';
 import '../widget/app_bar.dart';
@@ -28,10 +29,7 @@ class _MypageScreenState extends State<MypageScreen> {
                   style: TextStyle(color: Colors.black),
                 ),
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => ModifyInfoScreen(),),
-                  );
+                  Get.to(() => ModifyInfoScreen());
                 },
               )),
             )
