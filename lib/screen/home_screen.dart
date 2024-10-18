@@ -64,7 +64,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 HomeMenuWidget(
                   title: '교실',
                   iconName: 'classroom_icon',
-                  screenName: 'ClassScreen',
+                  screenName: 'ClassroomScreen',
                 ),
                 HomeMenuWidget(
                   title: '성적표',
