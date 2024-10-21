@@ -126,11 +126,23 @@ class _ClassroomPostWidgetState extends State<ClassroomPostWidget> {
                           child: Text('Practise your listening, writing and speaking and learn useful language to use at work or to communicate.',
                             style: TextStyle(fontFamily: 'NotoSansKRRegular', fontSize: 14, color: AppColors.black),),
                         ),
-                        //Row(
-                        //  children: [
-                        //    SvgPicture.asset('assets/images/icons/heart_icon.svg'),
-                        //  ],
-                        //)
+                        Padding(
+                          padding: const EdgeInsets.only(left: 47, right: 17, top: 9, bottom: 30),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                             Row(
+                               crossAxisAlignment: CrossAxisAlignment.center,
+                               children: [
+                                 SvgPicture.asset('assets/images/icons/heart_icon.svg'),
+                                 SizedBox(width: 5),
+                                 Text('좋아요 3', style: TextStyle(fontFamily: 'NotoSansKRRegular', fontSize: 12, color: AppColors.grey),),
+                               ],
+                             ),
+                             Text('2024.08.15 오후 05:30', style: TextStyle(fontFamily: 'NotoSansKRRegular', fontSize: 12, color: AppColors.grey)),
+                           ],
+                          ),
+                        )
                       ],
                     ),
                   ),
