@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../colors.dart';
+import '../../colors.dart';
 
 class ClassroomPostWidget extends StatefulWidget {
   final String name;
@@ -44,6 +44,7 @@ class _ClassroomPostWidgetState extends State<ClassroomPostWidget> {
         ],
       ),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
             padding: const EdgeInsets.only(top: 18.0, left: 17, right: 17),
@@ -54,9 +55,9 @@ class _ClassroomPostWidgetState extends State<ClassroomPostWidget> {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Robert Smith', style: TextStyle(fontFamily: 'NotoSansKRSemiBold', fontSize: 16, color: AppColors.black),),
+                    Text(widget.name, style: TextStyle(fontFamily: 'NotoSansKRSemiBold', fontSize: 16, color: AppColors.black),),
                     SizedBox(height: 4,),
-                    Text('2024.08.30 오후 02:28', style: TextStyle(fontFamily: 'NotoSansKRRegular', fontSize: 13, color: AppColors.grey),),
+                    Text(widget.date, style: TextStyle(fontFamily: 'NotoSansKRRegular', fontSize: 13, color: AppColors.grey),),
                   ],
                 ),
                 SvgPicture.asset('assets/images/icons/dot_setting_icon.svg'),
@@ -65,7 +66,8 @@ class _ClassroomPostWidgetState extends State<ClassroomPostWidget> {
           ),
           Padding(
             padding: const EdgeInsets.only(left: 17, top: 24, right: 17, bottom: 24),
-            child: Text('This paper investigates the cognitive processes involved in English word recognition among young EFL learners using eye-tracking methodology. A quasi-experimental mixed method design was used to investigate how young.',
+            child: Text(
+              widget.content,
               style: TextStyle(fontFamily: 'NotoSansKRRegular', fontSize: 15, color: AppColors.black),),
           ),
           Container(height: 1, color: Color(0xffE5E5EA),),
@@ -76,7 +78,7 @@ class _ClassroomPostWidgetState extends State<ClassroomPostWidget> {
               children: [
                 SvgPicture.asset('assets/images/icons/heart_icon.svg'),
                 SizedBox(width: 3),
-                Text('좋아요 3', style: TextStyle(fontFamily: 'NotoSansKRRegular', fontSize: 13, color: AppColors.grey),),
+                Text('좋아요 ${widget.like}', style: TextStyle(fontFamily: 'NotoSansKRRegular', fontSize: 13, color: AppColors.grey),),
                 SizedBox(width: 9),
                 GestureDetector(
                   onTap: () {
@@ -88,7 +90,7 @@ class _ClassroomPostWidgetState extends State<ClassroomPostWidget> {
                     children: [
                       SvgPicture.asset('assets/images/icons/comment_icon.svg'),
                       SizedBox(width: 3),
-                      Text('댓글 4', style: TextStyle(fontFamily: 'NotoSansKRRegular', fontSize: 13, color: AppColors.grey),),
+                      Text('댓글 ${widget.comment}', style: TextStyle(fontFamily: 'NotoSansKRRegular', fontSize: 13, color: AppColors.grey),),
                     ],
                   ),
                 ),
@@ -126,11 +128,23 @@ class _ClassroomPostWidgetState extends State<ClassroomPostWidget> {
                           child: Text('Practise your listening, writing and speaking and learn useful language to use at work or to communicate.',
                             style: TextStyle(fontFamily: 'NotoSansKRRegular', fontSize: 14, color: AppColors.black),),
                         ),
-                        //Row(
-                        //  children: [
-                        //    SvgPicture.asset('assets/images/icons/heart_icon.svg'),
-                        //  ],
-                        //)
+                        Padding(
+                          padding: const EdgeInsets.only(left: 47, right: 17, top: 9, bottom: 30),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                             Row(
+                               crossAxisAlignment: CrossAxisAlignment.center,
+                               children: [
+                                 SvgPicture.asset('assets/images/icons/heart_icon.svg'),
+                                 SizedBox(width: 5),
+                                 Text('좋아요 3', style: TextStyle(fontFamily: 'NotoSansKRRegular', fontSize: 12, color: AppColors.grey),),
+                               ],
+                             ),
+                             Text('2024.08.15 오후 05:30', style: TextStyle(fontFamily: 'NotoSansKRRegular', fontSize: 12, color: AppColors.grey)),
+                           ],
+                          ),
+                        )
                       ],
                     ),
                   ),
