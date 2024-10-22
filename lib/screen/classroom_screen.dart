@@ -58,6 +58,7 @@ class _ClassroomScreenState extends State<ClassroomScreen> {
       appBar: CustomAppBar(title: '교실'),
       body: Column(
           children: [
+            SearchBarWidget(),
             Padding(
               padding: const EdgeInsets.only(top: 26, bottom: 13),
               child: AddClassWidget(),
@@ -95,6 +96,39 @@ class _ClassroomScreenState extends State<ClassroomScreen> {
             );
           },
           itemCount: posts.length,
+        ),
+      ),
+    );
+  }
+
+  Widget SearchBarWidget() {
+    return Container(
+      height: 47,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        border: Border(
+          bottom: BorderSide(
+            color: Color(0xffE5E5EA),
+            width: 1,
+          ),
+        ),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.only(left: 17, right: 17),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(
+              children: [
+                Text('게시판', style: TextStyle(fontFamily: 'NotoSansKRMedium', fontSize: 15, color: AppColors.blue),),
+                SizedBox(width: 21),
+                Text('자료', style: TextStyle(fontFamily: 'NotoSansKRMedium', fontSize: 15, color: AppColors.grey),),
+                SizedBox(width: 21),
+                Text('학생', style: TextStyle(fontFamily: 'NotoSansKRMedium', fontSize: 15, color: AppColors.grey),),
+              ],
+            ),
+            SvgPicture.asset(height: 18, width: 18, 'assets/images/icons/search_icon.svg'),
+          ],
         ),
       ),
     );

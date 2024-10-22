@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:mirinaestudy/widget/classroom/classroom_comment_widget.dart';
 
 import '../../colors.dart';
 
@@ -24,7 +25,47 @@ class ClassroomPostWidget extends StatefulWidget {
   _ClassroomPostWidgetState createState() => _ClassroomPostWidgetState();
 }
 
+class CommentList {
+  String name;
+  String studentNumber;
+  int like;
+  String comment;
+  String date;
+
+  CommentList({
+    required this.name,
+    required this.studentNumber,
+    required this.like,
+    required this.comment,
+    required this.date,
+  });
+}
+
 class _ClassroomPostWidgetState extends State<ClassroomPostWidget> {
+  final List<CommentList> comments = [
+    CommentList(
+      name: 'Park Daeun',
+      studentNumber: '000-1234-1234',
+      date: '2024.08.22 오후 06:30',
+      like: 3,
+      comment: 'Where there is a will there is a way',
+    ),
+    CommentList(
+      name: 'Park Daeun',
+      studentNumber: '000-1234-1234',
+      date: '2024.08.22 오후 06:30',
+      like: 3,
+      comment: 'Where there is a will there is a way',
+    ),
+    CommentList(
+      name: 'Park Daeun',
+      studentNumber: '000-1234-1234',
+      date: '2024.08.22 오후 06:30',
+      like: 3,
+      comment: 'Where there is a will there is a way',
+    ),
+  ];
+
   bool commentClicked = false;
 
   @override
@@ -98,60 +139,38 @@ class _ClassroomPostWidgetState extends State<ClassroomPostWidget> {
             ),
           ),
           if (commentClicked)
-            Container(
-              child: Column(
-                children: [
-                  Container(height: 1, color: Color(0xffE5E5EA),),
-                  Container(
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(top: 18.0, left: 47, right: 17),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text('Bessie Cooper', style: TextStyle(fontFamily: 'NotoSansKRSemiBold', fontSize: 16, color: AppColors.black),),
-                                  SizedBox(height: 4,),
-                                  Text('0000-00000-000', style: TextStyle(fontFamily: 'NotoSansKRRegular', fontSize: 13, color: AppColors.grey),),
-                                ],
-                              ),
-                              SvgPicture.asset('assets/images/icons/dot_setting_icon.svg'),
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 47, right: 17, top: 7),
-                          child: Text('Practise your listening, writing and speaking and learn useful language to use at work or to communicate.',
-                            style: TextStyle(fontFamily: 'NotoSansKRRegular', fontSize: 14, color: AppColors.black),),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 47, right: 17, top: 9, bottom: 30),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                             Row(
-                               crossAxisAlignment: CrossAxisAlignment.center,
-                               children: [
-                                 SvgPicture.asset('assets/images/icons/heart_icon.svg'),
-                                 SizedBox(width: 5),
-                                 Text('좋아요 3', style: TextStyle(fontFamily: 'NotoSansKRRegular', fontSize: 12, color: AppColors.grey),),
-                               ],
-                             ),
-                             Text('2024.08.15 오후 05:30', style: TextStyle(fontFamily: 'NotoSansKRRegular', fontSize: 12, color: AppColors.grey)),
-                           ],
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ],
-              ),
+            Column(
+              children: [
+                Container(height: 1, color: Color(0xffE5E5EA),),
+                commentList(),
+              ],
             ),
         ],
+      ),
+    );
+  }
+
+  Widget commentList() {
+    double screenWidth = MediaQuery.of(context).size.width;
+
+    return Center(
+      child: SizedBox(
+        width: screenWidth*0.91,
+        child: ListView.builder(
+          shrinkWrap: true,
+          physics: BouncingScrollPhysics(),
+          itemBuilder: (context, index) {
+              final commentList = comments[index];
+              return ClassroomCommentWidget(
+                    name: commentList.name,
+                    studentNumber: commentList.studentNumber,
+                    comment: commentList.comment,
+                    like: commentList.like,
+                    date: commentList.date,
+              );
+            },
+          itemCount: comments.length,
+        ),
       ),
     );
   }

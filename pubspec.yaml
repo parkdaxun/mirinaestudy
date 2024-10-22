@@ -30,28 +30,49 @@ flutter:
   fonts:
     - family: NotoSansKRBold
       fonts:
-        - asset: assets/fonts/NotoSansKR-Bold.ttf
+        - asset: assets/fonts/NotoSansKR/NotoSansKR-Bold.ttf
     - family: NotoSansKRExtraBold
       fonts:
-        - asset: assets/fonts/NotoSansKR-ExtraBold.ttf
+        - asset: assets/fonts/NotoSansKR/NotoSansKR-ExtraBold.ttf
     - family: NotoSansKRExtraLight
       fonts:
-        - asset: assets/fonts/NotoSansKR-ExtraLight.ttf
+        - asset: assets/fonts/NotoSansKR/NotoSansKR-ExtraLight.ttf
     - family: NotoSansKRLight
       fonts:
-        - asset: assets/fonts/NotoSansKR-Light.ttf
+        - asset: assets/fonts/NotoSansKR/NotoSansKR-Light.ttf
     - family: NotoSansKRMedium
       fonts:
-        - asset: assets/fonts/NotoSansKR-Medium.ttf
+        - asset: assets/fonts/NotoSansKR/NotoSansKR-Medium.ttf
     - family: NotoSansKRRegular
       fonts:
-        - asset: assets/fonts/NotoSansKR-Regular.ttf
+        - asset: assets/fonts/NotoSansKR/NotoSansKR-Regular.ttf
     - family: NotoSansKRSemiBold
       fonts:
-        - asset: assets/fonts/NotoSansKR-SemiBold.ttf
+        - asset: assets/fonts/NotoSansKR/NotoSansKR-SemiBold.ttf
     - family: NotoSansKRThin
       fonts:
-        - asset: assets/fonts/NotoSansKR-Thin.ttf
+        - asset: assets/fonts/NotoSansKR/NotoSansKR-Thin.ttf
+    - family: NunitoSansBold
+      fonts:
+        - asset: assets/fonts/NunitoSans/NunitoSans_10pt-Bold.ttf
+    - family: NunitoSansExtraBold
+      fonts:
+        - asset: assets/fonts/NunitoSans/NunitoSans_10pt-ExtraBold.ttf
+    - family: NunitoSansExtraLight
+      fonts:
+        - asset: assets/fonts/NunitoSans/NunitoSans_10pt-ExtraLight.ttf
+    - family: NunitoSansLight
+      fonts:
+        - asset: assets/fonts/NunitoSans/NunitoSans_10pt-Light.ttf
+    - family: NunitoSansMedium
+      fonts:
+        - asset: assets/fonts/NunitoSans/NunitoSans_10pt-Medium.ttf
+    - family: NunitoSansRegular
+      fonts:
+        - asset: assets/fonts/NunitoSans/NunitoSans_10pt-Regular.ttf
+    - family: NunitoSansSemiBold
+      fonts:
+        - asset: assets/fonts/NunitoSans/NunitoSans_10pt-SemiBold.ttf
 
   uses-material-design: true
 
