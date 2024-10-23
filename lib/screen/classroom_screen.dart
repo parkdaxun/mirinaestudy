@@ -5,6 +5,7 @@ import 'package:mirinaestudy/widget/app_bar.dart';
 
 import '../colors.dart';
 import '../widget/classroom/classroom_post_widget.dart';
+import '../widget/document_list_widget.dart';
 
 class ClassroomScreen extends StatefulWidget {
   _ClassroomScreenState createState() => _ClassroomScreenState();
@@ -26,7 +27,21 @@ class PostList {
   });
 }
 
+class DocumentList {
+  String name;
+  String details;
+  String type;
+
+  DocumentList({
+    required this.name,
+    required this.details,
+    required this.type,
+  });
+}
+
 class _ClassroomScreenState extends State<ClassroomScreen> {
+  int category = 1;
+
   final List<PostList> posts = [
     PostList(
       name: 'Park Daeun',
@@ -51,25 +66,101 @@ class _ClassroomScreenState extends State<ClassroomScreen> {
     ),
   ];
 
+  final List<DocumentList> documents = [
+    DocumentList(
+      name: 'Chapter 1, Lesson 5',
+      details: '40KB, Microsoft edge PDF document',
+      type: 'pdf',
+    ),
+    DocumentList(
+      name: 'Chapter 2, Lesson 2',
+      details: '40KB, Microsoft Word document',
+      type: 'word',
+    ),
+    DocumentList(
+      name: 'Chapter 3, Lesson 5',
+      details: '40KB, Microsoft word document',
+      type: 'word',
+    ),
+    DocumentList(
+      name: 'Chapter 8, Lesson 2',
+      details: '40KB, Microsoft edge PDF document',
+      type: 'pdf',
+    ),
+  ];
+
+
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
-      backgroundColor: AppColors.fillGrey,
+      backgroundColor: category == 2 ? Colors.white : AppColors.fillGrey ,
       appBar: CustomAppBar(title: '교실'),
       body: Column(
-          children: [
-            SearchBarWidget(),
-            Padding(
-              padding: const EdgeInsets.only(top: 26, bottom: 13),
-              child: AddClassWidget(),
+        children: [
+          SearchBarWidget(),
+          Expanded(
+            child: category == 1
+                ? Container(
+                  width: screenWidth * 0.91,
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(top: 26, bottom: 13),
+                        child: AddClassWidget(),
+                      ),
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.only(bottom: 13),
+                          child: postList(),
+                        ),
+                      ),
+                    ],
+                  ),
+                )
+                : category == 2
+                ? Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(top: 15, bottom: 25),
+                      child: Text('총 파일 3개', style: TextStyle(fontFamily: 'NotoSansKRRegular', fontSize: 14, color: AppColors.grey),),
+                    ),
+                    Expanded(child: documentList()),
+                  ],
+            )
+                : category == 3
+                ? Column(
+              children: [
+                // Category 3의 컨텐츠 추가
+              ],
+            )
+                : Center(child: Text('No category selected')), // 기본값
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget documentList() {
+    return Container(
+      width: MediaQuery.of(context).size.width*0.91,
+      child: ListView.builder(
+        shrinkWrap: true,
+        physics: BouncingScrollPhysics(),
+        itemBuilder: (context, index) {
+          final documentList = documents[index];
+          return Padding(
+            padding: const EdgeInsets.only(bottom: 31),
+            child: DocumentListWidget(
+                name: documentList.name,
+                details: documentList.details,
+                type: documentList.type,
             ),
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.only(bottom: 13),
-                child: postList(),
-              ),
-            ),
-          ],
+          );
+        },
+        itemCount: posts.length,
       ),
     );
   }
@@ -81,6 +172,7 @@ class _ClassroomScreenState extends State<ClassroomScreen> {
       child: SizedBox(
         width: screenWidth*0.91,
         child: ListView.builder(
+          shrinkWrap: true,
           physics: BouncingScrollPhysics(),
           itemBuilder: (context, index) {
             final postList = posts[index];
@@ -120,11 +212,35 @@ class _ClassroomScreenState extends State<ClassroomScreen> {
           children: [
             Row(
               children: [
-                Text('게시판', style: TextStyle(fontFamily: 'NotoSansKRMedium', fontSize: 15, color: AppColors.blue),),
+                GestureDetector(
+                  child: Text('게시판', style: TextStyle(fontFamily: 'NotoSansKRMedium', fontSize: 15, color: category == 1 ? AppColors.blue : AppColors.grey ),),
+                  onTap: () {
+                    setState(() {
+                      category = 1;
+                      print('게시판');
+                    });
+                  },
+                ),
                 SizedBox(width: 21),
-                Text('자료', style: TextStyle(fontFamily: 'NotoSansKRMedium', fontSize: 15, color: AppColors.grey),),
+                GestureDetector(
+                  child: Text('자료', style: TextStyle(fontFamily: 'NotoSansKRMedium', fontSize: 15, color: category == 2 ? AppColors.blue : AppColors.grey ),),
+                  onTap: () {
+                    setState(() {
+                      category = 2;
+                      print('자료');
+                    });
+                  },
+                ),
                 SizedBox(width: 21),
-                Text('학생', style: TextStyle(fontFamily: 'NotoSansKRMedium', fontSize: 15, color: AppColors.grey),),
+                GestureDetector(
+                  child: Text('학생', style: TextStyle(fontFamily: 'NotoSansKRMedium', fontSize: 15, color: category == 3 ? AppColors.blue : AppColors.grey ),),
+                  onTap: () {
+                    setState(() {
+                      category = 3;
+                      print('학생');
+                    });
+                  },
+                )
               ],
             ),
             SvgPicture.asset(height: 18, width: 18, 'assets/images/icons/search_icon.svg'),
