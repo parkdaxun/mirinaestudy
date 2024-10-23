@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 
 import '../colors.dart';
 
-class ClassListWidget extends StatefulWidget {
+class MyClassListWidget extends StatefulWidget {
   final String className;
   final String teacherName;
   final String time;
 
-  const ClassListWidget({
+  const MyClassListWidget({
     Key? key,
     required this.className,
     required this.teacherName,
@@ -16,10 +16,10 @@ class ClassListWidget extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _ClassListWidgetState createState() => _ClassListWidgetState();
+  _MyClassListWidgetState createState() => _MyClassListWidgetState();
 }
 
-class _ClassListWidgetState extends State<ClassListWidget> {
+class _MyClassListWidgetState extends State<MyClassListWidget> {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;

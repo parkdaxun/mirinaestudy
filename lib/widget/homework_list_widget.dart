@@ -61,7 +61,7 @@ class _HomeworkListWidgetState extends State<HomeworkListWidget> {
     return AnimatedContainer(
       duration: Duration(milliseconds: 300),
       width: screenWidth * 0.91,
-      // height: isExpanded ? screenHeight * 0.2 : screenHeight * 0.11,
+       // height: isExpanded ? screenHeight * 0.2 : screenHeight * 0.11,
       // 상태에 따라 높이 변경
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
