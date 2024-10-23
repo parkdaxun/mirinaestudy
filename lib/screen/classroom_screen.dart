@@ -2,10 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mirinaestudy/widget/app_bar.dart';
+import 'package:mirinaestudy/widget/classroom/student_list_widget.dart';
 
 import '../colors.dart';
 import '../widget/classroom/classroom_post_widget.dart';
-import '../widget/document_list_widget.dart';
+import '../widget/classroom/document_list_widget.dart';
 
 class ClassroomScreen extends StatefulWidget {
   _ClassroomScreenState createState() => _ClassroomScreenState();
@@ -39,8 +40,49 @@ class DocumentList {
   });
 }
 
+class StudentList {
+  String name;
+  String studentNumber;
+  String phoneNumber;
+  String email;
+
+  StudentList({
+    required this.name,
+    required this.studentNumber,
+    required this.phoneNumber,
+    required this.email,
+  });
+}
+
 class _ClassroomScreenState extends State<ClassroomScreen> {
   int category = 1;
+
+  final List<StudentList> students = [
+    StudentList(
+      name: 'Park Daeun',
+      studentNumber: '111-2222-3333',
+      phoneNumber: '010-1234-2344',
+      email: 'parkde0207@gmail.com',
+    ),
+    StudentList(
+      name: 'Cho Daeun',
+      studentNumber: '111-2222-1234',
+      phoneNumber: '010-1234-3434',
+      email: 'chode0207@gmail.com',
+    ),
+    StudentList(
+      name: 'Kim Daeun',
+      studentNumber: '111-2222-7777',
+      phoneNumber: '010-1234-1212',
+      email: 'kimde0207@gmail.com',
+    ),
+    StudentList(
+      name: 'Yoon Daeun',
+      studentNumber: '111-2222-3567',
+      phoneNumber: '010-1234-2456',
+      email: 'yoonde0207@gmail.com',
+    ),
+  ];
 
   final List<PostList> posts = [
     PostList(
@@ -132,13 +174,45 @@ class _ClassroomScreenState extends State<ClassroomScreen> {
             )
                 : category == 3
                 ? Column(
-              children: [
-                // Category 3의 컨텐츠 추가
-              ],
-            )
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 18, bottom: 18, top: 15),
+                      child: Row(
+                        children: [
+                          Text('학생 ', style: TextStyle(fontFamily: 'NotoSansKRBold', fontSize: 14, color: AppColors.grey),),
+                          Text('총3명', style: TextStyle(fontFamily: 'NotoSansKRRegular', fontSize: 14, color: AppColors.grey),)
+                        ],
+                      ),
+                    ),
+                    Expanded(child: studentList()),
+                  ],
+                )
                 : Center(child: Text('No category selected')), // 기본값
           ),
         ],
+      ),
+    );
+  }
+
+  Widget studentList() {
+    return Container(
+      width: MediaQuery.of(context).size.width*0.91,
+      child: ListView.builder(
+          shrinkWrap: true,
+          physics: BouncingScrollPhysics(),
+          itemBuilder: (context, index) {
+            final studentList = students[index];
+            return Padding(
+              padding: const EdgeInsets.only(bottom: 11),
+              child: StudentListWidget(
+                  name: studentList.name,
+                  studentNumber: studentList.studentNumber,
+                  phoneNumber: studentList.phoneNumber,
+                  email: studentList.email,
+              ),
+            );
+          },
+        itemCount: posts.length,
       ),
     );
   }

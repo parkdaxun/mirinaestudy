@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../colors.dart';
+import '../../colors.dart';
 
 class DocumentListWidget extends StatefulWidget {
   final String name;
