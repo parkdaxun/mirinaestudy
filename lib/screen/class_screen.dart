@@ -2,9 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:mirinaestudy/widget/classroom_list_widget.dart';
 import '../colors.dart';
 import '../widget/app_bar.dart';
-import '../widget/class_list_widget.dart';
+import '../widget/my_class_list_widget.dart';
 
 class ClassScreen extends StatefulWidget {
   _ClassScreenState createState() => _ClassScreenState();
@@ -76,27 +77,45 @@ class _ClassScreenState extends State<ClassScreen> {
     return Scaffold(
       backgroundColor: AppColors.fillGrey,
       appBar: CustomAppBar(title: '수업'),
-      body: Stack(
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Column(
-            children: [
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 18.0),
-                  child: classList(),
-                ),
-              ),
-            ],
-          ),
-          Positioned(
-            bottom: 28,
-            right: 33,
-            child: classAddButton(),
+          ClassroomListWidget(
+              name: '교실 1',
+              teacherName: 'Jessica Aundney',
+              total: 10,
           ),
         ],
       ),
     );
   }
+
+  // @override
+  // Widget build(BuildContext context) {
+  //   return Scaffold(
+  //     backgroundColor: AppColors.fillGrey,
+  //     appBar: CustomAppBar(title: '수업'),
+  //     body: Stack(
+  //       children: [
+  //         Column(
+  //           children: [
+  //             Expanded(
+  //               child: Padding(
+  //                 padding: const EdgeInsets.only(top: 18.0),
+  //                 child: classList(),
+  //               ),
+  //             ),
+  //           ],
+  //         ),
+  //         Positioned(
+  //           bottom: 28,
+  //           right: 33,
+  //           child: classAddButton(),
+  //         ),
+  //       ],
+  //     ),
+  //   );
+  // }
 
   Widget classList() {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -111,7 +130,7 @@ class _ClassScreenState extends State<ClassScreen> {
               return Padding(
                 key: ValueKey(classesList),
                 padding: const EdgeInsets.only(bottom: 11),
-                child: ClassListWidget(
+                child: MyClassListWidget(
                   teacherName: classesList.teacherName,
                   className: classesList.className,
                   time: classesList.time,
