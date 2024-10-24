@@ -141,6 +141,7 @@ class _ClassroomScreenState extends State<ClassroomScreen> {
       appBar: CustomAppBar(title: '교실'),
       body: Column(
         children: [
+          dropdownButtonWidget(),
           SearchBarWidget(),
           Expanded(
             child: category == 1
@@ -262,6 +263,31 @@ class _ClassroomScreenState extends State<ClassroomScreen> {
             );
           },
           itemCount: posts.length,
+        ),
+      ),
+    );
+  }
+
+  Widget dropdownButtonWidget() {
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        border: Border(
+          bottom: BorderSide(
+            color: Color(0xff6EBCFF),
+            width: 1,
+          ),
+        ),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.only(top: 11, bottom: 11),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('교실 1', style: TextStyle(fontFamily: 'NotoSansKRMedium', fontSize: 17, color: AppColors.blue),),
+            SizedBox(width: 3),
+            SvgPicture.asset('assets/images/icons/blue_dropdown_icon.svg'),
+          ],
         ),
       ),
     );
