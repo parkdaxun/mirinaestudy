@@ -39,9 +39,9 @@ class _CommentListWidgetState extends State<CommentListWidget> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(widget.name, style: TextStyle(fontFamily: 'NotoSansKRSemiBold', fontSize: 15, color: AppColors.black),),
+                        Text(widget.name, style: TextStyle(fontFamily: 'NunitoSansSemiBold', fontSize: 15, color: AppColors.black),),
                         SizedBox(height: 2,),
-                        Text(widget.phoneNumber, style: TextStyle(fontFamily: 'NotoSansKRMedium', fontSize: 13, color: AppColors.grey),),
+                        Text(widget.phoneNumber, style: TextStyle(fontFamily: 'NunitoSansRegular', fontSize: 13, color: AppColors.grey),),
                       ],
                     ),
                     Image.asset('assets/images/icons/comment_setting_icon.png'),
@@ -55,7 +55,9 @@ class _CommentListWidgetState extends State<CommentListWidget> {
                   ),
                   child: Padding(
                     padding: const EdgeInsets.only(top: 10, left: 16, bottom: 9, right: 30),
-                    child: Text('Practise your listening, writing and speaking and learn useful language to use at work or to communicate.'),
+                    child: Text(
+                      'Practise your listening, writing and speaking and learn useful language to use at work or to communicate.',
+                      style: TextStyle(fontFamily: 'NunitoSansRegular', fontSize: 14, color: AppColors.black),),
                   ),
                 ),
                 Padding(
@@ -68,10 +70,10 @@ class _CommentListWidgetState extends State<CommentListWidget> {
                           children: [
                             SvgPicture.asset('assets/images/icons/heart_icon.svg'),
                             SizedBox(width: 3,),
-                            Text(widget.like, style: TextStyle(fontFamily: 'NotoSansKRMedium', color: AppColors.grey, fontSize: 13),),
+                            Text('좋아요 ${widget.like}', style: TextStyle(fontFamily: 'NotoSansKRMedium', color: AppColors.grey, fontSize: 13),),
                           ],
                         ),
-                      Text(widget.date, style: TextStyle(fontFamily: 'NotoSansKRMedium', color: AppColors.grey, fontSize: 13),),
+                      Text(widget.date, style: TextStyle(fontFamily: 'NunitoSansRegular', color: AppColors.grey, fontSize: 13),),
                     ],
                   ),
                 )

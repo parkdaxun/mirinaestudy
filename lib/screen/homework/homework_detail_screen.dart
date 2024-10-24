@@ -145,7 +145,7 @@ class _HomeworkDetailScreenState extends State<HomeworkDetailScreen> {
                     Text(
                       widget.contents,
                       style: TextStyle(
-                          fontFamily: 'NotoSansKRRegular',
+                          fontFamily: 'NunitoSansRegular',
                           fontSize: 15,
                           color: AppColors.black),
                     ),
@@ -166,13 +166,13 @@ class _HomeworkDetailScreenState extends State<HomeworkDetailScreen> {
                               text: '마감 날짜 : ',
                               style: TextStyle(
                                 color: AppColors.black,
-                                fontFamily: 'NotoSansKRRegular',
+                                fontFamily: 'NunitoSansRegular',
                               ),
                             ),
                             TextSpan(
                               text: widget.endDate,
                               style: TextStyle(
-                                fontFamily: 'NotoSansKRRegular',
+                                fontFamily: 'NunitoSansRegular',
                                 fontSize: 14,
                                 color: Color(0xffFF5C5C),
                               ),
@@ -227,7 +227,7 @@ class _HomeworkDetailScreenState extends State<HomeworkDetailScreen> {
                             Text(
                               '파일 선택',
                               style: TextStyle(
-                                  fontFamily: 'NotoSansKRRegular',
+                                  fontFamily: 'NunitoSansRegular',
                                   fontSize: 15,
                                   color: Color(0xffD4D8E0)),
                             )
@@ -250,7 +250,7 @@ class _HomeworkDetailScreenState extends State<HomeworkDetailScreen> {
                       decoration: InputDecoration(
                         hintText: '내용을 입력해주세요.',
                         hintStyle:
-                            TextStyle(color: Color(0xffD4D8E0), fontSize: 15),
+                            TextStyle(color: Color(0xffD4D8E0), fontSize: 15, fontFamily: 'NunitoSansRegular'),
                         contentPadding:
                             EdgeInsets.symmetric(vertical: 12, horizontal: 15),
                         enabledBorder: OutlineInputBorder(

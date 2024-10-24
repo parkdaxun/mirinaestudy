@@ -97,7 +97,7 @@ class _HomeworkScreenState extends State<HomeworkScreen> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 19),
+            padding: const EdgeInsets.only(top: 19, right: 18),
             child: informStatus(),
           ),
           Expanded(
@@ -239,7 +239,7 @@ class _HomeworkScreenState extends State<HomeworkScreen> {
 
   Widget informStatus() {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.end,
       children: <Widget>[
         Container(
           width: 7,
@@ -255,7 +255,7 @@ class _HomeworkScreenState extends State<HomeworkScreen> {
             '완료',
             style: TextStyle(
               color: AppColors.black,
-              fontFamily: 'NotoSansKRRegular',
+              fontFamily: 'NunitoSansRegular',
             ),
           ),
         ),
@@ -273,7 +273,7 @@ class _HomeworkScreenState extends State<HomeworkScreen> {
             '진행중',
             style: TextStyle(
               color: AppColors.black,
-              fontFamily: 'NotoSansKRRegular',
+              fontFamily: 'NunitoSansRegular',
             ),
           ),
         ),
@@ -291,7 +291,7 @@ class _HomeworkScreenState extends State<HomeworkScreen> {
             '시작전',
             style: TextStyle(
               color: AppColors.black,
-              fontFamily: 'NotoSansKRRegular',
+              fontFamily: 'NunitoSansRegular',
             ),
           ),
         ),

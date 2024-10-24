@@ -86,7 +86,7 @@ class _HomeworkListWidgetState extends State<HomeworkListWidget> {
                 Text(
                   widget.title,
                   style: TextStyle(
-                    fontFamily: 'NotoSansKRSemiBold',
+                    fontFamily: 'NunitoSansSemiBold',
                     color: AppColors.black,
                     fontSize: 17,
                   ),
@@ -102,7 +102,7 @@ class _HomeworkListWidgetState extends State<HomeworkListWidget> {
                   child: Text(
                     widget.status,
                     style: TextStyle(
-                      fontFamily: 'NotoSansKRRegular',
+                      fontFamily: 'NunitoSansRegular',
                       fontSize: 12,
                       color: statusTextColor,
                     ),
@@ -120,7 +120,7 @@ class _HomeworkListWidgetState extends State<HomeworkListWidget> {
                 Text(
                   widget.date,
                   style: TextStyle(
-                    fontFamily: 'NotoSansKRRegular',
+                    fontFamily: 'NunitoSansRegular',
                     color: AppColors.grey,
                     fontSize: 15,
                   ),
@@ -137,15 +137,19 @@ class _HomeworkListWidgetState extends State<HomeworkListWidget> {
                         Text(
                           '상세보기',
                           style: TextStyle(
-                            fontFamily: 'NotoSansKRRegular',
+                            fontFamily: 'NunitoSansRegular',
                             color: AppColors.grey,
                             fontSize: 14,
                           ),
                         ),
                         Padding(
                           padding: const EdgeInsets.only(left: 7.5),
-                          child: SvgPicture.asset(
-                              'assets/images/icons/dropdown_icon.svg'),
+                          child: SizedBox(
+                            width: 10,
+                            height: 8,
+                            child: SvgPicture.asset(
+                                'assets/images/icons/dropdown_icon.svg'),
+                          ),
                         ),
                       ],
                     ),
@@ -174,7 +178,7 @@ class _HomeworkListWidgetState extends State<HomeworkListWidget> {
                     child: Text(
                       widget.contents,
                       style: TextStyle(
-                        fontFamily: 'NotoSansKRRegular',
+                        fontFamily: 'NunitoSansRegular',
                         color: AppColors.black,
                         fontSize: 15,
                       ),
@@ -189,13 +193,13 @@ class _HomeworkListWidgetState extends State<HomeworkListWidget> {
                             text: '마감 날짜 : ',
                             style: TextStyle(
                               color: AppColors.black,
-                              fontFamily: 'NotoSansKRRegular',
+                              fontFamily: 'NunitoSansRegular',
                             ),
                           ),
                           TextSpan(
                               text: widget.endDate,
                               style: TextStyle(
-                                  fontFamily: 'NotoSansKRRegular',
+                                  fontFamily: 'NunitoSansRegular',
                                   fontSize: 14,
                                   color: Color(0xffFF5C5C))),
                         ],
