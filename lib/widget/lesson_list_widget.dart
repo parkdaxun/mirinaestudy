@@ -3,23 +3,23 @@ import 'package:flutter/material.dart';
 
 import '../colors.dart';
 
-class MyClassListWidget extends StatefulWidget {
-  final String className;
-  final String teacherName;
+class LessonListWidget extends StatefulWidget {
+  final String lessonName;
+  final String details;
   final String time;
 
-  const MyClassListWidget({
+  const LessonListWidget({
     Key? key,
-    required this.className,
-    required this.teacherName,
+    required this.lessonName,
+    required this.details,
     required this.time,
   }) : super(key: key);
 
   @override
-  _MyClassListWidgetState createState() => _MyClassListWidgetState();
+  _LessonListWidgetState createState() => _LessonListWidgetState();
 }
 
-class _MyClassListWidgetState extends State<MyClassListWidget> {
+class _LessonListWidgetState extends State<LessonListWidget> {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -47,27 +47,27 @@ class _MyClassListWidgetState extends State<MyClassListWidget> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Grammer Lesson',
+                  widget.lessonName,
                   style: TextStyle(
-                      fontFamily: 'NotoSansKRSemiBold',
+                      fontFamily: 'NumitoSansSemiBold',
                       fontSize: 16,
                       color: AppColors.black),
                 ),
                 Text(
-                  'Robert Smith',
+                  widget.details,
                   style: TextStyle(
-                      fontFamily: 'NotoSansKRRegular',
+                      fontFamily: 'NumitoSansSemiBold',
                       fontSize: 14,
                       color: AppColors.black),
                 ),
               ],
             ),
             Text(
-              '10:30 AM',
+              widget.time,
               style: TextStyle(
                 fontSize: 15,
                 color: AppColors.blue,
-                fontFamily: 'NotoSansKRSemiBold',
+                fontFamily: 'NumitoSansSemiBold',
               ),),
           ],
         ),
