@@ -116,7 +116,7 @@ class _CommentDetailScreenState extends State<CommentDetailScreen> {
                        crossAxisAlignment: CrossAxisAlignment.start,
                        children: [
                          Text('Our platform is dedicated to assisting students in mastering their English assignments, from grammar and vocabulary to literature and essay writing. ',
-                         style: TextStyle(fontSize: 15, fontFamily: 'NotoSansKRRegular', color: AppColors.black),),
+                         style: TextStyle(fontSize: 15, fontFamily: 'NunitoSansRegular', color: AppColors.black),),
                          SizedBox(height: 18),
                          Row(
                            children: [
@@ -131,11 +131,11 @@ class _CommentDetailScreenState extends State<CommentDetailScreen> {
                              children: [
                                TextSpan(
                                  text: '마감 날짜 : ',
-                                 style: TextStyle(color: AppColors.black, fontFamily: 'NotoSansKRRegular',),
+                                 style: TextStyle(color: AppColors.black, fontFamily: 'NunitoSansRegular',),
                                ),
                                TextSpan(
                                    text: widget.endDate,
-                                   style: TextStyle(fontFamily: 'NotoSansKRRegular', fontSize: 14, color: Color(0xffFF5C5C))),],
+                                   style: TextStyle(fontFamily: 'NunitoSansRegular', fontSize: 14, color: Color(0xffFF5C5C))),],
                            ),
                          ),
                          SizedBox(height: 24,),
@@ -149,7 +149,7 @@ class _CommentDetailScreenState extends State<CommentDetailScreen> {
                  ),
                  Padding(
                    padding: const EdgeInsets.only(left: 17, top: 12, right: 18, bottom: 31),
-                   child: Text(widget.contents, style: TextStyle(fontFamily: 'NotoSansKRRegular', color: AppColors.black, fontSize: 15),),
+                   child: Text(widget.contents, style: TextStyle(fontFamily: 'NunitoSansRegular', color: AppColors.black, fontSize: 15),),
                  ),
                  Container(width: screenWidth, height: 1, color: Color(0xffE5E5EA),
                  ),
@@ -454,7 +454,7 @@ class _CommentDetailScreenState extends State<CommentDetailScreen> {
                   Text(
                     '과제-2',
                     style: TextStyle(
-                        fontFamily: 'NotoSansKRRegular',
+                        fontFamily: 'NunitoSansRegular',
                         color: AppColors.black,
                         fontSize: 15),
                   )
@@ -462,14 +462,14 @@ class _CommentDetailScreenState extends State<CommentDetailScreen> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 48.0, right: 17, top: 4),
+              padding: const EdgeInsets.only(left: 48.0, right: 17, top: 1),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     widget.endDate,
                     style: TextStyle(
-                        fontFamily: 'NotoSansKRRegular',
+                        fontFamily: 'NunitoSansRegular',
                         color: AppColors.grey,
                         fontSize: 13),
                   ),

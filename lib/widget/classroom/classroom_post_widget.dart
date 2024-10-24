@@ -96,9 +96,9 @@ class _ClassroomPostWidgetState extends State<ClassroomPostWidget> {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(widget.name, style: TextStyle(fontFamily: 'NotoSansKRSemiBold', fontSize: 16, color: AppColors.black),),
+                    Text(widget.name, style: TextStyle(fontFamily: 'NunitoSansSemiBold', fontSize: 16, color: AppColors.black),),
                     SizedBox(height: 4,),
-                    Text(widget.date, style: TextStyle(fontFamily: 'NotoSansKRRegular', fontSize: 13, color: AppColors.grey),),
+                    Text(widget.date, style: TextStyle(fontFamily: 'NunitoSansRegular', fontSize: 13, color: AppColors.grey),),
                   ],
                 ),
                 SvgPicture.asset('assets/images/icons/dot_setting_icon.svg'),
@@ -109,7 +109,7 @@ class _ClassroomPostWidgetState extends State<ClassroomPostWidget> {
             padding: const EdgeInsets.only(left: 17, top: 24, right: 17, bottom: 24),
             child: Text(
               widget.content,
-              style: TextStyle(fontFamily: 'NotoSansKRRegular', fontSize: 15, color: AppColors.black),),
+              style: TextStyle(fontFamily: 'NunitoSansRegular', fontSize: 15, color: AppColors.black),),
           ),
           Container(height: 1, color: Color(0xffE5E5EA),),
           Padding(
