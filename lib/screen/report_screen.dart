@@ -138,7 +138,13 @@ class _ReportScreenState extends State<ReportScreen> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text('수업 출석체크', style: TextStyle(fontSize: 15, fontFamily: 'NotoSansKRSemiBold', color: AppColors.blue),),
+            Row(
+              children: [
+                Text('학생', style: TextStyle(fontSize: 15, fontFamily: 'NotoSansKRSemiBold', color: AppColors.blue),),
+                SizedBox(width: 3,),
+                Text('총 10명', style: TextStyle(fontSize: 15, fontFamily: 'NotoSansKRRegular', color: AppColors.grey),),
+              ],
+            ),
             SvgPicture.asset('assets/images/icons/search_icon.svg'),
           ],
         ),
