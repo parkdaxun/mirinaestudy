@@ -6,6 +6,7 @@ import 'package:mirinaestudy/screen/classroom_screen.dart';
 import 'package:mirinaestudy/screen/payment_screen.dart';
 
 import '../colors.dart';
+import '../screen/attendance_check_screen.dart';
 import '../screen/class_screen.dart';
 import '../screen/homework/homework_screen.dart';
 import '../screen/report_screen.dart';
@@ -79,6 +80,8 @@ class HomeMenuWidget extends StatelessWidget {
         return ClassScreen();
       case 'ClassroomScreen' :
         return ClassroomScreen();
+      case 'AttendanceCheckScreen' :
+        return AttendanceCheckScreen();
       default:
         return Container();
     }
