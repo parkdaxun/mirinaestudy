@@ -46,7 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 HomeMenuWidget(
                   title: '출석',
                   iconName: 'attend_icon',
-                  screenName: '',
+                  screenName: 'AttendanceCheckScreen',
                 ),
                 HomeMenuWidget(
                   title: '설정',

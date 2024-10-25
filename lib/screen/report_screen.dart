@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:mirinaestudy/widget/app_bar.dart';
 import 'package:mirinaestudy/widget/report_list_widget.dart';
@@ -82,7 +83,8 @@ class _ReportScreenState extends State<ReportScreen> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          filteringWidget(),
+          ClassesDropdownWidget(),
+          SearchBarWidget(),
           Expanded(
             child: Padding(
               padding: const EdgeInsets.only(top: 18.0),
@@ -94,88 +96,57 @@ class _ReportScreenState extends State<ReportScreen> {
     );
   }
 
-  Widget filteringWidget() {
-    double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
-
-    return GestureDetector(
-      onTap: () {
-        showDialog(
-          context: context,
-          barrierColor: Colors.transparent,
-          builder: (BuildContext context) {
-            return Stack(
-              children: [
-                // 배경을 SafeArea로 감싸서 노치 포함한 영역까지 확장
-                Positioned.fill(
-                  bottom: 0,
-                  child: Column(
-                    children: [
-                      Expanded(
-                        child: Container(
-                          color: Colors.transparent, // 위쪽은 완전히 투명
-                        ),
-                      ),
-                      // 아래쪽 반투명 배경
-                      GestureDetector(
-                        onTap: () {
-                          Get.back();
-                        },
-                        child: Container(
-                          height: screenHeight -
-                              (screenHeight * 0.05 + screenHeight * 0.26),
-                          color:
-                              Color(0xff232323).withOpacity(0.4), // 반투명 배경 설정
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                // 필터 모달 창
-                Positioned(
-                  top: kToolbarHeight + screenHeight * 0.05,
-                  left: 0,
-                  right: 0,
-                  child: Material(
-                    child: Container(
-                      child: showFilterModalWidget(
-                        statusFilter: false,
-                      ), // 모달 위젯 추가
-                    ),
-                  ),
-                ),
-              ],
-            );
-          },
-        );
-      },
-      child: Container(
-        width: screenWidth,
-        height: screenHeight * 0.05,
+  Widget ClassesDropdownWidget() {
+    return Container(
+      decoration: BoxDecoration(
         color: Colors.white,
-        child: Padding(
-          padding: const EdgeInsets.only(left: 19, right: 27),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                '전체',
-                style: TextStyle(color: AppColors.blue, fontSize: 14),
-              ),
-              Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(right: 8.0),
-                    child: Text(
-                      '2024.07.29~2024.08.29',
-                      style: TextStyle(color: AppColors.grey, fontSize: 14),
-                    ),
-                  ),
-                  Image.asset('assets/images/icons/dropdown_icon.png'),
-                ],
-              ),
-            ],
+        border: Border(
+          bottom: BorderSide(
+            color: Color(0xff6EBCFF),
+            width: 0.5,
           ),
+        ),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.only(top: 10, bottom: 10),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text('교실 1', style: TextStyle(fontFamily: 'NotoSansKRMedium', fontSize: 17, color: AppColors.blue),),
+            SizedBox(width: 5),
+            SvgPicture.asset('assets/images/icons/blue_dropdown_icon.svg'),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget SearchBarWidget() {
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        border : Border(
+          bottom: BorderSide(
+            color: Color(0xffE5E5EA),
+            width: 1,
+          ),
+        ),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.only(left: 18, top: 11, bottom: 14, right: 20),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(
+              children: [
+                Text('학생', style: TextStyle(fontSize: 15, fontFamily: 'NotoSansKRSemiBold', color: AppColors.blue),),
+                SizedBox(width: 3,),
+                Text('총 10명', style: TextStyle(fontSize: 15, fontFamily: 'NotoSansKRRegular', color: AppColors.grey),),
+              ],
+            ),
+            SvgPicture.asset('assets/images/icons/search_icon.svg'),
+          ],
         ),
       ),
     );
