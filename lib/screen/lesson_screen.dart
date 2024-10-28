@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:mirinaestudy/widget/dropdown_widget.dart';
 
 import '../colors.dart';
 import '../widget/app_bar.dart';
@@ -55,6 +56,7 @@ class _LessonScreenState extends State<LessonScreen> {
         children: [
           Column(
             children: [
+              DropdownWidget(),
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.only(top: 18.0),

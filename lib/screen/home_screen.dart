@@ -97,39 +97,48 @@ class _HomeScreenState extends State<HomeScreen> {
       width: screenWidth,
       height: screenHeight * 0.18,
       decoration: BoxDecoration(color: Colors.white),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                '김이름',
-                style: TextStyle(
-                    fontSize: 22,
-                    color: AppColors.blue,
-                    fontFamily: 'NotoSansKRSemiBold'),
-              ),
-              Text(
-                '환영합니다!',
-                style: TextStyle(
-                    fontSize: 22,
-                    color: AppColors.black,
-                    fontFamily: 'NotoSansKRSemiBold'),
-              ),
-            ],
-          ),
-          Padding(
-            padding: const EdgeInsets.only(right: 19),
-            child: SvgPicture.asset(
-              width: 149,
-              height: 79,
-              'assets/images/bigsize_pic.svg',
-              fit: BoxFit.fill,
+      child: Padding(
+        padding: const EdgeInsets.only(left: 30, right: 30),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  '김이름',
+                  style: TextStyle(
+                      fontSize: 22,
+                      color: AppColors.blue,
+                      fontFamily: 'NotoSansKRSemiBold'),
+                ),
+                Text(
+                  '환영합니다!',
+                  style: TextStyle(
+                      fontSize: 22,
+                      color: AppColors.black,
+                      fontFamily: 'NotoSansKRSemiBold'),
+                ),
+              ],
             ),
-          ),
-        ],
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(right: 19),
+                  child: SvgPicture.asset(
+                    width: 149,
+                    height: 79,
+                    'assets/images/bigsize_pic.svg',
+                    fit: BoxFit.fill,
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

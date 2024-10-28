@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
 import 'package:mirinaestudy/widget/app_bar.dart';
+import 'package:mirinaestudy/widget/dropdown_widget.dart';
 import 'package:mirinaestudy/widget/student_name_widget.dart';
 import '../colors.dart';
 import 'package:intl/date_symbol_data_local.dart';
@@ -56,7 +57,7 @@ class _AttendanceCheckScreenState extends State<AttendanceCheckScreen> {
       appBar: CustomAppBar(title: '출석'),
       body: Column(
         children: [
-          ClassesDropdownWidget(),
+          DropdownWidget(),
           SearchBarWidget(),
           WeekCalendarWidget(),
           Padding(
@@ -88,32 +89,6 @@ class _AttendanceCheckScreenState extends State<AttendanceCheckScreen> {
             );
           },
           itemCount: students.length,
-        ),
-      ),
-    );
-  }
-
-  Widget ClassesDropdownWidget() {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        border: Border(
-          bottom: BorderSide(
-            color: Color(0xff6EBCFF),
-            width: 0.5,
-          ),
-        ),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.only(top: 10, bottom: 10),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Text('교실 1', style: TextStyle(fontFamily: 'NotoSansKRMedium', fontSize: 17, color: AppColors.blue),),
-            SizedBox(width: 5),
-            SvgPicture.asset('assets/images/icons/blue_dropdown_icon.svg'),
-          ],
         ),
       ),
     );
