@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:mirinaestudy/widget/dropdown_widget.dart';
+import 'package:mirinaestudy/widget/search_result_widget.dart';
 
 import '../colors.dart';
 import '../widget/app_bar.dart';
@@ -24,6 +26,8 @@ class LessonList {
 }
 
 class _LessonScreenState extends State<LessonScreen> {
+  bool onClicked = false;
+
   final List<LessonList> lessons = [
     LessonList(
         lessonName: 'Grammar Lesson',
@@ -58,9 +62,18 @@ class _LessonScreenState extends State<LessonScreen> {
             children: [
               DropdownWidget(),
               Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 18.0),
-                  child: lessonList(),
+                child: onClicked
+                    ? SearchResultWidget()
+                    : SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      SearchBarWidget(),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 18.0),
+                        child: lessonList(),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ],
@@ -74,6 +87,38 @@ class _LessonScreenState extends State<LessonScreen> {
       ),
     );
   }
+
+  Widget SearchBarWidget() {
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        border: Border(
+          bottom: BorderSide(
+            color: Color(0xffE5E5EA),
+            width: 1,
+          )
+        )
+      ),
+      child: Padding(
+        padding: const EdgeInsets.only(top: 11, bottom: 11, right: 17, left: 17),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text('나의 수업', style: TextStyle(fontFamily: 'NotoSansKRSemiBold', fontSize: 15, color: AppColors.blue),),
+            GestureDetector(
+              onTap: () {
+                setState(() {
+                  onClicked = !onClicked;
+                  print("검색");
+                });
+              },
+              child: SvgPicture.asset('assets/images/icons/search_icon.svg'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
   
   Widget lessonList() {
     double screenWidth = MediaQuery.of(context).size.width;
@@ -82,6 +127,7 @@ class _LessonScreenState extends State<LessonScreen> {
       child: SizedBox(
         width: screenWidth*0.91,
         child: ListView.builder(
+          shrinkWrap: true,
           itemBuilder: (context, index) {
             final lessonList = lessons[index];
             return Padding(
