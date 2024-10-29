@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:mirinaestudy/widget/app_bar.dart';
 import 'package:mirinaestudy/widget/classroom/student_list_widget.dart';
 import 'package:mirinaestudy/widget/dropdown_widget.dart';
@@ -327,40 +328,249 @@ class _ClassroomScreenState extends State<ClassroomScreen> {
   }
 
   Widget AddClassWidget() {
-    return Container(
-      width: MediaQuery.of(context).size.width*0.91,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(10),
-        boxShadow: [
-          BoxShadow(
-            color: Color(0xff898989).withOpacity(0.1),
-            blurRadius: 9.2,
-            spreadRadius: 1,
-            offset: Offset(1, 1),
-          ),
-        ],
-      ),
-      child: Padding(
-        padding: const EdgeInsets.only(left: 16, top: 11, bottom: 11),
-        child: Row(
-          children: [
-            Container(
-              width: 21, height: 21,
-              decoration: BoxDecoration(
-                color: AppColors.blue,
-                borderRadius: BorderRadius.circular(5),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(5),
-                child: SvgPicture.asset('assets/images/icons/add_icon.svg'),
-              ),
+    return GestureDetector(
+      onTap: () {
+        _showModal(context);
+      },
+      child: Container(
+        width: MediaQuery.of(context).size.width*0.91,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(10),
+          boxShadow: [
+            BoxShadow(
+              color: Color(0xff898989).withOpacity(0.1),
+              blurRadius: 9.2,
+              spreadRadius: 1,
+              offset: Offset(1, 1),
             ),
-            SizedBox(width: 10),
-            Text('게시글 추가하기', style: TextStyle(fontFamily: 'NotoSansKRRegular', fontSize: 15, color: AppColors.black),),
           ],
         ),
+        child: Padding(
+          padding: const EdgeInsets.only(left: 16, top: 11, bottom: 11),
+          child: Row(
+            children: [
+              Container(
+                width: 21, height: 21,
+                decoration: BoxDecoration(
+                  color: AppColors.blue,
+                  borderRadius: BorderRadius.circular(5),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(5),
+                  child: SvgPicture.asset('assets/images/icons/add_icon.svg'),
+                ),
+              ),
+              SizedBox(width: 10),
+              Text('게시글 추가하기', style: TextStyle(fontFamily: 'NotoSansKRRegular', fontSize: 15, color: AppColors.black),),
+            ],
+          ),
+        ),
       ),
+    );
+  }
+
+  void _showModal(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+    double customPadding = screenHeight*0.22;
+
+    showModalBottomSheet(
+        context: context,
+        isScrollControlled: true,
+        builder: (context) {
+          return SizedBox(
+            height: screenHeight*0.88,
+            child: Container(
+              decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20))),
+              child: Padding(
+                padding: const EdgeInsets.only(left: 18, right: 18),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 20, top: 24.5),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          GestureDetector(
+                            onTap: () {
+                              Get.back();
+                            },
+                            child:  Image.asset('assets/images/icons/cancel_icon.png'),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text('게시글 내용', style: TextStyle(color: AppColors.black, fontFamily: 'NotoSansKRMedium', fontSize: 15),),
+                        SizedBox(height: 9),
+                        TextField(
+                          maxLines: 15,
+                          decoration: InputDecoration(
+                            hintText: '게시글을 작성해주세요.',
+                            hintStyle: TextStyle(color: Color(0xffD4D8E0), fontSize: 15, fontFamily: 'NotoSansKRRegular'),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: const BorderSide(
+                                  color: Color(0xffD4D8E0), width: 1),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            border: OutlineInputBorder(
+                              borderSide: const BorderSide(
+                                  color: Color(0xffD4D8E0), width: 1),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: const BorderSide(
+                                  color: Color(0xffD4D8E0), width: 1),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(top: customPadding),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Expanded(
+                                child: SizedBox(
+                                  height: 48,
+                                  child: ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: Colors.white,
+                                      surfaceTintColor: Colors.white,
+                                      shadowColor: Colors.transparent,
+                                      side: BorderSide(color: AppColors.blue, width: 1),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                    ),
+                                    onPressed: () {
+                                      Get.back();
+                                    },
+                                    child: Text(
+                                      '취소',
+                                      style: TextStyle(
+                                          fontFamily: 'NotoSansKRSemiBold',
+                                          fontSize: 14,
+                                          color: AppColors.blue),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              SizedBox(width: 10),
+                              Expanded(
+                                child: SizedBox(
+                                  height: 48,
+                                  child: ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: AppColors.blue,
+                                      side: BorderSide(color: AppColors.blue, width: 1),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                    ),
+                                    onPressed: () {
+                                      _showMyDialog(context);
+                                    },
+                                    child: Text(
+                                      '작성 완료',
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontFamily: 'NotoSansKRSemiBold',
+                                          fontSize: 14),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          );
+        }
+    );
+  }
+
+  Future<void> _showMyDialog(BuildContext context) async {
+    return showDialog<void>(
+        context: context,
+        barrierDismissible: true,
+        builder: (BuildContext context) {
+          bool isSubmitted = false;
+
+          return StatefulBuilder(builder: (BuildContext context, StateSetter setState) {
+            return AlertDialog(
+              backgroundColor: Colors.white,
+              surfaceTintColor: Colors.white,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15),
+              ),
+              content: Container(
+                height: 120,
+                width: MediaQuery.of(context).size.width*0.81,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    if(isSubmitted)
+                      Container(
+                        width: 56,
+                        height: 56,
+                        decoration: BoxDecoration(color: Color(0xffE6F7FF), borderRadius: BorderRadius.circular(100)),
+                        child: Center(
+                          child: SvgPicture.asset('assets/images/icons/submit_comment_icon.svg'),
+                        ),
+                      ),
+                    if(!isSubmitted)
+                      SizedBox(
+                        height: 15,
+                      ),
+                    Text(
+                      isSubmitted ? '게시글이 추가 되었습니다.' : '게시글을 추가하시겠습니까?',
+                      style: TextStyle(
+                        color: AppColors.blue,
+                        fontSize: 15,
+                        fontFamily: 'NotoSansKRMedium',
+                      ),
+                    ),
+                    if(!isSubmitted)
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          TextButton(
+                            onPressed: () {
+                              Get.back();
+                            },
+                            child: Text('취소', style: TextStyle(color: AppColors.grey, fontSize: 15, fontFamily: 'NotoSansKRMedium'),),
+                          ),
+                          Container(width: 1, height: 16, decoration: BoxDecoration(color: Color(0xffDEDEDE),),),
+                          TextButton(
+                            onPressed: () {
+                              setState(() {isSubmitted = true;});
+                              Future.delayed(Duration(seconds: 2), () {
+                                Get.back();
+                                Get.back();
+                              });
+                            },
+                            child: Text('확인', style: TextStyle(color: Colors.blue, fontFamily: 'NotoSansKRMedium', fontSize: 15),),
+                          )
+                        ],
+                      ),
+                  ],
+                ),
+              ),
+            );
+          });
+        }
     );
   }
 }
