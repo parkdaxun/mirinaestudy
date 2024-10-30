@@ -30,7 +30,7 @@ class _LessonScreenState extends State<LessonScreen> {
 
   final List<LessonList> lessons = [
     LessonList(
-        lessonName: 'Grammar Lesson',
+        lessonName: 'Test 1',
         details: 'Unit-1',
         time: '10:30 AM',
     ),
@@ -40,12 +40,12 @@ class _LessonScreenState extends State<LessonScreen> {
       time: '10:30 AM',
     ),
     LessonList(
-      lessonName: 'Grammar Lesson',
+      lessonName: 'Test 2',
       details: 'Unit-3',
       time: '10:30 AM',
     ),
     LessonList(
-      lessonName: 'Grammar Lesson',
+      lessonName: 'Listening',
       details: 'Unit-4',
       time: '10:30 AM',
     ),
@@ -63,7 +63,7 @@ class _LessonScreenState extends State<LessonScreen> {
               DropdownWidget(),
               Expanded(
                 child: onClicked
-                    ? SearchResultWidget()
+                    ? SearchResultWidget(lessonList: lessons)
                     : SingleChildScrollView(
                   child: Column(
                     children: [
@@ -78,11 +78,11 @@ class _LessonScreenState extends State<LessonScreen> {
               ),
             ],
           ),
-          Positioned(
+          !onClicked ? Positioned(
             bottom: 28,
             right: 33,
             child: lessonAddButton(),
-          ),
+          ) : Container(),
         ],
       ),
     );
