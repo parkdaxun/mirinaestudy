@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 import '../colors.dart';
 
 class ReportListWidget extends StatefulWidget {
-  final String title;
+  final String lessonName;
   final String teacher;
   final String score;
   final String date;
 
   const ReportListWidget({
     Key? key,
-    required this.title,
+    required this.lessonName,
     required this.teacher,
     required this.score,
     required this.date,
@@ -48,7 +48,7 @@ class _ReportListWidgetState extends State<ReportListWidget> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  widget.title,
+                  widget.lessonName,
                   style: TextStyle(
                     color: AppColors.black,
                     fontFamily: 'NotoSansKRSemiBold',

@@ -63,7 +63,7 @@ class _LessonScreenState extends State<LessonScreen> {
               DropdownWidget(),
               Expanded(
                 child: onClicked
-                    ? SearchResultWidget(lessonList: lessons)
+                    ? SearchResultWidget(tempDataList: lessons)
                     : SingleChildScrollView(
                   child: Column(
                     children: [

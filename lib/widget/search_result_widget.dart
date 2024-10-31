@@ -5,8 +5,8 @@ import 'package:mirinaestudy/screen/lesson_screen.dart';
 import '../colors.dart';
 
 class SearchResultWidget extends StatefulWidget {
-  final List<LessonList> lessonList;
-  SearchResultWidget({required this.lessonList});
+  final List<dynamic> tempDataList;
+  SearchResultWidget({required this.tempDataList});
 
   @override
   _SearchResultWidgetState createState() => _SearchResultWidgetState();
@@ -14,18 +14,18 @@ class SearchResultWidget extends StatefulWidget {
 
 class _SearchResultWidgetState extends State<SearchResultWidget> {
   TextEditingController _searchController = TextEditingController();
-  List<LessonList> filteredList = [];
+  List<dynamic> filteredList = [];
 
   @override
   void initState() {
     super.initState();
-    filteredList = widget.lessonList;  // 초기 값으로 전체 리스트를 설정
+    filteredList = widget.tempDataList;  // 초기 값으로 전체 리스트를 설정
     _searchController.addListener(_filterList);
   }
 
   void _filterList() {
     setState(() {
-      filteredList = widget.lessonList
+      filteredList = widget.tempDataList
           .where((lesson) =>
           lesson.lessonName.toLowerCase().contains(_searchController.text.toLowerCase()))
           .toList();
