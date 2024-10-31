@@ -8,6 +8,8 @@ import 'package:mirinaestudy/widget/student_name_widget.dart';
 import '../colors.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
+import '../widget/modalalertbox_widget.dart';
+
 class AttendanceCheckScreen extends StatefulWidget {
   _AttendanceCheckScreenState createState() => _AttendanceCheckScreenState();
 }
@@ -141,7 +143,9 @@ class _AttendanceCheckScreenState extends State<AttendanceCheckScreen> {
                 elevation: 0,
                 tapTargetSize: MaterialTapTargetSize.shrinkWrap,
               ),
-              onPressed: () {},
+              onPressed: () {
+                showAlertDialog(context);
+              },
               child: Text(
                 '체크하기',
                 style: TextStyle(fontFamily: 'NotoSansKRSemiBold', fontSize: 14, color: Colors.white),
