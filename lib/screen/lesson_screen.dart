@@ -208,8 +208,8 @@ Future<void> _showMyDialog(BuildContext context) async {
                             color: Color(0xffE6F7FF),
                             borderRadius: BorderRadius.circular(100)),
                         child: Center(
-                          child: Image.asset(
-                              'assets/images/icons/blue_filled_paper_icon.png'),
+                          child: SvgPicture.asset(
+                              'assets/images/icons/submit_icon.svg'),
                         ),
                       ),
                     ),
