@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:mirinaestudy/widget/app_bar.dart';
 import 'package:mirinaestudy/widget/classroom/student_list_widget.dart';
 import 'package:mirinaestudy/widget/dropdown_widget.dart';
+import 'package:mirinaestudy/widget/modalalertbox_widget.dart';
 
 import '../colors.dart';
 import '../widget/classroom/classroom_post_widget.dart';
@@ -472,7 +473,7 @@ class _ClassroomScreenState extends State<ClassroomScreen> {
                                       ),
                                     ),
                                     onPressed: () {
-                                      _showMyDialog(context);
+                                      showAlertDialog(context);
                                     },
                                     child: Text(
                                       '작성 완료',
@@ -494,82 +495,6 @@ class _ClassroomScreenState extends State<ClassroomScreen> {
               ),
             ),
           );
-        }
-    );
-  }
-
-  Future<void> _showMyDialog(BuildContext context) async {
-    return showDialog<void>(
-        context: context,
-        barrierDismissible: true,
-        builder: (BuildContext context) {
-          bool isSubmitted = false;
-
-          return StatefulBuilder(builder: (BuildContext context, StateSetter setState) {
-            return AlertDialog(
-              backgroundColor: Colors.white,
-              surfaceTintColor: Colors.white,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15),
-              ),
-              content: Container(
-                height: 120,
-                width: MediaQuery.of(context).size.width*0.81,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    if(isSubmitted)
-                      Container(
-                        width: 56,
-                        height: 56,
-                        decoration: BoxDecoration(color: Color(0xffE6F7FF), borderRadius: BorderRadius.circular(100)),
-                        child: Center(
-                          child: SvgPicture.asset('assets/images/icons/submit_comment_icon.svg'),
-                        ),
-                      ),
-                    if(!isSubmitted)
-                      SizedBox(
-                        height: 15,
-                      ),
-                    Text(
-                      isSubmitted ? '게시글이 추가 되었습니다.' : '게시글을 추가하시겠습니까?',
-                      style: TextStyle(
-                        color: AppColors.blue,
-                        fontSize: 15,
-                        fontFamily: 'NotoSansKRMedium',
-                      ),
-                    ),
-                    if(!isSubmitted)
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          TextButton(
-                            onPressed: () {
-                              Get.back();
-                            },
-                            child: Text('취소', style: TextStyle(color: AppColors.grey, fontSize: 15, fontFamily: 'NotoSansKRMedium'),),
-                          ),
-                          Container(width: 1, height: 16, decoration: BoxDecoration(color: Color(0xffDEDEDE),),),
-                          TextButton(
-                            onPressed: () {
-                              setState(() {isSubmitted = true;});
-                              Future.delayed(Duration(seconds: 2), () {
-                                Get.back();
-                                Get.back();
-                              });
-                            },
-                            child: Text('확인', style: TextStyle(color: Colors.blue, fontFamily: 'NotoSansKRMedium', fontSize: 15),),
-                          )
-                        ],
-                      ),
-                  ],
-                ),
-              ),
-            );
-          });
         }
     );
   }

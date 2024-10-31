@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:mirinaestudy/widget/app_bar.dart';
+import 'package:mirinaestudy/widget/dropdown_widget.dart';
 import 'package:mirinaestudy/widget/report_list_widget.dart';
+import 'package:mirinaestudy/widget/search_result_widget.dart';
 
 import '../colors.dart';
 import '../widget/showFilterModalWidget.dart';
@@ -13,13 +15,13 @@ class ReportScreen extends StatefulWidget {
 }
 
 class Report {
-  String title;
+  String lessonName;
   String teacher;
   String score;
   String date;
 
   Report({
-    required this.title,
+    required this.lessonName,
     required this.teacher,
     required this.score,
     required this.date,
@@ -27,49 +29,50 @@ class Report {
 }
 
 class _ReportScreenState extends State<ReportScreen> {
+
   final List<Report> reports = [
     Report(
-        title: 'Conversational English',
+        lessonName: 'Conversational English',
         teacher: 'Guy Hawkins',
         score: '80/100',
         date: '2024-09-23'),
     Report(
-        title: 'Grammar Lesson',
+        lessonName: 'Grammar Lesson',
         teacher: 'Cody Fisher',
         score: '75/100',
         date: '2024-09-23'),
     Report(
-        title: 'Phrasal Verbs',
+        lessonName: 'Phrasal Verbs',
         teacher: 'Jacob Jones',
         score: '80/100',
         date: '2024-09-23'),
     Report(
-        title: 'Conversational English',
+        lessonName: 'Conversational English',
         teacher: 'Albert Flores',
         score: '80/100',
         date: '2024-09-23'),
     Report(
-        title: 'Grammar Lesson',
+        lessonName: 'Grammar Lesson',
         teacher: 'Cameron Williamson',
         score: '80/100',
         date: '2024-09-23'),
     Report(
-        title: 'Conversational English',
+        lessonName: 'Conversational English',
         teacher: 'Cameron Williamson',
         score: '80/100',
         date: '2024-09-23'),
     Report(
-        title: 'Conversational English',
+        lessonName: 'Conversational English',
         teacher: 'Kathryn Murphy',
         score: '80/100',
         date: '2024-09-23'),
     Report(
-        title: 'Conversational English',
+        lessonName: 'Conversational English',
         teacher: 'Kathryn Murphy',
         score: '80/100',
         date: '2024-09-23'),
     Report(
-        title: 'Conversational English',
+        lessonName: 'Conversational English',
         teacher: 'Kathryn Murphy',
         score: '80/100',
         date: '2024-09-23'),
@@ -83,7 +86,7 @@ class _ReportScreenState extends State<ReportScreen> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          ClassesDropdownWidget(),
+          DropdownWidget(),
           SearchBarWidget(),
           Expanded(
             child: Padding(
@@ -92,32 +95,6 @@ class _ReportScreenState extends State<ReportScreen> {
             ),
           ),
         ],
-      ),
-    );
-  }
-
-  Widget ClassesDropdownWidget() {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        border: Border(
-          bottom: BorderSide(
-            color: Color(0xff6EBCFF),
-            width: 0.5,
-          ),
-        ),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.only(top: 10, bottom: 10),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Text('교실 1', style: TextStyle(fontFamily: 'NotoSansKRMedium', fontSize: 17, color: AppColors.blue),),
-            SizedBox(width: 5),
-            SvgPicture.asset('assets/images/icons/blue_dropdown_icon.svg'),
-          ],
-        ),
       ),
     );
   }
@@ -145,7 +122,11 @@ class _ReportScreenState extends State<ReportScreen> {
                 Text('총 10명', style: TextStyle(fontSize: 15, fontFamily: 'NotoSansKRRegular', color: AppColors.grey),),
               ],
             ),
-            SvgPicture.asset('assets/images/icons/search_icon.svg'),
+            GestureDetector(
+              onTap: () {
+              },
+              child: SvgPicture.asset('assets/images/icons/search_icon.svg'),
+            ),
           ],
         ),
       ),
@@ -167,7 +148,7 @@ class _ReportScreenState extends State<ReportScreen> {
               key: ValueKey(report),
               padding: const EdgeInsets.only(bottom: 11),
               child: ReportListWidget(
-                title: report.title,
+                lessonName: report.lessonName,
                 teacher: report.teacher,
                 score: report.score,
                 date: report.date,

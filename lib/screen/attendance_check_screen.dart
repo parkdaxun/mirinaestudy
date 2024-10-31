@@ -8,6 +8,8 @@ import 'package:mirinaestudy/widget/student_name_widget.dart';
 import '../colors.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
+import '../widget/modalalertbox_widget.dart';
+
 class AttendanceCheckScreen extends StatefulWidget {
   _AttendanceCheckScreenState createState() => _AttendanceCheckScreenState();
 }
@@ -46,27 +48,112 @@ class _AttendanceCheckScreenState extends State<AttendanceCheckScreen> {
       studentName: '정이름',
       attendance: true,
     ),
+    StudentList(
+      studentName: '김이름',
+      attendance: true,
+    ),
+    StudentList(
+      studentName: '박이름',
+      attendance: false,
+    ),
+    StudentList(
+      studentName: '윤이름',
+      attendance: false,
+    ),
+    StudentList(
+      studentName: '정이름',
+      attendance: true,
+    ),
   ];
 
   @override
   Widget build(BuildContext context) {
     double widgetRightPadding = (MediaQuery.of(context).size.width-(MediaQuery.of(context).size.width*0.91))/2;
-
     return Scaffold(
       backgroundColor: AppColors.fillGrey,
       appBar: CustomAppBar(title: '출석'),
-      body: Column(
+      body: Stack(
         children: [
-          DropdownWidget(),
-          SearchBarWidget(),
-          WeekCalendarWidget(),
-          Padding(
-            padding: EdgeInsets.only(top: 22, right: widgetRightPadding, bottom: 14),
-            child: StatusWidget(),
+          Column(
+            children: [
+              DropdownWidget(),
+              SearchBarWidget(),
+              WeekCalendarWidget(),
+              Padding(
+                padding: EdgeInsets.only(top: 22, right: widgetRightPadding, bottom: 14),
+                child: StatusWidget(),
+              ),
+              Expanded(child: Padding(
+                padding: const EdgeInsets.only(bottom: 60),
+                child: studentList(),
+              )),
+            ],
           ),
-          Expanded(child: studentList()),
+          Positioned(
+            left: 0,
+            right: 0,
+            bottom: 0,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 18, right: 18, bottom: 43),
+              child: bottomButtons(),
+            ),
+          ),
         ],
       ),
+    );
+  }
+
+  Widget bottomButtons() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Expanded(
+          child: SizedBox(
+            height: 48,
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                side: BorderSide(
+                  width: 1,
+                  color: AppColors.blue,
+                ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                backgroundColor: Colors.white,
+                elevation: 0,
+              ),
+              onPressed: () {},
+              child: Text(
+                '취소',
+                style: TextStyle(fontFamily: 'NotoSansKRSemiBold', fontSize: 14, color: AppColors.blue),
+              ),
+            ),
+          ),
+        ),
+        SizedBox(width: 10),
+        Expanded(
+          child: SizedBox(
+            height: 48,
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                backgroundColor: AppColors.blue,
+                elevation: 0,
+                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+              ),
+              onPressed: () {
+                showAlertDialog(context);
+              },
+              child: Text(
+                '체크하기',
+                style: TextStyle(fontFamily: 'NotoSansKRSemiBold', fontSize: 14, color: Colors.white),
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 
