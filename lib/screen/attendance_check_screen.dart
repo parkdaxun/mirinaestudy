@@ -7,7 +7,6 @@ import 'package:mirinaestudy/widget/dropdown_widget.dart';
 import 'package:mirinaestudy/widget/student_name_widget.dart';
 import '../colors.dart';
 import 'package:intl/date_symbol_data_local.dart';
-
 import '../widget/modalalertbox_widget.dart';
 
 class AttendanceCheckScreen extends StatefulWidget {
