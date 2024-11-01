@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:intl/intl.dart';
 import 'package:mirinaestudy/widget/app_bar.dart';
 import 'package:mirinaestudy/widget/home_menu.dart';
 import '../colors.dart';
@@ -51,7 +52,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 HomeMenuWidget(
                   title: '설정',
                   iconName: 'setting_icon',
-                  screenName: '',
+                  screenName: 'TempScreen',
                 ),
               ],
             ),
@@ -79,10 +80,77 @@ class _HomeScreenState extends State<HomeScreen> {
                 HomeMenuWidget(
                   title: '고객문의',
                   iconName: 'ask_icon',
-                  screenName: '',
+                  screenName: 'TempScreen',
                 ),
               ],
             ),
+            // WeekCalendarWidget(),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget WeekCalendarWidget() {
+    DateTime now = DateTime.now();
+    bool isSunday = now.weekday == DateTime.sunday;
+
+    DateTime lastSunday = now.subtract(Duration(days: now.weekday%7));
+    List<DateTime> weekDates = List.generate(7, (index) => lastSunday.add(Duration(days: index)));
+
+    return Container(
+      width: MediaQuery.of(context).size.width*0.91,
+      color: Colors.white,
+      child: Padding(
+        padding: const EdgeInsets.only(top: 17, left: 30, right: 30, ),
+        child: Column(
+          children: [
+          SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: weekDates
+                  .map((date) => date.weekday == DateTime.sunday ? date : null)
+                  .followedBy(weekDates.where((date) => date.weekday != DateTime.sunday))
+                  .whereType<DateTime>()
+                  .map((date) {
+                bool isToday = date.year == now.year && date.month == now.month && date.day == now.day;
+                return Container(
+                  child: Column(
+                    children: [
+                      Text(
+                        DateFormat.E('ko').format(date),
+                        style: TextStyle(
+                          fontFamily: 'NotoSansKRMedium',
+                          fontSize: 14,
+                          color: isToday ? AppColors.blue : AppColors.grey,
+                        ),
+                      ),
+                      SizedBox(height: 6),
+                      Container(
+                        width: 28,
+                        height: 28,
+                        decoration: BoxDecoration(
+                          color: isToday ? AppColors.lightBlue : Colors.white,
+                          borderRadius: BorderRadius.circular(100),
+                        ),
+                        child: Center(
+                          child: Text(
+                            date.day.toString(),
+                            style: TextStyle(
+                              fontFamily: 'NotoSansKRMedium',
+                              fontSize: 15,
+                              color: isToday ? Colors.white : AppColors.black,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              }).toList(),
+            ),
+          ),
           ],
         ),
       ),

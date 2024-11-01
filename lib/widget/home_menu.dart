@@ -4,6 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:mirinaestudy/screen/classroom_screen.dart';
 import 'package:mirinaestudy/screen/payment_screen.dart';
+import 'package:mirinaestudy/screen/temp_screen.dart';
 
 import '../colors.dart';
 import '../screen/attendance_check_screen.dart';
@@ -82,6 +83,8 @@ class HomeMenuWidget extends StatelessWidget {
         return ClassroomScreen();
       case 'AttendanceCheckScreen' :
         return AttendanceCheckScreen();
+      case 'TempScreen' :
+        return TempScreen();
       default:
         return Container();
     }
