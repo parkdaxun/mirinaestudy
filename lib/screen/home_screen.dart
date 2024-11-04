@@ -84,7 +84,20 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ],
             ),
-            // WeekCalendarWidget(),
+            Padding(
+              padding: const EdgeInsets.only(top: 23, bottom: 14, left: 17),
+              child: Text(
+                '주간 일정',
+                style: TextStyle(
+                    fontSize: 15,
+                    fontFamily: 'NotoSansKRSemiBold',
+                    color: AppColors.blue),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 17),
+              child: WeekCalendarWidget(),
+            ),
           ],
         ),
       ),
@@ -102,55 +115,69 @@ class _HomeScreenState extends State<HomeScreen> {
       width: MediaQuery.of(context).size.width*0.91,
       color: Colors.white,
       child: Padding(
-        padding: const EdgeInsets.only(top: 17, left: 30, right: 30, ),
+        padding: const EdgeInsets.only(top: 17),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-          SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: weekDates
-                  .map((date) => date.weekday == DateTime.sunday ? date : null)
-                  .followedBy(weekDates.where((date) => date.weekday != DateTime.sunday))
-                  .whereType<DateTime>()
-                  .map((date) {
-                bool isToday = date.year == now.year && date.month == now.month && date.day == now.day;
-                return Container(
-                  child: Column(
-                    children: [
-                      Text(
-                        DateFormat.E('ko').format(date),
-                        style: TextStyle(
-                          fontFamily: 'NotoSansKRMedium',
-                          fontSize: 14,
-                          color: isToday ? AppColors.blue : AppColors.grey,
+            SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: weekDates
+                    .map((date) => date.weekday == DateTime.sunday ? date : null)
+                    .followedBy(weekDates.where((date) => date.weekday != DateTime.sunday))
+                    .whereType<DateTime>()
+                    .map((date) {
+                  bool isToday = date.year == now.year && date.month == now.month && date.day == now.day;
+                  return Container(
+                    margin: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width*0.023),
+                    child: Column(
+                      children: [
+                        Text(
+                          DateFormat.E('ko').format(date),
+                          style: TextStyle(
+                            fontFamily: 'NotoSansKRMedium',
+                            fontSize: 14,
+                            color: isToday || isSunday ? AppColors.blue : (date.weekday == DateTime.sunday ? Color(0xffFF5C5C) : AppColors.grey),
+                          ),
                         ),
-                      ),
-                      SizedBox(height: 6),
-                      Container(
-                        width: 28,
-                        height: 28,
-                        decoration: BoxDecoration(
-                          color: isToday ? AppColors.lightBlue : Colors.white,
-                          borderRadius: BorderRadius.circular(100),
-                        ),
-                        child: Center(
-                          child: Text(
-                            date.day.toString(),
-                            style: TextStyle(
-                              fontFamily: 'NotoSansKRMedium',
-                              fontSize: 15,
-                              color: isToday ? Colors.white : AppColors.black,
+                        SizedBox(height: 6),
+                        Container(
+                          width: 28,
+                          height: 28,
+                          decoration: BoxDecoration(
+                            color: isToday ? AppColors.lightBlue : Colors.white,
+                            borderRadius: BorderRadius.circular(100),
+                          ),
+                          child: Center(
+                            child: Text(
+                              date.day.toString(),
+                              style: TextStyle(
+                                fontFamily: 'NotoSansKRMedium',
+                                fontSize: 15,
+                                color: isToday || isSunday ? Colors.white : (date.weekday == DateTime.sunday ? Color(0xffFF5C5C) : AppColors.black),
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                );
-              }).toList(),
+                      ],
+                    ),
+                  );
+                }).toList(),
+              ),
             ),
-          ),
+            SizedBox(height: 15),
+            Container(
+              width: MediaQuery.of(context).size.width*0.81,
+              height: 1,
+              color: Color(0xffE5E5EA),
+            ),
+            Container(
+              child: Column(
+
+              ),
+            ),
           ],
         ),
       ),
