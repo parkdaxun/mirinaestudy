@@ -10,13 +10,44 @@ class HomeScreen extends StatefulWidget {
   _HomeScreenState createState() => _HomeScreenState();
 }
 
+class LessonList {
+  String teacherName;
+  String lessonName;
+  String time;
+
+  LessonList({
+    required this.teacherName,
+    required this.lessonName,
+    required this.time,
+  });
+}
+
 class _HomeScreenState extends State<HomeScreen> {
+  final List<LessonList> lessons = [
+    LessonList(
+        teacherName: 'Albert Flores',
+        lessonName: 'Grammar Lesson',
+        time: '10:30 AM',
+    ),
+    LessonList(
+      teacherName: 'Ronald Richards',
+      lessonName: 'Phrasal Verbs',
+      time: '05:30 PM',
+    ),
+    LessonList(
+      teacherName: 'Ronald Richards',
+      lessonName: 'Phrasal Verbs',
+      time: '05:30 PM',
+    ),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.fillGrey,
       appBar: CustomAppBar(title: '홈'),
       body: SingleChildScrollView(
+        physics: ClampingScrollPhysics(),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -95,7 +126,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 17),
+              padding: const EdgeInsets.only(left: 17, bottom: 11),
               child: WeekCalendarWidget(),
             ),
           ],
@@ -113,12 +144,21 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Container(
       width: MediaQuery.of(context).size.width*0.91,
-      color: Colors.white,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(10),
+        boxShadow: [
+          BoxShadow(
+            color: Color(0xFF898989).withOpacity(0.1), // 그림자의 색상과 투명도
+            blurRadius: 9.2, // 그림자의 흐림 반경
+            spreadRadius: 1, // 그림자의 확산 반경
+            offset: Offset(1, 1), // 그림자의 위치 (x, y)
+          ),
+        ],
+      ),
       child: Padding(
         padding: const EdgeInsets.only(top: 17),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SingleChildScrollView(
             scrollDirection: Axis.horizontal,
@@ -174,10 +214,44 @@ class _HomeScreenState extends State<HomeScreen> {
               color: Color(0xffE5E5EA),
             ),
             Container(
-              child: Column(
-
-              ),
+              width: MediaQuery.of(context).size.width*0.81,
+              child: lessons != null && lessons.isNotEmpty
+                ? ListView.builder(
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  itemCount: lessons.length,
+                  itemBuilder: (context, index) {
+                    final lessonsList = lessons[index];
+                    return Padding(
+                      key: ValueKey(lessonsList),
+                      padding: const EdgeInsets.only(top: 21),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(lessonsList.lessonName, style: TextStyle(fontFamily: 'NunitoSansSemiBold', fontSize: 16, color: AppColors.black),),
+                              Text(lessonsList.teacherName, style: TextStyle(fontFamily: 'NunitoSansRegular', fontSize: 14, color: AppColors.black),),
+                            ],
+                          ),
+                          Text(lessonsList.time, style: TextStyle(fontFamily: 'NunitoSansSemiBold', fontSize: 14, color: AppColors.black),),
+                        ],
+                      )
+                    );
+                  },
+              ) : Center(child: Text(""),),
             ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(top: 7, right: MediaQuery.of(context).size.width*0.051),
+                  child: SvgPicture.asset('assets/images/icons/grey_add_icon.svg'),
+                ),
+              ],
+            ),
+            SizedBox(height: 19,),
           ],
         ),
       ),
