@@ -22,6 +22,16 @@ class LessonList {
   });
 }
 
+class TodoList {
+  String todo;
+  bool checked;
+
+  TodoList({
+    required this.todo,
+    required this.checked,
+  });
+}
+
 class _HomeScreenState extends State<HomeScreen> {
   final List<LessonList> lessons = [
     LessonList(
@@ -38,6 +48,21 @@ class _HomeScreenState extends State<HomeScreen> {
       teacherName: 'Ronald Richards',
       lessonName: 'Phrasal Verbs',
       time: '05:30 PM',
+    ),
+  ];
+
+  final List<TodoList> todos = [
+    TodoList(
+      todo: 'Create task',
+      checked: true,
+    ),
+    TodoList(
+      todo: 'Grammar Homework',
+      checked: false,
+    ),
+    TodoList(
+      todo: 'Study Voca',
+      checked: true,
     ),
   ];
 
@@ -129,6 +154,83 @@ class _HomeScreenState extends State<HomeScreen> {
               padding: const EdgeInsets.only(left: 17, bottom: 11),
               child: WeekCalendarWidget(),
             ),
+            Padding(
+              padding: const EdgeInsets.only(left: 17, bottom: 50),
+              child: TodoWidget(),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget TodoWidget() {
+    return Container(
+      width: MediaQuery.of(context).size.width*0.91,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(10),
+        boxShadow: [
+          BoxShadow(
+            color: Color(0xFF898989).withOpacity(0.1), // 그림자의 색상과 투명도
+            blurRadius: 9.2, // 그림자의 흐림 반경
+            spreadRadius: 1, // 그림자의 확산 반경
+            offset: Offset(1, 1), // 그림자의 위치 (x, y)
+          ),
+        ],
+      ),
+      child: Padding(
+        padding: const EdgeInsets.only(left: 20, top: 25, right: 13, bottom: 33),
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    SvgPicture.asset('assets/images/icons/todo_icon.svg'),
+                    SizedBox(width: 10),
+                    Text('나의 할일', style: TextStyle(fontFamily: 'NotoSansKRSemiBold', fontSize: 15, color: AppColors.black),),
+                  ],
+                ),
+                SvgPicture.asset('assets/images/icons/dot_setting_icon.svg'),
+              ],
+            ),
+            SizedBox(height: 20),
+            todos != null && todos.isNotEmpty
+            ? ListView.builder(
+              shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                itemCount: todos.length,
+                itemBuilder: (context, index) {
+                  final todoList = todos[index];
+                  return Column(
+                    children: [
+                      SizedBox(height: 12),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(todoList.todo,
+                            style: TextStyle(
+                              decoration : todoList.checked ? TextDecoration.lineThrough : TextDecoration.none,
+                              decorationThickness: 0.5,
+                              fontFamily: 'NunitoSansRegular',
+                              fontSize: 15,
+                              color: todoList.checked ? AppColors.grey : AppColors.black,
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(right: 5),
+                            child: todoList.checked ? SvgPicture.asset('assets/images/icons/checked_icon.svg') : SvgPicture.asset('assets/images/icons/unchecked_icon.svg'),
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 11),
+                      index+1 < todos.length ? Container(height: 1, color: Color(0xffE5E5EA)) : Container(),
+                    ],
+                  );
+                },
+            ) : Center(child: Text(""),),
           ],
         ),
       ),
